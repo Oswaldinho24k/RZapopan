@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<title>RZapopan</title>
 
 
@@ -13,12 +14,20 @@
 
 {%block titles%}
 {%endblock titles%}
+
+
+    #Foundation
+    <link rel="stylesheet" href="{% static 'css/foundation.css' %}">
+    #custome
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+
 </head>
 <body>
 <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
   <button class="menu-icon" type="button" data-toggle></button>
   <div class="title-bar-title">Menu</div>
 </div>
+
 
 <div class="top-bar" id="example-menu">
   <div class="top-bar-left">
@@ -53,5 +62,15 @@
   src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
+
+
+
+
+    #Scripts
+    <script src="{% static 'js/vendor/jquery.js' %}"></script>
+    <script src="{% static 'js/vendor/foundation.js' %}"></script>
+    {% block scripts %}
+    {% endblock scripts %}
+
 </body>
 </html>
