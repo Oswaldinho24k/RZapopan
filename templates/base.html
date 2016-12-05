@@ -1,19 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	{%block titles%}
-{%endblock titles%}
+	<title>
+	    {%block title%}
+            Fixter
+        {%endblock title%}
+    </title>
+
+    #Foundation
+    <link rel="stylesheet" href="{% static 'css/foundation.css' %}">
+    #custome
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
 </head>
 <body>
 
 <nav>
 	LOGO
-	
 </nav>
 
 {%block content%}
 {%endblock content%}
 
+
+    #Scripts
+    <script src="{% static 'js/vendor/jquery.js' %}"></script>
+    <script src="{% static 'js/vendor/foundation.js' %}"></script>
+    {% block scripts %}
+    {% endblock scripts %}
 </body>
 </html>
