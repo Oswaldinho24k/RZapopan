@@ -1,64 +1,165 @@
-{% load static %}
 <!DOCTYPE html>
 <html>
+{%load static%}
 <head>
-	<title>
-	    {%block title%}
-            Fixter
-        {%endblock title%}
-    </title>
-<link rel="stylesheet"  href="/static/css/foundation.css">
+  <title>Si</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="{%static '/css/foundation.css'%}">
+  <link rel="stylesheet" type="text/css" href="{%static '/css/app.css'%}">
 </head>
 <body>
+
+<!--Responsive nav-->
+
 <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
   <button class="menu-icon" type="button" data-toggle></button>
   <div class="title-bar-title">Menu</div>
 </div>
-
-
+<!--nav-->
 <div class="top-bar" id="example-menu">
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
-      <li class="menu-text">Site Title</li>
-      <li class="has-submenu">
-        <a href="#0">One</a>
-        <ul class="submenu menu vertical" data-submenu>
-          <li><a href="#0">One</a></li>
-          <li><a href="#0">Two</a></li>
-          <li><a href="#0">Three</a></li>
-        </ul>
-      </li>
-      <li><a href="#0">Two</a></li>
-      <li><a href="#0">Three</a></li>
+      <li class="menu-text">CrowdPopan</li>
+      
+      <li><a href="#0">Explora</a></li>
+      
     </ul>
   </div>
   <div class="top-bar-right">
+
     <ul class="menu">
-      <li><input type="search" placeholder="Search"></li>
-      <li><button type="button" class="button">Search</button></li>
+
+      <li><button type="button" class="button">Pide bro</button></li>
+      <li><button type="button" class="button">Apoya carnal</button></li>
+
+     
+      
+      
+
+
+      <!-- Logged in -->
+        <li><a href="#0">What's up...</a></li>
+
+      <!-- Logged out -->
+
+        <li>
+          <a data-open="exampleModal1">Registrate</a>
+          <!-- Modal to registration -->
+
+          <div class="reveal" id="exampleModal1" data-reveal>
+            <h2 align="center">Registrate</h2>
+            <hr>
+            <div class="button-group">
+              <div class="row">
+                <div class="small-6 columns"> <a class="expanded button" href="#0">Facebook</a></div>
+                <div class="small-6 columns"> <a class="expanded button" href="#0">Google</a></div>
+              </div>
+              <div class="row">
+                <div class="small-5 columns"><hr> </div>
+                <div class="small-2 columns"> <h4 align="center">O</h4> </div>
+                <div class="small-5 columns"><hr> </div>
+              </div>
+            </div>
+            <!-- registration form-->
+            <form>
+              <div class="row">
+                  <div class="small-3 columns"><h5>Nombre</h5> </div>
+                  <div class="small-9 columns"> <input type="text" placeholder="Nombre" aria-describedby="exampleHelpText"></div>
+               </div>
+               <div class="row">
+                  <div class="small-3 columns"><h5>Correo</h5> </div>
+                  <div class="small-9 columns">  <input type="email" placeholder="Correo" aria-describedby="exampleHelpText"></div>
+               </div>
+                <div class="row">
+                  <div class="small-3 columns"><h5>Contraseña</h5> </div>
+                  <div class="small-9 columns"> <input type="password" placeholder="Contraseña" aria-describedby="exampleHelppassword"></div>
+               </div>
+                <div class="row">
+                  <div class="small-3 columns"><h5>Contraseña</h5> </div>
+                  <div class="small-9 columns">  <input type="password" placeholder="Contraseña" aria-describedby="exampleHelpText"></div>
+               </div>              
+              <button type="button" class="success button">Registrar</button>
+              <hr>
+              <p align="center">Ya tienes cuenta? <a href="#">Inicia aquí</a></p>
+
+            </form>
+
+            <button class="close-button" data-close aria-label="Close reveal" type="button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+        </li>
+        <li>|</li>
+
+         <li>
+          <a data-open="logIn">Inicia</a>
+          <!-- Modal to registration -->
+
+          <div class="reveal" id="logIn" data-reveal>
+            <h2 align="center">Inicia Sesión</h2>
+            <hr>
+            <div class="button-group">
+              <div class="row">
+                <div class="small-6 columns"> <a class="expanded button" href="#0">Facebook</a></div>
+                <div class="small-6 columns"> <a class="expanded button" href="#0">Google</a></div>
+              </div>
+              <div class="row">
+                <div class="small-5 columns"><hr> </div>
+                <div class="small-2 columns"> <h4 align="center">O</h4> </div>
+                <div class="small-5 columns"><hr> </div>
+              </div>
+            </div>
+            <!-- LogIn Form form-->
+            <form>
+              
+               <div class="row">
+                  <div class="small-3 columns"><h5>Correo</h5> </div>
+                  <div class="small-9 columns">  <input type="email" placeholder="Correo" aria-describedby="exampleHelpText"></div>
+               </div>
+                <div class="row">
+                  <div class="small-3 columns"><h5>Contraseña</h5> </div>
+                  <div class="small-9 columns"> <input type="password" placeholder="Contraseña" aria-describedby="exampleHelppassword"></div>
+               </div>
+                            
+              <button type="button" class="success button">Iniciar</button>
+              <hr>
+              <p align="center">No tienes cuenta? <a href="#">Regístrate aquí</a></p>
+
+            </form>
+
+            <button class="close-button" data-close aria-label="Close reveal" type="button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+        </li>
+        
+
+
+
     </ul>
+
   </div>
+
+</div>
+{% block content%}
+{% endblock content%}
+
+<div class="row">
+  <div class="small-12 columns">hay muchas cosas wuuuuuuuuu</div>
+  <div class="small-4 columns"> columns</div>
+  <div class="small-4 columns"> columns</div>
+  <div class="small-4 columns"> columns</div>
 </div>
 
-{%block content%}
-{%endblock content%}
 
-<footer>
-	This is the futa
-</footer>
- <script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
+<script src="{%static '/js/vendor/jquery.js'%}"></script>
+<script src="{%static '/js/vendor/foundation.js'%}"></script>
+<script src="{%static '/js/vendor/what-input.js'%}"></script>
+<script src="{%static '/js/app.js'%}"></script>
 
 
-
-
-    <!--scripts-->
-    <script src="/static/js/vendor/jquery.js"></script>
-    <script src="/static/js/vendor/foundation.js"></script>
-    {% block scripts %}
-    {% endblock scripts %}
 
 </body>
 </html>
