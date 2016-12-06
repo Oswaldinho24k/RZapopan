@@ -1,12 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
-
-	<title>RZapopan</title>
-
-{%block titles%}
-{%endblock titles%}
-
+	<title>
+	    {%block title%}
+            Fixter
+        {%endblock title%}
+    </title>
+<link rel="stylesheet"  href="/static/css/foundation.css">
 </head>
 <body>
 <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
@@ -53,9 +54,9 @@
 
 
 
-    #Scripts
-    <script src="{% static 'js/vendor/jquery.js' %}"></script>
-    <script src="{% static 'js/vendor/foundation.js' %}"></script>
+    <!--scripts-->
+    <script src="/static/js/vendor/jquery.js"></script>
+    <script src="/static/js/vendor/foundation.js"></script>
     {% block scripts %}
     {% endblock scripts %}
 
