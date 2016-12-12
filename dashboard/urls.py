@@ -1,2 +1,10 @@
 from django.conf.urls import url
-urlpatterns = []
+from . import views
+
+
+urlpatterns = [
+
+	url(r'^$',
+		views.Dash.as_view(),
+		name="dash"),
+]

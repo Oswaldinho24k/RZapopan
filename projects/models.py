@@ -13,3 +13,7 @@ class Comments(models.Model):
     user = models.ForeignKey(User, related_name='comments')
     comment = models.TextField()
     date = models.DateTimeField(auto_now=True)
+
+class Image(models.Model):
+    img = models.ImageField(upload_to="projects/images")
+    project = models.ForeignKey(Project,related_name="images")
