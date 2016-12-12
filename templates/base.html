@@ -13,14 +13,22 @@
     <!--custome-->
     <link rel="stylesheet" href="{% static 'css/app.css' %}">
 </head>
-<body>
+<body class="container">
 
-<nav>
-	LOGO
-</nav>
+<section class="Left"></section>
+<section class="Middle">
+    <nav>
+        LOGO
+    </nav>
 
-{%block content%}
-{%endblock content%}
+    {%block content%}
+    {%endblock content%}
+</section>
+
+
+
+
+
 
 
     <!--scripts-->
@@ -28,5 +36,6 @@
     <script src="{% static 'js/vendor/foundation.js' %}"></script>
     {% block scripts %}
     {% endblock scripts %}
+
 </body>
 </html>
