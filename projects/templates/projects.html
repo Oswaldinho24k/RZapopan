@@ -1,23 +1,29 @@
-{%extends 'base.html'%}
-{%block content%}
-<br>
-<h1 align="center"><font color="blue">Comienza</font></h1>
+{%extends 'base.html'%} {%load static%} {%block content%}
+<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 
-<div>
-<form>
-  <div class="row">
-    <div class="large-12 columns">
-      <label>Escoge el titulo para tu proyecto
-        <input type="text" placeholder="Titulo:" />
-      </label>
-    </div>
-
-    <div class="large-12 columns">
-      <label>Ingrese el presupuesto
-        <input type="text" placeholder="$" />
-      </label>
-    </div>
+<div class="back">
+    <br><br><br><br>
+    <h1 align="center"><font color="blue">Comienza</font></h1>
+    <br>
+    <div id="padding">
+        <form>
+            <div class="row">
+                <div class="large-12 columns">
+                    <label><font size="5", color="white">Escoge el titulo para tu proyecto</font>
+                      <textarea placeholder="None"></textarea>
+                    </label>
+                </div>
+                <label><font size="5", color="white">Ingresa la cantidad:</font>
+    <div class="input-group">
+        <span class="input-group-label">$</span>
+        <input class="input-group-field" type="url">
+        <a class="input-group-button button">Submit</a>
+      </div>
   </div>
 </form>
+<div align="center">
+<a class="large button" align="center">Guardar y Continuar</a>
+</div>
+</div>
 </div>
 {%endblock content%}

@@ -1,0 +1,13 @@
+#padding{
+  padding: 0 40% 0 40%;
+}
+
+font {
+  font-family: 'Oswald', sans-serif;
+}
+
+.back {
+  background: url('http://www.solofondos.com/wp-content/uploads/2015/11/fondocolores.gif') no-repeat;
+  min-height: 100vh;
+  background-position: center;
+}
