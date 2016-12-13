@@ -1,5 +1,5 @@
 {%extends 'base.html'%}
-
+{%load dash_tags%}
 
 {%block content%}
 
@@ -8,6 +8,9 @@
 	<div class="Left">
 		<h2 >Left</h2>
 		
+		<a>
+			Projectos: {%count_projects%}
+		</a>
 		<a href="">
 			Boton1
 		</a>
@@ -64,6 +67,7 @@
 	</div>
 	<div class="Middle">
 		<h3>middle</h3>
+		<h2>{%show_latest_posts%}</h2>
 	</div>
 
 
