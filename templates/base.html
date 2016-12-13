@@ -1,6 +1,8 @@
+{%load static%}
+{%load form_tags%}
 <!DOCTYPE html>
 <html>
-{%load static%}
+
 <head>
   <title>Si</title>
   <meta charset="utf-8">
@@ -51,7 +53,7 @@
             <hr>
             <div class="button-group">
               <div class="row">
-                <div class="small-6 columns"> <a class="expanded button" href="#0">Facebook</a></div>
+                <div class="small-6 columns"> <a class="expanded button" href="{% url 'social:begin' 'facebook' %}">Facebook</a></div>
                 <div class="small-6 columns"> <a class="expanded button" href="#0">Google</a></div>
               </div>
               <div class="row">
@@ -61,7 +63,7 @@
               </div>
             </div>
             <!-- registration form-->
-            <form>
+            <!--<form>
               <div class="row">
                   <div class="small-3 columns"><h5>Nombre</h5> </div>
                   <div class="small-9 columns"> <input type="text" placeholder="Nombre" aria-describedby="exampleHelpText"></div>
@@ -80,10 +82,12 @@
                </div>              
               <button type="button" class="success button">Registrar</button>
               <hr>
-              <p align="center">Ya tienes cuenta? <a href="#">Inicia aquí</a></p>
+              <p align="center">Ya tienes cuenta? <a data-open="logIn">Inicia aquí</a></p>
 
-            </form>
-
+            </form>-->
+            {%registration%}
+            <hr>
+              <p align="center">Ya tienes cuenta? <a data-open="logIn">Inicia aquí</a></p>
             <button class="close-button" data-close aria-label="Close reveal" type="button">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -101,7 +105,7 @@
             <hr>
             <div class="button-group">
               <div class="row">
-                <div class="small-6 columns"> <a class="expanded button" href="#0">Facebook</a></div>
+                <div class="small-6 columns"> <a class="expanded button" href="{% url 'social:begin' 'facebook' %}">Facebook</a></div>
                 <div class="small-6 columns"> <a class="expanded button" href="#0">Google</a></div>
               </div>
               <div class="row">
@@ -124,7 +128,7 @@
                             
               <button type="button" class="success button">Iniciar</button>
               <hr>
-              <p align="center">No tienes cuenta? <a href="#">Regístrate aquí</a></p>
+              <p align="center">No tienes cuenta? <a data-open="exampleModal1">Regístrate aquí</a></p>
 
             </form>
 
