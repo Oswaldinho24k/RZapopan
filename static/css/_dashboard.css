@@ -34,7 +34,7 @@
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,grey), color-stop(100%,lightgrey));
 
     /*background-image:url(https://mynoise.net/Data/WHITE/fb.jpg); */
-    background: black;
+    background: #607d8b;
 	background-size:cover repeat; 
 	background-position: center;
 	padding:0;
@@ -78,4 +78,16 @@
 .Left a:hover{
 	background:white;
 	color:black;
+}
+.liltit span:first-child{
+	padding-left: 20px;
+	text-transform: uppercase;
+	font-size: .7rem;
+	color:#cfd8dc;
+}
+.liltit .cantidad{
+	padding-left: 20px;
+	/*text-transform: uppercase;*/
+	font-size: 1.2rem;
+	color:white;
 }

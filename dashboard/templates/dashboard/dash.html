@@ -2,15 +2,37 @@
 {%load dash_tags%}
 
 {%block content%}
-
+{%count_projects as nums %}
 <section class="container">
 
 	<div class="Left">
 		<h2 >Left</h2>
 		
-		<a>
-			Projectos: {%count_projects%}
-		</a>
+		<div class="liltit">
+			<span>
+				Recaudado:
+			</span>
+			<br>
+			<span class="cantidad">
+				$ {{nums.re}}
+			</span>
+		</div>
+		<div class="liltit">
+			<span>
+				Pendiente:
+			</span>
+			<br>
+			<span class="cantidad">
+				$ {{nums.pe}}
+			</span>
+		</div>
+		<div class="liltit">
+			<span>
+				General:
+			</span>
+			
+		</div>
+
 		<a href="">
 			Boton1
 		</a>
