@@ -1,0 +1,23 @@
+#padding{
+  padding: 0 30% 0 30%;
+}
+
+font {
+  font-family: 'Oswald', sans-serif;
+}
+
+.back {
+  background: url('http://enlaeconomia.com/wp-content/uploads/2015/10/clave-pacto-startup.jpg') no-repeat;
+  min-height: 100%;
+  background-position: center;
+}
+
+input[type="text"]
+{
+    font-size:30px;
+}
+
+input[type="number"]
+{
+    font-size:30px;
+}
