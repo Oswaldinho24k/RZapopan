@@ -1,0 +1,49 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<section class="section row">
+
+	<div class="espacio"></div>
+
+	<div class="card large-4 large-centered columns">
+		<img src="http://graph.facebook.com/10209162090267285/picture?type=large">
+		<h4>{{request.user.first_name}} {{request.user.last_name}}</h4>
+		<p>{{request.user.email}}</p>
+		<div class="container">
+			<a class="card-button">Editar Perfil</a>
+			<a class="card-button">Cambiar contraseña</a>
+		</div>
+	</div>
+	<div class="espacio"></div>
+	<div class="card large-4 large-centered columns">
+		<h5>PROYECTOS CREADOS:</h5>
+		<ul>
+			<li>
+				<span>FixterGeek</span>
+				<i class="fa fa-check-circle" aria-hidden="true"></i>
+
+			</li>
+			<li>
+				<span>Hackatón</span>
+				<i style="color:orange" class="fa fa-minus-circle" aria-hidden="true"></i>
+
+
+			</li>
+			{%for p in projects%}
+			<li>
+				<a href="{%url 'dash:detail' p.pk%}">
+				<span>{{p.name}}</span>
+				<i class="fa fa-check-circle" aria-hidden="true"></i>
+				</a>
+
+			</li>
+			{%endfor%}
+		</ul>
+	</div>
+
+
+
+</section>
+
+{%endblock content%}

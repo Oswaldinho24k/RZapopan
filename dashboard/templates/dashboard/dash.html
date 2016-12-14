@@ -10,7 +10,7 @@
 		
 		<div class="liltit">
 			<span>
-				Recaudado:
+				Financiado:
 			</span>
 			<br>
 			<span class="cantidad">
@@ -28,68 +28,60 @@
 		</div>
 		<div class="liltit">
 			<span>
-				General:
+				Editor de Campaña:
+			</span>
+			<br>
+			<span class="cantidad">
+				General
 			</span>
 			
 		</div>
 
-		<a href="">
-			Boton1
+		<a {% if section == "dash" %}class="active"{%endif%} href="{% url 'dash:detail' project.pk%}">
+			1.- Dashboard
 		</a>
 		
-		<a href="">
-			Boton1
+		<a {% if section == "basics" %}class="active"{%endif%} href="{% url 'dash:basics' project.pk%}">
+			2.- Basicos
 		</a>
-		<a href="">
-			Boton1
+		<a {% if section == "history" %}class="active"{%endif%} href="{% url 'dash:history' project.pk%}">
+			3.- Historia
 		</a>
-		<a href="">
-			Boton1
+		<a {% if section == "team" %}class="active"{%endif%} href="{% url 'dash:team' project.pk%}">
+			4.- Equipo
 		</a>
-		<a href="">
-			Boton1
+		<a {% if section == "extra" %}class="active"{%endif%} href="{% url 'dash:extra' project.pk%}">
+			5.- Extras
 		</a>
-		<a href="">
-			Boton1
-		</a>
-		<a href="">
-			Boton1
-		</a>
-		<a href="">
-			Boton1
-		</a>
-		<a href="">
-			Boton1
-		</a>
-		<a href="">
-			Boton1
-		</a>
-		<a href="">
-			Boton1
-		</a>
-		<a href="">
-			Boton1
-		</a>
-		<a href="">
-			Boton1
-		</a>
-		<a href="">
-			Boton1
-		</a>
-		<a href="">
-			Boton1
-		</a>
-		<a href="">
-			Boton1
-		</a>
-		<a href="">
-			Boton2
-		</a>
+		
 
 	</div>
-	<div class="Middle">
-		<h3>middle</h3>
-		<h2>{%show_latest_posts%}</h2>
+	<div style="" class="Middle">
+
+
+		<div class="card row">
+		  <div class="large-4 columns">
+		  	<h4>Proyecto / <span style="color:green">{{section}}</span></h4>
+		  </div>
+		  <div class="large-6 columns">
+		  	<h4>{{project.name}}</h4>
+		  </div>
+		  <h4 class="large-2 columns">
+		  	<button class="success button">
+				Guardar
+			</button>
+			<button class="warning button">
+				Lanzar
+			</button>
+		  </h4>
+		</div>
+
+
+
+		{%block segundo%}
+		{%endblock segundo%}
+
+
 	</div>
 
 

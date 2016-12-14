@@ -91,3 +91,13 @@
 	font-size: 1.2rem;
 	color:white;
 }
+a.active{
+	background: lightgrey;
+	color: grey;
+}
+.izquierda{
+	float: left;
+}
+.derecha{
+	float: right;
+}

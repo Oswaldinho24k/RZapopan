@@ -21,3 +21,78 @@ input[type="number"]
 {
     font-size:30px;
 }
+.card {
+	background: white;
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    text-align: center;
+    transition: 0.3s;
+    padding: 0;
+    border-radius: 5px;
+}
+.card:hover {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.container {
+    padding: 0;
+}
+.card-button{
+	width: 100%;
+	margin: 0;
+	height: auto;
+	border:1px solid lightgrey;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.card img{
+	padding-top: 20px;
+	border-radius: 50%;
+	transition:0.5s ease;
+}
+.card img:hover{
+	filter: grayscale(100%);
+	filter:blur(10px);
+}
+.card h4{
+	background-image:url(../images/pattern.png);
+	background-size: cover; 
+	padding-top: 20px;
+
+}
+.card p{
+	background: transparent;
+}
+.card h5{
+	border-bottom: 1px solid lightgrey;
+	padding-top: 10px;
+	height: 50px;
+}
+.card ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.card li{
+	padding-left: 10px;
+	padding-top: 5px;
+	text-align: left;
+	height: 40px; 
+	border-bottom: .5px solid lightgrey;
+}
+.card li:hover{
+	background: lightgrey;
+}
+.card li i{
+	color: green;
+	float: right;
+	padding: 10px;
+}
+
+.espacio{
+	height: 50px;
+	width: 100%;
+}
+.card a{
+	color: black;
+}

@@ -18,7 +18,7 @@ urlpatterns = [
         include(inputsURLs)),
 
     url(r'^dashboard/',
-        include(dashboardURLs)),
+        include(dashboardURLs, namespace="dash")),
 
     url(r'^projects/',
         include(projectsURLs)),

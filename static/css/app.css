@@ -1,2 +1,6 @@
 @import "_dashboard.css";
 @import "_projects.css";
+
+body{
+	background: #eceff1;
+}

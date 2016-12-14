@@ -9,6 +9,9 @@ class Project(models.Model):
     goal = models.DecimalField(max_digits=7,decimal_places=2,default=1)
     publish = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.name
+
 class Comments(models.Model):
     user = models.ForeignKey(User, related_name='comments')
     comment = models.TextField()
