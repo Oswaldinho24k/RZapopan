@@ -13,7 +13,7 @@ urlpatterns = [
 
     #main
     url(r'^', include(mainUrls)),
-    
+
     url(r'^inputs/',
         include(inputsURLs)),
 
@@ -26,7 +26,7 @@ urlpatterns = [
     url(r'^accounts/',
         include(accountsURLs)),
 
-    
+
     #Social
     url('', include(socialURLs, namespace='social')),
     #Django Admin
