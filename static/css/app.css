@@ -4,3 +4,15 @@
 body{
 	background: #eceff1;
 }
+li.success{
+	width: 100%;
+	background: lightgreen;
+	color:white;
+	text-align: center;
+	list-style: none;
+}
+li.error{
+	width: 100%;
+	background: red;
+	color:white;
+}

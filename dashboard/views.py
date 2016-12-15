@@ -2,7 +2,9 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import View
 
 from projects.models import Project
+from .forms import BasicsForm
 
+from django.contrib import messages
 
 class Dash(View):
 	def get(self, request):
@@ -27,11 +29,35 @@ class Basics(View):
 	def get(self, request, pk):
 		template_name = "dashboard/basics.html"
 		p = get_object_or_404(Project, id=pk)
+		form = BasicsForm()
 		context = {
 			'project':p,
-			'section':'basics'
+			'section':'basics',
+			'form':form
 		}
 		return render(request, template_name,context)
+
+	def post(self, request, pk):
+		template_name = "dashboard/basics.html"
+		p = get_object_or_404(Project, id=pk)
+		data = request.POST.dict()
+		form = BasicsForm(data,request.FILES,instance=p)
+		# print(form)
+
+		if form.is_valid():
+			form.save()
+			print('PASO Y GUARDO')
+			messages.success(request, "Proyecto guardado con éxito")
+		else:
+			print('No es Valido')
+			messages.error(request, "Proyecto guardado con éxito")
+
+		context = {
+			'project':p,
+			'section':'basics',
+		}
+		return render(request, template_name,context)
+
 
 class History(View):
 	def get(self, request, pk):

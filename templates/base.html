@@ -9,6 +9,8 @@
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="{%static '/css/foundation.css'%}">
   <link rel="stylesheet" type="text/css" href="{%static '/css/app.css'%}">
+
+  <script src="{%static '/js/vendor/jquery.js'%}"></script>
 </head>
 <body>
 
@@ -146,17 +148,48 @@
   </div>
 
 </div>
+<!-- Mensajes-->
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
 {% block content%}
 {% endblock content%}
 
 
 
 
-<script src="{%static '/js/vendor/jquery.js'%}"></script>
+
 <script src="{%static '/js/vendor/foundation.js'%}"></script>
 <script src="{%static '/js/vendor/what-input.js'%}"></script>
 <script src="{%static '/js/app.js'%}"></script>
 
+<script type="text/javascript">
+
+  function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#preview').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#img").change(function(){
+    readURL(this);
+});
+</script>
+
+{%block scripts%}
+{%endblock scripts%}
 
 
 </body>

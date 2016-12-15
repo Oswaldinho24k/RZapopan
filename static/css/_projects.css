@@ -23,12 +23,16 @@ input[type="number"]
 }
 .card {
 	background: white;
+
+	background-image:url(../images/pattern.png);
+	background-size: cover; 
     /* Add shadows to create the "card" effect */
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     text-align: center;
     transition: 0.3s;
     padding: 0;
     border-radius: 5px;
+
 }
 .card:hover {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -47,7 +51,6 @@ input[type="number"]
 }
 .card img{
 	padding-top: 20px;
-	border-radius: 50%;
 	transition:0.5s ease;
 }
 .card img:hover{
@@ -87,6 +90,10 @@ input[type="number"]
 	color: green;
 	float: right;
 	padding: 10px;
+}
+.card input, .card textarea{
+	margin: 20px;
+	width: 90%;
 }
 
 .espacio{

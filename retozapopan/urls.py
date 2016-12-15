@@ -7,6 +7,8 @@ from inputs import urls as inputsURLs
 from dashboard import urls as dashboardURLs
 from projects import urls as projectsURLs
 
+from django.views.static import serve
+from django.conf import settings
 
 
 urlpatterns = [
@@ -31,5 +33,11 @@ urlpatterns = [
     url('', include(socialURLs, namespace='social')),
     #Django Admin
     url(r'^admin/', admin.site.urls),
+
+    url(
+        regex=r'^media/(?P<path>.*)$',
+        view=serve,
+        kwargs={'document_root':settings.MEDIA_ROOT}
+        ),
 
 ]
