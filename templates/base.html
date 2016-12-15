@@ -183,9 +183,21 @@
     }
 }
 
+  function readVideo() {
+
+    $('#vidPrev').attr('src',$('#vid').val());
+    
+    }
+
+
 $("#img").change(function(){
     readURL(this);
 });
+
+$('#vid').change(function(){
+
+    readVideo();
+})
 </script>
 
 {%block scripts%}

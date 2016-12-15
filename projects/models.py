@@ -9,6 +9,7 @@ class Project(models.Model):
     goal = models.CharField(max_length=140,default=1)
     publish = models.DateTimeField(auto_now=True)
     img = models.ImageField(upload_to="projects/images", blank=True, null=True)
+    video = models.URLField(blank=True,null=True)
 
     def __str__(self):
         return self.name

@@ -1,0 +1,104 @@
+{%extends 'dashboard/dash.html'%}
+
+{%block segundo%}
+<div class="espacio"></div>
+
+<section class="row">
+
+<form id="history-form" action="." method="post" enctype="multipart/form-data">
+	{%csrf_token%}
+
+
+
+
+
+
+<article class="large-8 columns">
+
+<div class="card">
+
+
+<label>
+	<h3>Explicación de tu proyecto</h3>
+	¿Cuentanos tu historia?
+	<textarea name="history" rows="10">{{project.desc}}</textarea>
+</label>
+
+
+<div class="espacio"></div>
+
+
+</div> <!--card-->
+
+
+</article>
+
+<article class="large-4 columns">
+
+
+<div class="card">
+<label>
+	<h3>Video del proyecto</h3>
+	¿Tienes algún video en youtube sobre tu proyecto?
+	<input id="vid" name="video" type="link" value="{{project.video}}">
+	{% if project.video %}
+	<iframe id="vidPrev" width="100%" src="{{project.video}}" frameborder="0" allowfullscreen></iframe>
+	{%else%}
+	<iframe id="vidPrev" width="100%" height="200px" src="" frameborder="0" allowfullscreen></iframe>
+	{%endif%}
+</label>
+</div>
+
+
+
+</article>
+
+
+
+
+
+</form>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+$('#guardar').on('click',function(){
+
+	$('#history-form').submit();
+
+});
+
+
+
+</script>
+
+{%endblock segundo%}
