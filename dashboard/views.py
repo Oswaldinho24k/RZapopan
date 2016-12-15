@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import View
 
 from projects.models import Project
-from .forms import BasicsForm
+from .forms import BasicsForm, HistoryForm
 
 from django.contrib import messages
 
@@ -73,7 +73,8 @@ class History(View):
 		template_name = "dashboard/history.html"
 		p = get_object_or_404(Project, id=pk)
 		data = request.POST.dict()
-		form = BasicsForm(data,request.FILES,instance=p)
+		form = HistoryForm(data,instance=p)
+		print(form)
 		# print(form)
 
 		if form.is_valid():

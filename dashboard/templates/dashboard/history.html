@@ -21,7 +21,7 @@
 <label>
 	<h3>Explicación de tu proyecto</h3>
 	¿Cuentanos tu historia?
-	<textarea name="history" rows="10">{{project.desc}}</textarea>
+	<textarea name="desc" rows="10">{{project.desc}}</textarea>
 </label>
 
 
@@ -40,11 +40,11 @@
 <label>
 	<h3>Video del proyecto</h3>
 	¿Tienes algún video en youtube sobre tu proyecto?
-	<input id="vid" name="video" type="link" value="{{project.video}}">
+	<input id="vid" name="video" type="text" >
 	{% if project.video %}
 	<iframe id="vidPrev" width="100%" src="{{project.video}}" frameborder="0" allowfullscreen></iframe>
 	{%else%}
-	<iframe id="vidPrev" width="100%" height="200px" src="" frameborder="0" allowfullscreen></iframe>
+	<iframe id="vidPrev" width="100%" src="" frameborder="0" allowfullscreen></iframe>
 	{%endif%}
 </label>
 </div>
