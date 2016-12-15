@@ -33,7 +33,8 @@
 	background: -moz-linear-gradient(center top , grey 0%, lightgrey 100%) repeat scroll 0 0 transparent;
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,grey), color-stop(100%,lightgrey));
 
-    background-image:url(https://mynoise.net/Data/WHITE/fb.jpg); 
+    /*background-image:url(https://mynoise.net/Data/WHITE/fb.jpg); */
+    background: #607d8b;
 	background-size:cover repeat; 
 	background-position: center;
 	padding:0;
@@ -53,22 +54,50 @@
 
 .Left h2{
 	margin: 0 auto;
-	text-shadow: 1px 1px 1px lightgrey;
+	text-shadow: 1px 1px 1px #b3b3b3;
 	font-size: 48px;
 	font-family:sans-serif;
 	padding: 30px 50px;
+	color:white;
 }
 
 .Left a{
 	width: 100%;
 	padding:10px;
 	outline: none;
-	border-top: 1px solid white;
+	border-top: 1px solid #b3b3b3;
 	padding-left: 20px;
 	text-align: left;
 	color:white;
 	height: 50px;
 	display: block;
-	background: black;
-	bord
+	background: grey;
+	margin-bottom: 1px;
+}
+
+.Left a:hover{
+	background:white;
+	color:black;
+}
+.liltit span:first-child{
+	padding-left: 20px;
+	text-transform: uppercase;
+	font-size: .7rem;
+	color:#cfd8dc;
+}
+.liltit .cantidad{
+	padding-left: 20px;
+	/*text-transform: uppercase;*/
+	font-size: 1.2rem;
+	color:white;
+}
+a.active{
+	background: lightgrey;
+	color: grey;
+}
+.izquierda{
+	float: left;
+}
+.derecha{
+	float: right;
 }

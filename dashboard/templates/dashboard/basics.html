@@ -1,0 +1,123 @@
+{%extends 'dashboard/dash.html'%}
+
+{%block segundo%}
+<div class="espacio"></div>
+
+<section class="row">
+
+<form id="basics-form" action="." method="post" enctype="multipart/form-data">
+	{%csrf_token%}
+
+
+
+
+
+
+<article class="large-8 columns">
+
+<div class="card">
+
+
+<label>
+	<h3>Titulo del proyecto</h3>
+	¿Cual es el título de tu proyecto?
+	<input name="name" type="text" value="{{project.name}}">
+</label>
+
+
+<div class="espacio"></div>
+
+
+<label>
+	<h3>Descripción del proyecto</h3>
+	¿De qué trata tu proyecto?
+	<textarea name="desc" type="text" >{{project.desc}}</textarea>
+</label>
+
+
+<div class="espacio"></div>
+
+
+<label>
+	<h3>Meta del proyecto</h3>
+	¿Cuanto dinero requiere tu proyecto?
+	<input name="goal" type="number" step="1000" min="0" value="{{project.goal}}">
+</label>
+
+<div class="espacio"></div>
+
+
+</div> <!--card-->
+
+
+</article>
+
+<article class="large-4 columns">
+
+
+<div class="card">
+<label>
+	<h3>Imagen del proyecto</h3>
+	¿Cual es la imagen de tu proyecto?
+	<input id="img" name="img" type="file" value="{{project.img}}">
+	{% if project.img %}
+	<img id="preview" src="{{project.img.url}}">
+	{%else%}
+	<img id="preview" src="">
+	{%endif%}
+</label>
+</div>
+
+
+
+</article>
+
+
+
+
+
+</form>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+$('#guardar').on('click',function(){
+
+	$('#basics-form').submit();
+
+});
+
+
+
+</script>
+
+{%endblock segundo%}
