@@ -1,5 +1,7 @@
 @import "_dashboard.css";
 @import "_projects.css";
+@import "_index.css";
+
 
 body{
 	background: #eceff1;
@@ -11,6 +13,7 @@ li.success{
 	text-align: center;
 	list-style: none;
 }
+
 li.error{
 	width: 100%;
 	background: red;

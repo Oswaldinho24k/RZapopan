@@ -9,8 +9,12 @@ class Project(models.Model):
     publish = models.DateTimeField(auto_now=True)
     img = models.ImageField(upload_to="projects/images", blank=True, null=True)
 
+
+
     def __str__(self):
         return self.name
+
+
 
 class Comments(models.Model):
     user = models.ForeignKey(User, related_name='comments')
@@ -22,4 +26,5 @@ class Image(models.Model):
     project = models.ForeignKey(Project,related_name="images")
 
 class NewProject(models.Model):
-    name = models.CharField
+    name = models.CharField(max_length=250)
+    goal = models.DecimalField(max_digits=7, decimal_places=2, default=1)
