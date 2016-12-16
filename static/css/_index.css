@@ -1,0 +1,27 @@
+#padding {
+  padding: 0 10% 0 10%;
+}
+
+@font-face {
+font-family: Avenir;
+src: url(/static/fonts/AvenirLTStd-Light.otf);
+
+}
+
+#padding2 {
+  padding: 0 7% 0 7%;
+}
+
+#backg{
+  background-color: #E6E6E6;
+  height: 300px;
+}
+
+#column {
+  width: 50%;
+  float: right;
+  align-items: center;
+  position: relative;
+  vertical-align: middle;
+  display: table-cell;
+}

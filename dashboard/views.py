@@ -47,10 +47,10 @@ class Basics(View):
 		if form.is_valid():
 			form.save()
 			print('PASO Y GUARDO')
-			messages.success(request, "Proyecto guardado con éxito")
+			messages.success(request, "Proyecto guardado con exito")
 		else:
 			print('No es Valido')
-			messages.error(request, "Proyecto guardado con éxito")
+			messages.error(request, "Proyecto guardado con exito")
 
 		context = {
 			'project':p,
@@ -88,4 +88,3 @@ class Extra(View):
 			'section':'extra'
 		}
 		return render(request, template_name,context)
-
