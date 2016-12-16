@@ -24,7 +24,7 @@ urlpatterns = [
         include(projectsURLs)),
 
     url(r'^accounts/',
-        include(accountsURLs)),
+        include(accountsURLs, namespace="accounts")),
 
     
     #Social

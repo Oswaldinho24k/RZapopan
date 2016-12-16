@@ -24,7 +24,7 @@ class Profile(View):
 		if userform.is_valid() and profileform.is_valid():
 			userform.save()
 			profileform.save()
-			return redirect('profile')
+			return redirect('accounts:profile')
 		else:
 			context={
 			'userform':userform,
@@ -35,7 +35,7 @@ class Profile(View):
 
 class Registration(View):
 	def get(self, request):
-		template_name = "base.html"
+		template_name = "registration/registration.html"
 		form = UserRegistrationForm()
 		context = {
 		'form':form,
@@ -43,7 +43,7 @@ class Registration(View):
 		return render(request,template_name,context)
 
 	def post(self,request):
-		template_name = "base.html"
+		template_name = "registration/registration.html"
 		new_user_form = UserRegistrationForm(request.POST)
 		if new_user_form.is_valid():
 			new_user = new_user_form.save(commit=False)
@@ -54,7 +54,7 @@ class Registration(View):
 			perfil.user = new_user
 			perfil.save()
 			# perfil = Profile.objects.create(user=new_user)
-			return redirect('profile')
+			return redirect('accounts:profile')
 		else:
 			context = {
 			'form':new_user_form

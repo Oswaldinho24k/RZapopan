@@ -1,8 +1,16 @@
-<h1>Login</h1>
+<!--<h1>Login</h1>
 
 <a href="{% url 'social:begin' 'facebook' %}">Facebook</a>
 <form>
 <input type="text" placeholder="email">
 <input type="password" placeholder="Password">
 <input type="submit">
+</form>-->
+<form action="{%url 'accounts:login'%}" method="post">
+	<!--{%csrf_token%}
+	{{form.as_p}}-->
+	<input type="text" placeholder="email">
+	<input type="password" placeholder="Password">
+	<input type="hidden" name="next" value="{{next}}"> 
+	<input type="submit" value="Inicia Session">
 </form>
