@@ -2,8 +2,8 @@
   padding: 0 10% 0 10%;
 }
 
-#successful {
-    position: relative;
-    margin: 9em auto 2em;
-    padding-bottom: 5em;
+@font-face {
+font-family: Avenir;
+src: url(/static/fonts/AvenirLTStd-Light.otf);
+
 }
