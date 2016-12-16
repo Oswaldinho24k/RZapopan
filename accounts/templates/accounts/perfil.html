@@ -1,0 +1,16 @@
+<h2>Perfil</h2>
+
+{%block content%}
+	<img class="fotito" src="{%if request.user.profile.photo %}{{request.user.profile.photo.url}}{%endif%}">
+	<h1>Bienvenido a tu perfil {{request.user.username}}</h1>
+	<a href="{%url 'accounts:logout'%}">
+	<button>Cerrar tu sesión</button>
+	</a>
+<form action="." method="post" enctype='multipart/form-data'>
+	{%csrf_token%}
+	{{userform.as_p}}
+	{{profileform.as_p}}
+	<input style="background:red;padding:10px;" type="submit" value="Guardar">
+</form>
+
+{%endblock content%}

@@ -1,6 +1,8 @@
+{%load static%}
+{%load form_tags%}
 <!DOCTYPE html>
 <html>
-{%load static%}
+
 <head>
   <title>Si</title>
   <meta charset="utf-8">
@@ -41,10 +43,25 @@
       
       
 
-
+  {%if request.user.is_authenticated%}
       <!-- Logged in -->
-        <li><a href="#0">What's up...</a></li>
+        
+        
 
+       <li>
+          <ul class="dropdown menu" data-dropdown-menu>
+          <li>
+            <a href="">What's up {{request.user.username}}</a>
+            <ul class="menu">
+              <li><a href="">Perfil</a></li>
+              <li><a href="{%url 'accounts:logout'%}?next=/"><button>Cerrar tu sesión</button></a></li>
+              
+            </ul>
+          </li>
+        </ul>
+       </li>
+
+  {%else%}
       <!-- Logged out -->
 
         <li>
@@ -52,43 +69,12 @@
           <!-- Modal to registration -->
 
           <div class="reveal" id="exampleModal1" data-reveal>
-            <h2 align="center">Registrate</h2>
+            <h2 align="center">Regístrate</h2>
             <hr>
-            <div class="button-group">
-              <div class="row">
-                <div class="small-6 columns"> <a class="expanded button" href="#0">Facebook</a></div>
-                <div class="small-6 columns"> <a class="expanded button" href="#0">Google</a></div>
-              </div>
-              <div class="row">
-                <div class="small-5 columns"><hr> </div>
-                <div class="small-2 columns"> <h4 align="center">O</h4> </div>
-                <div class="small-5 columns"><hr> </div>
-              </div>
-            </div>
-            <!-- registration form-->
-            <form>
-              <div class="row">
-                  <div class="small-3 columns"><h5>Nombre</h5> </div>
-                  <div class="small-9 columns"> <input type="text" placeholder="Nombre" aria-describedby="exampleHelpText"></div>
-               </div>
-               <div class="row">
-                  <div class="small-3 columns"><h5>Correo</h5> </div>
-                  <div class="small-9 columns">  <input type="email" placeholder="Correo" aria-describedby="exampleHelpText"></div>
-               </div>
-                <div class="row">
-                  <div class="small-3 columns"><h5>Contraseña</h5> </div>
-                  <div class="small-9 columns"> <input type="password" placeholder="Contraseña" aria-describedby="exampleHelppassword"></div>
-               </div>
-                <div class="row">
-                  <div class="small-3 columns"><h5>Contraseña</h5> </div>
-                  <div class="small-9 columns">  <input type="password" placeholder="Contraseña" aria-describedby="exampleHelpText"></div>
-               </div>              
-              <button type="button" class="success button">Registrar</button>
-              <hr>
-              <p align="center">Ya tienes cuenta? <a href="#">Inicia aquí</a></p>
 
-            </form>
-
+            {%registration%}
+            <hr>
+              <p align="center">Ya tienes cuenta? <a data-open="logIn">Inicia aquí</a></p>
             <button class="close-button" data-close aria-label="Close reveal" type="button">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -104,34 +90,12 @@
           <div class="reveal" id="logIn" data-reveal>
             <h2 align="center">Inicia Sesión</h2>
             <hr>
-            <div class="button-group">
-              <div class="row">
-                <div class="small-6 columns"> <a class="expanded button" href="#0">Facebook</a></div>
-                <div class="small-6 columns"> <a class="expanded button" href="#0">Google</a></div>
-              </div>
-              <div class="row">
-                <div class="small-5 columns"><hr> </div>
-                <div class="small-2 columns"> <h4 align="center">O</h4> </div>
-                <div class="small-5 columns"><hr> </div>
-              </div>
-            </div>
-            <!-- LogIn Form form-->
-            <form>
-              
-               <div class="row">
-                  <div class="small-3 columns"><h5>Correo</h5> </div>
-                  <div class="small-9 columns">  <input type="email" placeholder="Correo" aria-describedby="exampleHelpText"></div>
-               </div>
-                <div class="row">
-                  <div class="small-3 columns"><h5>Contraseña</h5> </div>
-                  <div class="small-9 columns"> <input type="password" placeholder="Contraseña" aria-describedby="exampleHelppassword"></div>
-               </div>
-                            
-              <button type="button" class="success button">Iniciar</button>
-              <hr>
-              <p align="center">No tienes cuenta? <a href="#">Regístrate aquí</a></p>
+    
 
-            </form>
+            {%loginform%}
+
+            <hr>
+              <p align="center">No tienes cuenta? <a data-open="exampleModal1">Regístrate aquí</a></p>
 
             <button class="close-button" data-close aria-label="Close reveal" type="button">
               <span aria-hidden="true">&times;</span>
@@ -140,7 +104,7 @@
 
         </li>
         
-
+  {%endif%}
 
 
     </ul>

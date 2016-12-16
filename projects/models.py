@@ -9,8 +9,12 @@ class Project(models.Model):
     publish = models.DateTimeField(auto_now=True)
     img = models.ImageField(upload_to="projects/images", blank=True, null=True)
 
+
+
     def __str__(self):
         return self.name
+
+
 
 class Comments(models.Model):
     user = models.ForeignKey(User, related_name='comments')
