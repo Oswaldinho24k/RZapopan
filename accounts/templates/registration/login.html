@@ -6,11 +6,21 @@
 <input type="password" placeholder="Password">
 <input type="submit">
 </form>-->
-<form action="{%url 'accounts:login'%}" method="post">
-	<!--{%csrf_token%}
-	{{form.as_p}}-->
+<!-- <form action="{%url 'accounts:login'%}" method="post">
+	{%csrf_token%}
+	{{form.as_p}}
 	<input type="text" placeholder="email">
 	<input type="password" placeholder="Password">
 	<input type="hidden" name="next" value="{{next}}"> 
 	<input type="submit" value="Inicia Session">
+</form>-->
+
+<form action="{%url 'accounts:login'%}" method="post">
+	{%csrf_token%}
+	{{form.as_p}}
+	<input type="hidden" name="next" value="{{next}}"> 
+	<input type="submit" value="Iniciar Sesión">
 </form>
+
+<p>Si aún no tienes sesión puedes crearla <a href="{%url 'accounts:signup'%}">aquí</a></p>
+
