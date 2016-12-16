@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'main',
     'dashboard',
     'projects',
+    'funds'
 ]
 
 MIDDLEWARE = [

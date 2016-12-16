@@ -113,3 +113,30 @@ class Extra(View):
 		}
 		return render(request, template_name,context)
 
+
+
+# Panels del lado del que apoya incluyendo chat
+
+class Support(View):
+	def get(self, request):
+		template_name = "dashboard/founder.html"
+		p = request.user.funds.all()
+		context = {
+			'projects':p
+		}
+		return render(request, template_name, context)
+
+class Chating(View):
+	def get(self, request, pk):
+		template_name = "dashboard/founder.html"
+		project = get_object_or_404(Project,id=pk)
+		p = request.user.funds.all()
+		print(request.user.cchats.all())
+		chat = request.user.cchats.all().get(project=project)
+		
+		context = {
+			'projects':p,
+			'chat':chat
+		}
+		return render(request, template_name, context)
+

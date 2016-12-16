@@ -88,8 +88,8 @@ input[type="number"]
 }
 .card li i{
 	color: green;
-	float: right;
-	padding: 10px;
+	/*float: right;*/
+	/*padding: 10px;*/
 }
 .card input, .card textarea{
 	margin: 20px;
