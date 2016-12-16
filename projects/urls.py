@@ -3,4 +3,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.Projects.as_view(), name='projects'),
+    url(r'^detail_project/(?P<id_pro>\d+)/$', views.DetailProject.as_view(), name='detail_project'),
     ]
