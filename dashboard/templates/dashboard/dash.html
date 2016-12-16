@@ -1,0 +1,101 @@
+{%extends 'base.html'%}
+{%load dash_tags%}
+
+{%block content%}
+{%count_projects as nums %}
+<section class="container">
+
+	<div class="Left">
+		<h2 >Left</h2>
+		
+		<div class="liltit">
+			<span>
+				Financiado:
+			</span>
+			<br>
+			<span class="cantidad">
+				$ {{nums.re}}
+			</span>
+		</div>
+		<div class="liltit">
+			<span>
+				Pendiente:
+			</span>
+			<br>
+			<span class="cantidad">
+				$ {{nums.pe}}
+			</span>
+		</div>
+		<div class="liltit">
+			<span>
+				Editor de Campaña:
+			</span>
+			<br>
+			<span class="cantidad">
+				General
+			</span>
+			
+		</div>
+
+		<a {% if section == "dash" %}class="active"{%endif%} href="{% url 'dash:detail' project.pk%}">
+			1.- Dashboard
+		</a>
+		
+		<a {% if section == "basics" %}class="active"{%endif%} href="{% url 'dash:basics' project.pk%}">
+			2.- Basicos
+		</a>
+		<a {% if section == "history" %}class="active"{%endif%} href="{% url 'dash:history' project.pk%}">
+			3.- Historia
+		</a>
+		<a {% if section == "team" %}class="active"{%endif%} href="{% url 'dash:team' project.pk%}">
+			4.- Equipo
+		</a>
+		<a {% if section == "extra" %}class="active"{%endif%} href="{% url 'dash:extra' project.pk%}">
+			5.- Extras
+		</a>
+		
+
+	</div>
+	<div style="" class="Middle">
+
+
+		<div class="card row">
+		  <div class="large-4 columns">
+		  	<h4>Proyecto / <span style="color:green">{{section}}</span></h4>
+		  </div>
+		  <div class="large-6 columns">
+		  	<h4>{{project.name}}</h4>
+		  </div>
+		  <h4 class="large-2 columns">
+		  	<button id="guardar" class="success button">
+				Guardar
+			</button>
+			<button class="warning button">
+				Lanzar
+			</button>
+		  </h4>
+		</div>
+
+
+
+		{%block segundo%}
+		{%endblock segundo%}
+
+
+	</div>
+
+
+
+
+</section>
+
+
+
+{%endblock content%}
+
+{%block scripts%}
+
+{%block escripts%}
+{%endblock escripts%}
+
+{%endblock scripts%}

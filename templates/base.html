@@ -6,8 +6,13 @@
 <head>
   <title>Si</title>
   <meta charset="utf-8">
+
+  <!-- Fa fa icons-->
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="{%static '/css/foundation.css'%}">
   <link rel="stylesheet" type="text/css" href="{%static '/css/app.css'%}">
+
+  <script src="{%static '/js/vendor/jquery.js'%}"></script>
 </head>
 <body>
 
@@ -38,10 +43,25 @@
       
       
 
-
+  {%if request.user.is_authenticated%}
       <!-- Logged in -->
-        <li><a href="#0">What's up...</a></li>
+        
+        
 
+       <li>
+          <ul class="dropdown menu" data-dropdown-menu>
+          <li>
+            <a href="">What's up {{request.user.username}}</a>
+            <ul class="menu">
+              <li><a href="">Perfil</a></li>
+              <li><a href="{%url 'accounts:logout'%}?next=/"><button>Cerrar tu sesión</button></a></li>
+              
+            </ul>
+          </li>
+        </ul>
+       </li>
+
+  {%else%}
       <!-- Logged out -->
 
         <li>
@@ -49,42 +69,9 @@
           <!-- Modal to registration -->
 
           <div class="reveal" id="exampleModal1" data-reveal>
-            <h2 align="center">Registrate</h2>
+            <h2 align="center">Regístrate</h2>
             <hr>
-            <div class="button-group">
-              <div class="row">
-                <div class="small-6 columns"> <a class="expanded button" href="{% url 'social:begin' 'facebook' %}">Facebook</a></div>
-                <div class="small-6 columns"> <a class="expanded button" href="#0">Google</a></div>
-              </div>
-              <div class="row">
-                <div class="small-5 columns"><hr> </div>
-                <div class="small-2 columns"> <h4 align="center">O</h4> </div>
-                <div class="small-5 columns"><hr> </div>
-              </div>
-            </div>
-            <!-- registration form-->
-            <!--<form>
-              <div class="row">
-                  <div class="small-3 columns"><h5>Nombre</h5> </div>
-                  <div class="small-9 columns"> <input type="text" placeholder="Nombre" aria-describedby="exampleHelpText"></div>
-               </div>
-               <div class="row">
-                  <div class="small-3 columns"><h5>Correo</h5> </div>
-                  <div class="small-9 columns">  <input type="email" placeholder="Correo" aria-describedby="exampleHelpText"></div>
-               </div>
-                <div class="row">
-                  <div class="small-3 columns"><h5>Contraseña</h5> </div>
-                  <div class="small-9 columns"> <input type="password" placeholder="Contraseña" aria-describedby="exampleHelppassword"></div>
-               </div>
-                <div class="row">
-                  <div class="small-3 columns"><h5>Contraseña</h5> </div>
-                  <div class="small-9 columns">  <input type="password" placeholder="Contraseña" aria-describedby="exampleHelpText"></div>
-               </div>              
-              <button type="button" class="success button">Registrar</button>
-              <hr>
-              <p align="center">Ya tienes cuenta? <a data-open="logIn">Inicia aquí</a></p>
 
-            </form>-->
             {%registration%}
             <hr>
               <p align="center">Ya tienes cuenta? <a data-open="logIn">Inicia aquí</a></p>
@@ -103,36 +90,9 @@
           <div class="reveal" id="logIn" data-reveal>
             <h2 align="center">Inicia Sesión</h2>
             <hr>
-            <div class="button-group">
-              <div class="row">
-                <div class="small-6 columns"> <a class="expanded button" href="{% url 'social:begin' 'facebook' %}">Facebook</a></div>
-                <div class="small-6 columns"> <a class="expanded button" href="#0">Google</a></div>
-              </div>
-              <div class="row">
-                <div class="small-5 columns"><hr> </div>
-                <div class="small-2 columns"> <h4 align="center">O</h4> </div>
-                <div class="small-5 columns"><hr> </div>
-              </div>
-            </div>
-            <!-- LogIn Form form
-            <form>
-              
-               <div class="row">
-                  <div class="small-3 columns"><h5>Correo</h5> </div>
-                  <div class="small-9 columns">  <input type="email" placeholder="Correo" aria-describedby="exampleHelpText"></div>
-               </div>
-                <div class="row">
-                  <div class="small-3 columns"><h5>Contraseña</h5> </div>
-                  <div class="small-9 columns"> <input type="password" placeholder="Contraseña" aria-describedby="exampleHelppassword"></div>
-               </div>
-                            
-              <button type="button" class="success button">Iniciar</button>
-              <hr>
-              <p align="center">No tienes cuenta? <a data-open="exampleModal1">Regístrate aquí</a></p>
+    
 
-            </form>-->
-
-            {%login%}
+            {%loginform%}
 
             <hr>
               <p align="center">No tienes cuenta? <a data-open="exampleModal1">Regístrate aquí</a></p>
@@ -144,7 +104,7 @@
 
         </li>
         
-
+  {%endif%}
 
 
     </ul>
@@ -152,22 +112,48 @@
   </div>
 
 </div>
+<!-- Mensajes-->
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
 {% block content%}
 {% endblock content%}
 
-<div class="row">
-  <div class="small-12 columns">hay muchas cosas wuuuuuuuuu</div>
-  <div class="small-4 columns"> columns</div>
-  <div class="small-4 columns"> columns</div>
-  <div class="small-4 columns"> columns</div>
-</div>
 
 
-<script src="{%static '/js/vendor/jquery.js'%}"></script>
+
+
 <script src="{%static '/js/vendor/foundation.js'%}"></script>
 <script src="{%static '/js/vendor/what-input.js'%}"></script>
 <script src="{%static '/js/app.js'%}"></script>
 
+<script type="text/javascript">
+
+  function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#preview').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#img").change(function(){
+    readURL(this);
+});
+</script>
+
+{%block scripts%}
+{%endblock scripts%}
 
 
 </body>

@@ -19,8 +19,10 @@
 	{%csrf_token%}
 	{{form.as_p}}
 	<input type="hidden" name="next" value="{{next}}"> 
-	<input type="submit" value="Iniciar Sesión">
+	<input class="success button" type="submit" value="Iniciar Sesión">
 </form>
 
-<p>Si aún no tienes sesión puedes crearla <a href="{%url 'accounts:signup'%}">aquí</a></p>
+
+
+<!--<p>Si aún no tienes sesión puedes crearla <a href="{%url 'accounts:signup'%}">aquí</a></p>-->
 

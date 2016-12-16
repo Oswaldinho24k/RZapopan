@@ -3,6 +3,8 @@ from django.views.generic import View
 from .models import Profile
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login
+
 
 from .forms import UserRegistrationForm, UserEditForm, ProfileEditForm
 
@@ -54,7 +56,13 @@ class Registration(View):
 			#perfil.user = new_user
 			#perfil.save()
 			# perfil = Profile.objects.create(user=new_user)
-			return redirect('accounts:login')
+
+			new_user = authenticate(username=new_user_form.cleaned_data['username'],
+                                    password=new_user_form.cleaned_data['password'],
+                                    )
+			login(request, new_user)
+
+			return redirect('dash:dash')
 		else:
 			context = {
 			'form':new_user_form
