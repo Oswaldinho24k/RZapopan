@@ -101,3 +101,43 @@ a.active{
 .derecha{
 	float: right;
 }
+.hasn-tip {
+	border-bottom: none;
+}
+.chat img{
+	border-radius: 50%;
+}
+.mensajes{
+	padding: 10px 100px 10px 100px;
+	min-height: 250px;
+	max-height: 250px;
+	overflow-y: scroll;
+	/*-webkit-overflow-scrolling: touch;*/
+}
+.mensajes .uno{
+	float:left;
+	text-align: left;
+}
+.mensajes .dos{
+	float:right;
+	text-align: right;
+}
+.captura{
+	display: inline-block;
+	text-align: left;
+}
+.card .captura input{
+	width: 75%;
+	margin-bottom:100px;
+	display: inline-block;
+}
+.captura i{
+	font-size: .9rem;
+}
+.captura button{
+	display: inline-block;
+}
+
+.mensajes::-webkit-scrollbar{
+    display: none;
+}

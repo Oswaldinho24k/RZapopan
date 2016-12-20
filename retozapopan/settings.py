@@ -30,7 +30,11 @@ INSTALLED_APPS = [
     'main',
     'dashboard',
     'projects',
+<<<<<<< HEAD
     'django.contrib.humanize',
+=======
+    'funds'
+>>>>>>> d2cb25ba13c89a3a8c7e32139c4cd5900bcea07c
 ]
 
 MIDDLEWARE = [
