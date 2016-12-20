@@ -9,11 +9,12 @@ from django.contrib import messages
 class Dash(View):
 	def get(self, request):
 		template_name = "dashboard/projects_list.html"
-		p = request.user.projects.all()
+		projects = request.user.projects.all()
+		print(projects)
 		context = {
-			'projects':p
+			'projects':projects
 		}
-		return render(request, template_name,context)
+		return render(request, template_name)
 
 class Detail(View):
 	def get(self, request, pk):
@@ -50,11 +51,11 @@ class Basics(View):
 			messages.success(request, "Proyecto guardado con exito")
 		else:
 			print('No es Valido')
-<<<<<<< HEAD
+
 			messages.error(request, "Proyecto guardado con exito")
-=======
+
 			messages.error(request, "El proyecto no se guardó")
->>>>>>> d2cb25ba13c89a3a8c7e32139c4cd5900bcea07c
+
 
 		context = {
 			'project':p,
@@ -116,8 +117,7 @@ class Extra(View):
 			'section':'extra'
 		}
 		return render(request, template_name,context)
-<<<<<<< HEAD
-=======
+
 
 
 
@@ -146,4 +146,4 @@ class Chating(View):
 		}
 		return render(request, template_name, context)
 
->>>>>>> d2cb25ba13c89a3a8c7e32139c4cd5900bcea07c
+

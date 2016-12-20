@@ -6,8 +6,12 @@ from .models import Project
 
 class Projects (View):
 	def get(self, request):
+		
 		template_name= 'projects.html'
-		return render(request, template_name)
+
+		
+
+		return render(request, template_name )
 
 
 class DetailProject(View):
