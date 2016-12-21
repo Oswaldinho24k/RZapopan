@@ -47,19 +47,11 @@
 
     <ul class="menu">
 
-     
-
-     
-      
-      
 
 
       {%if request.user.is_authenticated%}
-      <!-- Logged in -->
-        
-        
 
-       <li>
+      <li>
           <ul class="dropdown menu" data-dropdown-menu>
           <li>
             <a href="">What's up {{request.user.username}}</a>
@@ -74,14 +66,9 @@
           </li>
         </ul>
        </li>
-
-
-      
-
-
+       
       {%else%}
       <!-- Logged out -->
-      {%if not request.user.is_authenticated%}
         <li>
           <a data-open="exampleModal1">Registrate</a>
           <!-- Modal to registration -->
@@ -123,21 +110,7 @@
 
         </li>
 
-        {%else%}
-        <!-- Logged in -->
-        <li>
-          <ul class="dropdown menu" data-dropdown-menu>
-            <li>
-              <a href="#">Opciones</a>
-              <ul class="menu">
-                <li><a href="{%url 'dash:dash'%}">Tus Proyectos</a></li>
-                <li><a href="{%url 'dash:support'%}">Tus Fondeos</a></li>
-                <!-- ... -->
-              </ul>
-            </li>
-        </li>
-
-        {%endif%}
+        
         
       {%endif%}
 
