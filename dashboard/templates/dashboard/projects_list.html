@@ -1,4 +1,5 @@
 {%extends 'base.html'%}
+{%load static%}
 
 {%block content%}
 
@@ -7,8 +8,12 @@
 	<div class="espacio"></div>
 
 	<div class="card large-4 large-centered columns">
-		<img style="border-radius: 50%;" src="{{request.user.profile.img.url}}">
+		{%if request.user.profile.img.url%}
+			<img style="border-radius: 50%;" src="{{request.user.profile.img.url}}">
+		{%else%}
+			<img src="{% static 'images/clas.jpg' %}">
 		<h4>{{request.user.first_name}} {{request.user.last_name}}</h4>
+		{%endif%}
 		<!--<h4>{{request.user.username}}</h4>
 		<p>{{request.user.email}}</p>-->
 		<div class="container">
