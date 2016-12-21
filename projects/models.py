@@ -8,6 +8,7 @@ class Project(models.Model):
     goal = models.CharField(max_length=140,default=1, blank=True, null=True)
     publish = models.DateTimeField(auto_now=True, blank=True, null=True)
     img = models.ImageField(upload_to="projects/images", blank=True, null=True)
+    video = models.CharField(max_length=500, blank=True,null=True)
 
 
 

@@ -43,6 +43,7 @@
       
       
 
+
   {%if request.user.is_authenticated%}
       <!-- Logged in -->
         
@@ -61,9 +62,10 @@
         </ul>
        </li>
 
+
   {%else%}
       <!-- Logged out -->
-
+      {%if not request.user.is_authenticated%}
         <li>
           <a data-open="exampleModal1">Registrate</a>
           <!-- Modal to registration -->
@@ -81,6 +83,7 @@
           </div>
 
         </li>
+
         <li>|</li>
 
          <li>
@@ -103,6 +106,22 @@
           </div>
 
         </li>
+
+        {%else%}
+        <!-- Logged in -->
+        <li>
+          <ul class="dropdown menu" data-dropdown-menu>
+            <li>
+              <a href="#">Opciones</a>
+              <ul class="menu">
+                <li><a href="{%url 'dash:dash'%}">Tus Proyectos</a></li>
+                <li><a href="{%url 'dash:support'%}">Tus Fondeos</a></li>
+                <!-- ... -->
+              </ul>
+            </li>
+        </li>
+
+        {%endif%}
         
   {%endif%}
 
@@ -121,8 +140,32 @@
 </ul>
 {% endif %}
 
+
+
+
+<!--Firebase-->
+
+<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAafI7wItZtcja5k_60SGLq1VYC5WVOzYI",
+    authDomain: "rzapopan-5f227.firebaseapp.com",
+    databaseURL: "https://rzapopan-5f227.firebaseio.com",
+    storageBucket: "rzapopan-5f227.appspot.com",
+    messagingSenderId: "381015477211"
+  };
+  firebase.initializeApp(config);
+</script>
+
+
+
+
+
 {% block content%}
 {% endblock content%}
+
+
 
 
 
@@ -147,9 +190,21 @@
     }
 }
 
+  function readVideo() {
+
+    $('#vidPrev').attr('src',$('#vid').val());
+    
+    }
+
+
 $("#img").change(function(){
     readURL(this);
 });
+
+$('#vid').change(function(){
+
+    readVideo();
+})
 </script>
 
 {%block scripts%}

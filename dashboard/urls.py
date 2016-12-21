@@ -12,6 +12,10 @@ urlpatterns = [
 		views.Detail.as_view(),
 		name="detail"),
 
+	url(r'^support/$',
+		views.Support.as_view(),
+		name="support"),
+
 	url(r'^(?P<pk>\d+)/basics/$',
 		views.Basics.as_view(),
 		name="basics"),
@@ -27,4 +31,8 @@ urlpatterns = [
 	url(r'^(?P<pk>\d+)/extra/$',
 		views.Extra.as_view(),
 		name="extra"),
+
+	url(r'^support/chat/(?P<pk>\d+)/$',
+		views.Chating.as_view(),
+		name="chat"),
 ]
