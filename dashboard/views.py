@@ -9,11 +9,12 @@ from django.contrib import messages
 class Dash(View):
 	def get(self, request):
 		template_name = "dashboard/projects_list.html"
-		p = request.user.projects.all()
+		projects = request.user.projects.all()
+
 		context = {
-			'projects':p
+			'projects':projects
 		}
-		return render(request, template_name,context)
+		return render(request, template_name, context)
 
 class Detail(View):
 	def get(self, request, pk):
@@ -115,7 +116,11 @@ class Extra(View):
 		}
 		return render(request, template_name,context)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+
+>>>>>>> f4382c8fdb3a601a26c8f573f123fdca879d2b74
 
 
 
@@ -144,4 +149,8 @@ class Chating(View):
 		}
 		return render(request, template_name, context)
 
+<<<<<<< HEAD
 >>>>>>> d2cb25ba13c89a3a8c7e32139c4cd5900bcea07c
+=======
+
+>>>>>>> f4382c8fdb3a601a26c8f573f123fdca879d2b74

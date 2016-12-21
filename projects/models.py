@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Project(models.Model):
+
     name = models.CharField(max_length=250, blank=True, null=True)
     desc = models.TextField(blank=True, null=True)
     user = models.ForeignKey(User, related_name="projects", blank=True, null=True)
@@ -14,6 +15,7 @@ class Project(models.Model):
 
     def __str__(self):
         return self.name
+
 
 
 

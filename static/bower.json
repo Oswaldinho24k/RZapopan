@@ -1,0 +1,13 @@
+{
+  "name": "Reto_Zapopan",
+  "homepage": "https://github.com/Oswaldinho24k/RZapopan",
+  "authors": [
+    "DeividZavala <crusedmoss@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "dependencies": {
+    "chartist": "^0.10.1"
+  }
+}

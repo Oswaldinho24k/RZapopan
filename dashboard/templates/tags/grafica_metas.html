@@ -1,0 +1,57 @@
+{% load static %}
+<link rel="stylesheet" href="{% static '/bower_components/chartist/dist/chartist.css' %}">
+
+<div class="ct-chart"></div>
+
+<div class="ct-charts"></div>
+
+<script src="{% static '/bower_components/chartist/dist/chartist.js' %}"></script>
+
+<script>
+
+
+    console.log({{ project_goals_under_50k }},
+          {{ project_goals_btw_50k_300k }},
+          {{ project_goals_over_300k }})
+
+    var data = {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      series: [
+          {{ project_goals_under_50k }},
+          {{ project_goals_btw_50k_300k }},
+          {{ project_goals_over_300k }}
+      ]
+    };
+
+    var options = {
+      seriesBarDistance: 10
+    };
+
+    var responsiveOptions = [
+      ['screen and (max-width: 640px)', {
+        seriesBarDistance: 5,
+        axisX: {
+          labelInterpolationFnc: function (value) {
+            return value[0];
+          }
+        }
+      }]
+    ];
+
+    new Chartist.Bar('.ct-chart', data, options, responsiveOptions);
+
+
+    var datas = {
+  series: [{{ project_goals_under_50k_count }}, {{ project_goals_btw_50k_300k_count }}, {{ project_goals_over_300k_count }}]
+};
+console.log(datas)
+
+var sum = function(a, b) { return a + b };
+
+new Chartist.Pie('.ct-charts', datas, {
+  labelInterpolationFnc: function(value) {
+    return Math.round(value / datas.series.reduce(sum) * 100) + '%';
+  }
+});
+
+</script>
