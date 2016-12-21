@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fe69179-dbaf-406b-9602-410c39816e1f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dashboard/templates/tags/projects_permonth.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashboard/templates/dashboard/dash.html" afterPath="$PROJECT_DIR$/dashboard/templates/dashboard/dash.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashboard/templates/tags/grafica_metas.html" afterPath="$PROJECT_DIR$/dashboard/templates/tags/grafica_metas.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashboard/templates/tags/projects_permonth.html" afterPath="$PROJECT_DIR$/dashboard/templates/tags/projects_permonth.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashboard/templatetags/dash_tags.py" afterPath="$PROJECT_DIR$/dashboard/templatetags/dash_tags.py" />
     </list>
     <ignored path="RZapopan.iws" />
@@ -75,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dash_tags.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dash_tags.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dashboard/templatetags/dash_tags.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="24" column="100" selection-start-line="24" selection-start-column="100" selection-end-line="24" selection-end-column="100" />
+            <state relative-caret-position="142">
+              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -95,11 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="projects_permonth.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="projects_permonth.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashboard/templates/tags/projects_permonth.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+            <state relative-caret-position="160">
+              <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -108,8 +105,8 @@
       <file leaf-file-name="grafica_metas.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashboard/templates/tags/grafica_metas.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+            <state relative-caret-position="256">
+              <caret line="16" column="16" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -157,8 +154,8 @@
         <option value="$PROJECT_DIR$/projects/models.py" />
         <option value="$PROJECT_DIR$/dashboard/templates/dashboard/dash.html" />
         <option value="$PROJECT_DIR$/dashboard/templates/tags/grafica_metas.html" />
-        <option value="$PROJECT_DIR$/dashboard/templatetags/dash_tags.py" />
         <option value="$PROJECT_DIR$/dashboard/templates/tags/projects_permonth.html" />
+        <option value="$PROJECT_DIR$/dashboard/templatetags/dash_tags.py" />
       </list>
     </option>
   </component>
@@ -922,14 +919,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/templates/tags/grafica_metas.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/templates/dashboard/dash.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -938,18 +927,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/templatetags/dash_tags.py">
+    <entry file="file://$PROJECT_DIR$/dashboard/templates/tags/grafica_metas.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="24" column="100" selection-start-line="24" selection-start-column="100" selection-end-line="24" selection-end-column="100" />
+        <state relative-caret-position="256">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/templates/tags/projects_permonth.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+        <state relative-caret-position="160">
+          <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/templatetags/dash_tags.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
           <folding />
         </state>
       </provider>

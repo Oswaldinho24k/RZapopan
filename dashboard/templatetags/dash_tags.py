@@ -22,25 +22,16 @@ def count_projects():
 
 @register.inclusion_tag('tags/projects_permonth.html')
 def graphics_projects_permonth():
-    #projects_permonth = Project.objects.all().filter(publish__year=2016, publish__month=12).count()
     arr = []
-    def rango_test():
+    def range_dates():
         for number in range(1, 13):
             projects_permonth = Project.objects.all().filter(publish__year=2016, publish__month=number).count()
             arr.append(projects_permonth)
-            print(arr)
+
         return arr
 
-    #print(projects_permonth)
-
-    '''def create_arr(arr, data):
-        for project in data:
-            number = int(project.goal)
-            arr.append(number)
-        return arr'''
-
     return {
-        'projects_permonth':arr
+        'projects_permonth':range_dates()
     }
 
 

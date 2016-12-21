@@ -1,18 +1,18 @@
 {% load static %}
 <link rel="stylesheet" href="{% static '/bower_components/chartist/dist/chartist.css' %}">
 
-<div class="ct-chart"></div>
+<div class="ct-charts"></div>
 
 <script src="{% static '/bower_components/chartist/dist/chartist.js' %}"></script>
 
 <script>
 
     var data = {
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+      labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
       series: [
-        [5, 2, 4, 2, 0]
+          {{ projects_permonth }}
       ]
     };
-    new Chartist.Line('.ct-chart', data);
+    new Chartist.Bar('.ct-charts', data);
 
 </script>
