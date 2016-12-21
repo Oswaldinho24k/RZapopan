@@ -20,33 +20,40 @@ def count_projects():
 
 # Tests David
 
+@register.inclusion_tag('tags/projects_permonth.html')
+def graphics_projects_permonth():
+    #projects_permonth = Project.objects.all().filter(publish__year=2016, publish__month=12).count()
+    arr = []
+    def rango_test():
+        for number in range(1, 13):
+            projects_permonth = Project.objects.all().filter(publish__year=2016, publish__month=number).count()
+            arr.append(projects_permonth)
+            print(arr)
+        return arr
+
+    #print(projects_permonth)
+
+    '''def create_arr(arr, data):
+        for project in data:
+            number = int(project.goal)
+            arr.append(number)
+        return arr'''
+
+    return {
+        'projects_permonth':arr
+    }
+
+
 @register.inclusion_tag('tags/grafica_metas.html')
 def graphics_goals():
-
-    project_goals_under_50k = list(Project.objects.all().filter(goal__gt=0, goal__lt=50000))
-    project_goals_btw_50k_300k = list(Project.objects.all().filter(goal__gt=50001, goal__lt=300000))
-    project_goals_over_300k = list(Project.objects.all().filter(goal__gt=300001))
     project_goals_under_50k_count = Project.objects.all().filter(goal__gt=0, goal__lt=50000).count()
     project_goals_btw_50k_300k_count = Project.objects.all().filter(goal__gt=50001, goal__lt=300000).count()
     project_goals_over_300k_count = Project.objects.all().filter(goal__gt=300001).count()
 
-    goals_under_50k = []
-    goals_btw_50k_300k = []
-    goals_over_300k = []
-
-    def create_arr(arr,data):
-        for project in data:
-            number = int(project.goal)
-            arr.append(number)
-        return arr
-
     return {
-        'project_goals_under_50k': create_arr(goals_under_50k,project_goals_under_50k),
-        'project_goals_btw_50k_300k': create_arr(goals_btw_50k_300k,project_goals_btw_50k_300k),
-        'project_goals_over_300k': create_arr(goals_over_300k,project_goals_over_300k),
-        'project_goals_under_50k_count':project_goals_under_50k_count,
-        'project_goals_btw_50k_300k_count':project_goals_btw_50k_300k_count,
-        'project_goals_over_300k_count':project_goals_over_300k_count
+        'project_goals_under_50k_count': project_goals_under_50k_count,
+        'project_goals_btw_50k_300k_count': project_goals_btw_50k_300k_count,
+        'project_goals_over_300k_count': project_goals_over_300k_count
     }
 
 

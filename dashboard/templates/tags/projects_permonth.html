@@ -1,0 +1,18 @@
+{% load static %}
+<link rel="stylesheet" href="{% static '/bower_components/chartist/dist/chartist.css' %}">
+
+<div class="ct-chart"></div>
+
+<script src="{% static '/bower_components/chartist/dist/chartist.js' %}"></script>
+
+<script>
+
+    var data = {
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+      series: [
+        [5, 2, 4, 2, 0]
+      ]
+    };
+    new Chartist.Line('.ct-chart', data);
+
+</script>
