@@ -8,12 +8,7 @@
 	<div class="espacio"></div>
 
 	<div class="card large-4 large-centered columns">
-		{%if request.user.profile.img.url%}
-			<img style="border-radius: 50%;" src="{{request.user.profile.img.url}}">
-		{%else%}
-			<img src="{% static 'images/clas.jpg' %}">
-		<h4>{{request.user.first_name}} {{request.user.last_name}}</h4>
-		{%endif%}
+		<img  src="{%if request.user.profile.img %}{{request.user.profile.img.url}}{%else%}{%static 'images/clas.jpg'%}{%endif%}">
 		<!--<h4>{{request.user.username}}</h4>
 		<p>{{request.user.email}}</p>-->
 		<div class="container">
