@@ -8,10 +8,14 @@ class Projects (View):
 	def get(self, request):
 		
 		template_name= 'projects.html'
+		projects = Project.objects.all()
+		context = {
+		'projects':projects
+		}
 
 		
 
-		return render(request, template_name )
+		return render(request, template_name, context )
 
 
 class DetailProject(View):

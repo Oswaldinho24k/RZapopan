@@ -10,11 +10,11 @@ class Dash(View):
 	def get(self, request):
 		template_name = "dashboard/projects_list.html"
 		projects = request.user.projects.all()
-		print(projects)
+
 		context = {
 			'projects':projects
 		}
-		return render(request, template_name)
+		return render(request, template_name, context)
 
 class Detail(View):
 	def get(self, request, pk):

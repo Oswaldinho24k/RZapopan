@@ -1,16 +1,32 @@
-<h2>Perfil</h2>
 
+{%extends 'base.html'%}
+{%load static%}
 {%block content%}
-	<img class="fotito" src="{%if request.user.profile.photo %}{{request.user.profile.photo.url}}{%endif%}">
-	<h1>Bienvenido a tu perfil {{request.user.username}}</h1>
-	<a href="{%url 'accounts:logout'%}">
-	<button>Cerrar tu sesión</button>
-	</a>
-<form action="." method="post" enctype='multipart/form-data'>
-	{%csrf_token%}
-	{{userform.as_p}}
-	{{profileform.as_p}}
-	<input style="background:red;padding:10px;" type="submit" value="Guardar">
-</form>
+	
+
+	<div class="row">
+  <div class="columns small-12">
+    <div class="columns small-6" id="example1" data-something>
+    <div class="card large-centered columns">
+      <h1>Edita tu perfil {{request.user.username}}</h1>
+			
+			<!--<a href="{%url 'accounts:logout'%}">
+			<button>Cerrar tu sesión</button>
+			</a>-->
+		<form action="." method="post" enctype='multipart/form-data'>
+			{%csrf_token%}
+			{{userform.as_p}}
+			{{profileform.as_p}}
+			<input style="background:red;padding:10px;" type="submit" value="Guardar">
+		</form>
+		</div>
+    </div>
+    <div class="columns small-6 right" data-sticky-container>
+      <div class="sticky" data-sticky data-anchor="example1">
+        <img class="thumbnail" src="{{request.user.profile.img.url}}">
+      </div>
+    </div>
+  </div>
+</div>
 
 {%endblock content%}

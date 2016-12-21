@@ -4,7 +4,7 @@
 <html>
 
 <head>
-  <title>Si</title>
+  <title>CrowdPopan</title>
   <meta charset="utf-8">
 
   <!-- Fa fa icons-->
@@ -12,9 +12,19 @@
   <link rel="stylesheet" type="text/css" href="{%static '/css/foundation.css'%}">
   <link rel="stylesheet" type="text/css" href="{%static '/css/app.css'%}">
 
+
   <script src="{%static '/js/vendor/jquery.js'%}"></script>
+
+    <link rel="stylesheet" href="{% static '/bower_components/chartist/dist/chartist.css' %}">
+    <style>
+      .top-bar-right{
+        padding-top: 1%;
+      }
+    </style>
+
 </head>
 <body>
+
 
 <!--Responsive nav-->
 
@@ -29,22 +39,22 @@
       <li class="menu-text"><a href="/">CrowdPopan</a></li>
       
       <li><a href="/projects">Explora</a></li>
-      
+       <li><a href="">Pide bro</a></li>
+      <li><a href="">Apoya carnal</a></li>
     </ul>
   </div>
   <div class="top-bar-right">
 
     <ul class="menu">
 
-      <li><button type="button" class="button">Pide bro</button></li>
-      <li><button type="button" class="button">Apoya carnal</button></li>
+     
 
      
       
       
 
 
-  {%if request.user.is_authenticated%}
+      {%if request.user.is_authenticated%}
       <!-- Logged in -->
         
         
@@ -55,6 +65,9 @@
             <a href="">What's up {{request.user.username}}</a>
             <ul class="menu">
               <li><a href="">Perfil</a></li>
+              <li><a href="{%url 'dash:dash'%}">Tus Proyectos</a></li>
+                <li><a href="{%url 'dash:support'%}">Tus Fondeos</a></li>
+
               <li><a href="{%url 'accounts:logout'%}?next=/"><button>Cerrar tu sesión</button></a></li>
               
             </ul>
@@ -66,7 +79,7 @@
       
 
 
-  {%else%}
+      {%else%}
       <!-- Logged out -->
       {%if not request.user.is_authenticated%}
         <li>
@@ -126,7 +139,7 @@
 
         {%endif%}
         
-  {%endif%}
+      {%endif%}
 
 
     </ul>
@@ -177,6 +190,7 @@
 <script src="{%static '/js/vendor/foundation.js'%}"></script>
 <script src="{%static '/js/vendor/what-input.js'%}"></script>
 <script src="{%static '/js/app.js'%}"></script>
+<script src="{%static '/bower_components/chartist/dist/chartist.js'%}"></script>
 
 <script type="text/javascript">
 
