@@ -1,7 +1,19 @@
-#padding {
-  padding: 0 10% 0 10%;
+body{
+   font-family:Avenir;
+   color:#A1A5A9;
 }
-
+#padding {
+ padding:0 16% 0 16%;
+  
+  display:flex;
+}
+.imagen{
+  width:20%;
+}
+.textin{
+  width:80%;
+  margin-top:20px;
+}
 @font-face {
 font-family: Avenir;
 src: url(/static/fonts/AvenirLTStd-Light.otf);
@@ -9,12 +21,13 @@ src: url(/static/fonts/AvenirLTStd-Light.otf);
 }
 
 #padding2 {
-  padding: 0 7% 0 7%;
+
+  
 }
 
 #backg{
   background-color: #E6E6E6;
-  height: 300px;
+
 }
 
 #column {
@@ -24,4 +37,263 @@ src: url(/static/fonts/AvenirLTStd-Light.otf);
   position: relative;
   vertical-align: middle;
   display: table-cell;
+}
+
+.instruccion{
+    padding-top:40px;
+    margin-bottom:80px;
+
+}
+.caja{
+  border-style:solid;
+  border-color:#cfd8dc;
+  border-width:.5px;
+  width:80%;
+  margin-left:10%;
+}
+  .pasos{margin-top:30px;
+  width:80%;
+  display:inline-flex;
+  margin-left:10%;
+}
+.pasines{
+  width:80%;
+  margin-left:10%;
+}
+.uno p{
+  text-align:center;
+}
+.uno{
+  width:20%;
+}
+.titulines{
+   font-family:Avenir;
+   text-align:center;
+   margin-bottom:30px;
+}
+
+.proyectos{
+  margin:0px;
+  width:100%;
+}
+
+.tarjetas{
+height:500px;
+  color:#455a64 ;
+    
+}
+.foto_perfil{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+}
+.card img{
+  padding-top:0;
+}
+.datos{
+
+  width:80%;
+  margin-left:10%;
+  position: relative;
+    height: 49.49%;
+    margin: 0 auto;
+    padding: 0 1.5em;
+    z-index: 2000;
+    border-radius: 0 0 4px 4px;
+    font-size:12px;
+}
+.apodo{
+  margin-top:12px;
+  margin-left:6px;
+
+
+}
+.resumen{
+  margin-top:15px;
+  text-align:justify;
+}
+.fin{
+  float:right;
+  font-size:10px;
+}
+.dineros{
+  float:left;
+    font-size:10px;
+
+}
+.boxed{
+  padding: 0.2em 1.1em;
+    border-radius: 2px;
+    position: absolute;
+    top: 1.1875em;
+    right: 5%;
+    font-size: 0.875em;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+    background-color: #1f1f1f
+}
+.boxed2{
+    padding: 0.2em 1.1em;
+    border-radius: 2px;
+    position: absolute;
+    top: 6.5em;
+    right: 30%;
+    font-size: 0.95em;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+    background-color: #37474f
+}
+.boxed3{
+    padding: 0.2em 1.1em;
+    border-radius: 2px;
+    position: absolute;
+    top: 6em;
+    right: 40%;
+    font-size: 0.95em;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+    background-color: #37474f
+}
+.boxed4{
+    padding: .2em 1.1em;
+    border-radius: 2px;
+    position: absolute;
+    top: 13em;
+    right: 43%;
+    font-size: .95em;
+    font-weight: 500;
+    color: white;
+    text-align:center;
+    background-color: #37474f
+}
+.boxed5{
+    padding: .2em 1.1em;
+    border-radius: 2px;
+    position: absolute;
+    top: 6.5em;
+    right: 20%;
+    font-size: 0.95em;
+    font-weight: 500;
+    color: white;
+    text-align:center;
+/*    background-color: #1f1f1f*/
+}
+
+.tagpadre{
+  position:relative;
+}
+
+.partners{
+  margin-top:100px;
+}
+.top{
+  margin-top:60px;
+}
+
+.coment{
+ align-items:center;
+ margin-right:8px;
+}
+.comentario{
+  text-align:justify;
+}
+.alin{
+  display:inline-flex;
+  margin-top:8%;
+  margin-left:5%;
+}
+.destacados{
+  margin-top:40px;
+}
+.cuadrado {
+     width: 100%; 
+     height:216px; 
+     margin:0 0 10% 0;
+     background-image:url(https://images.pexels.com/photos/48606/pexels-photo-48606.jpeg?h=350&auto=compress&cs=tinysrgb);
+     background-size:cover;
+     filter:grayscale(100%);
+      transition:all 1s ease; 
+       background-position:center;
+
+
+}
+.cuadrado:hover, .cuadrado1:hover, .cuadrado2:hover, .cuadrado3:hover, .rectangulo:hover, .rectangulo1:hover, .rectangulo2:hover{
+  filter: grayscale(0%);
+background-size:150%;
+ background-position:center;
+ cursor:pointer;
+  transition:all 1s ease; 
+ 
+}
+.cuadrado1 {
+     width: 100%; 
+     height:216px; 
+     margin:0 0 10% 0;
+     background-image:url(https://images.pexels.com/photos/89860/pexels-photo-89860.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb);
+     background-size:cover;
+     filter:grayscale(100%);
+       background-position:center;
+        transition:all 1s ease; 
+}
+.cuadrado2 {
+     width: 100%; 
+     height:216px; 
+     margin:0 0 10% 0;
+     background-image:url(https://images.pexels.com/photos/238622/pexels-photo-238622.jpeg?h=350&auto=compress&cs=tinysrgb);
+     background-size:cover;
+     filter:grayscale(80%);
+
+       background-position:center;
+        transition:all 1s ease; 
+}
+.cuadrado3 {
+     width: 100%; 
+     height:216px; 
+     margin:0 0 10% 0;
+     background-image:url(https://images.pexels.com/photos/239886/pexels-photo-239886.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb);
+     background-size:cover;
+     filter:grayscale(80%);
+       background-position:center;
+        transition:all 1s ease; 
+}
+.rectangulo {
+     width: 100%; 
+     height: 460px; 
+     text-align:center;
+     background: #428bca;
+     background-image:url(https://images.pexels.com/photos/80467/globe-indonesia-equator-80467.jpeg?h=350&auto=compress);
+     background-size:cover;
+     filter:grayscale(80%);
+       background-position:center;
+        transition:all 1s ease; 
+}
+.rectangulo1 {
+     width: 48%; 
+     height: 250px; 
+
+     background: #428bca;
+     margin-left:1%;
+     background-image:url(https://images.pexels.com/photos/110252/pexels-photo-110252.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb);
+     background-size:cover;
+     filter:grayscale(80%);
+       background-position:center;
+        transition:all 1s ease; 
+}
+.rectangulo2 {
+     width: 48%; 
+     height: 250px; 
+     background: #428bca;
+     margin-right:1%;
+     background-image:url(https://images.pexels.com/photos/7075/people-office-group-team.jpg?w=1260&h=750&auto=compress&cs=tinysrgb);
+     background-size:cover;
+     filter:grayscale(80%);
+       background-position:center;
+        transition:all 1s ease; 
+}
+.clasificacion{
+  margin-top:40px;
+  margin-bottom:80px;
 }
