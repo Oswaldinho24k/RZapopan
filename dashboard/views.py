@@ -115,12 +115,7 @@ class Extra(View):
 			'section':'extra'
 		}
 		return render(request, template_name,context)
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
 
->>>>>>> f4382c8fdb3a601a26c8f573f123fdca879d2b74
 
 
 
@@ -149,8 +144,3 @@ class Chating(View):
 		}
 		return render(request, template_name, context)
 
-<<<<<<< HEAD
->>>>>>> d2cb25ba13c89a3a8c7e32139c4cd5900bcea07c
-=======
-
->>>>>>> f4382c8fdb3a601a26c8f573f123fdca879d2b74

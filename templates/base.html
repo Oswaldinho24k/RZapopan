@@ -7,20 +7,37 @@
   <title>CrowdPopan</title>
   <meta charset="utf-8">
 
-  <!-- Fa fa icons-->
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+    <!-- Fa fa icons-->
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="{%static '/css/foundation.css'%}">
+  <!-- foundation -->
+    <!--
+    <link rel="stylesheet" type="text/css" href="{%static '/css/foundation.css'%}">
+    -->
+
+    <!-- Flat ui -->
+    <link rel="stylesheet" href="{% static 'css/flat-ui.min.css' %}">
+
+    <!-- custom -->
   <link rel="stylesheet" type="text/css" href="{%static '/css/app.css'%}">
 
 
   <script src="{%static '/js/vendor/jquery.js'%}"></script>
 
+    <!--
+
     <link rel="stylesheet" href="{% static '/bower_components/chartist/dist/chartist.css' %}">
+
     <style>
       .top-bar-right{
         padding-top: 1%;
       }
     </style>
+
+    -->
 
 </head>
 <body>
@@ -28,126 +45,29 @@
 
 <!--Responsive nav-->
 
-<div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
-  <button class="menu-icon" type="button" data-toggle></button>
-  <div class="title-bar-title">Menu</div>
-</div>
-<!--nav-->
-<div class="top-bar" id="example-menu">
-  <div class="top-bar-left">
-    <ul class="dropdown menu" data-dropdown-menu>
-      <li class="menu-text"><a href="/">CrowdPopan</a></li>
-      
-      <li><a href="/projects">Explora</a></li>
-       <li><a href="">Pide bro</a></li>
-      <li><a href="">Apoya carnal</a></li>
-    </ul>
+<nav class="navbar navbar-inverse navbar-embossed" role="navigation">
+ <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+      <span class="sr-only">Toggle navigation</span>
+    </button>
+    <a class="navbar-brand" href="#">CrowdZ</a>
   </div>
-  <div class="top-bar-right">
-
-    <ul class="menu">
-
-     
-
-     
-      
-      
-
-
-
-  {%if request.user.is_authenticated%}
-
-      <!-- Logged in -->
-        
-        
-
-       <li>
-          <ul class="dropdown menu" data-dropdown-menu>
-          <li>
-            <a href="">What's up {{request.user.username}}</a>
-            <ul class="menu">
-              <li><a href="">Perfil</a></li>
-              <li><a href="{%url 'dash:dash'%}">Tus Proyectos</a></li>
-                <li><a href="{%url 'dash:support'%}">Tus Fondeos</a></li>
-
-              <li><a href="{%url 'accounts:logout'%}?next=/"><button>Cerrar tu sesión</button></a></li>
-              
-            </ul>
-          </li>
-        </ul>
-       </li>
-
-      
-
-
-      {%else%}
-      <!-- Logged out -->
-      {%if not request.user.is_authenticated%}
-        <li>
-          <a data-open="exampleModal1">Registrate</a>
-          <!-- Modal to registration -->
-
-          <div class="reveal" id="exampleModal1" data-reveal>
-            <h2 align="center">Regístrate</h2>
-            <hr>
-
-            {%registration%}
-            <hr>
-              <p align="center">Ya tienes cuenta? <a data-open="logIn">Inicia aquí</a></p>
-            <button class="close-button" data-close aria-label="Close reveal" type="button">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-
-        </li>
-
-        <li>|</li>
-
-         <li>
-          <a data-open="logIn">Inicia</a>
-          <!-- Modal to registration -->
-
-          <div class="reveal" id="logIn" data-reveal>
-            <h2 align="center">Inicia Sesión</h2>
-            <hr>
-    
-
-            {%loginform%}
-
-            <hr>
-              <p align="center">No tienes cuenta? <a data-open="exampleModal1">Regístrate aquí</a></p>
-
-            <button class="close-button" data-close aria-label="Close reveal" type="button">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-
-        </li>
-
-        {%else%}
-        <!-- Logged in -->
-        <li>
-          <ul class="dropdown menu" data-dropdown-menu>
-            <li>
-              <a href="#">Opciones</a>
-              <ul class="menu">
-                <li><a href="{%url 'dash:dash'%}">Tus Proyectos</a></li>
-                <li><a href="{%url 'dash:support'%}">Tus Fondeos</a></li>
-                <!-- ... -->
-              </ul>
-            </li>
-        </li>
-
-        {%endif%}
-        
-      {%endif%}
-
-
+  <div class="collapse navbar-collapse" id="navbar-collapse-01">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#fakelink">Explorar</a></li>
+      <li><a href="#fakelink">Publica tu Proyecto</a></li>
     </ul>
+      <div class="navbar-right">
+      <button class="btn btn-warning btn-xs" type="button">SignUp</button>
+      <button class="btn btn-default navbar-btn btn-xs" type="button">Sign in</button>
+      </div>
 
-  </div>
+  </div><!-- /.navbar-collapse -->
+</nav>
 
-</div>
+<!--Responsive nav-->
+
+
 <!-- Mensajes-->
 {% if messages %}
 <ul class="messages">
@@ -175,9 +95,9 @@
   firebase.initializeApp(config);
 </script>
 
+<script src="{% static 'js/flat-ui.min.js' %}"></script>
 
-
-
+<!--<script src="{%static '/js/vendor/foundation.js'%}"></script>-->
 
 {% block content%}
 {% endblock content%}
@@ -188,10 +108,18 @@
 
 
 
-<script src="{%static '/js/vendor/foundation.js'%}"></script>
+
+<!--
 <script src="{%static '/js/vendor/what-input.js'%}"></script>
 <script src="{%static '/js/app.js'%}"></script>
+-->
+
+    <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<!--
 <script src="{%static '/bower_components/chartist/dist/chartist.js'%}"></script>
+-->
 
 <script type="text/javascript">
 
