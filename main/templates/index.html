@@ -4,147 +4,305 @@
 {%block content%}
 
 <!--Slider-->
-
 <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
-  <ul class="orbit-container">
+  <ul style="height:500px; width:100%" class="orbit-container" >
+    <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+    <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
     <li class="is-active orbit-slide">
-      <div class="s1">
-        <h3 class="text-center">Chiva de 10k!</h3>
-        <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde harum rem, beatae ipsa consectetur quisquam. Rerum ratione, delectus atque tempore sed, suscipit ullam, beatae distinctio cupiditate ipsam eligendi tempora expedita.</p>
-
-      </div>
+      <img class="orbit-image" src="https://images.pexels.com/photos/232/apple-iphone-books-desk.jpg?w=940&h=650&auto=compress&cs=tinysrgb" alt="Space">
+    </li>
+    <li  class="orbit-slide">
+      <img class="orbit-image" src="https://images.pexels.com/photos/8169/pexels-photo.jpg?w=940&h=650&auto=compress&cs=tinysrgb" alt="Space">
     </li>
     <li class="orbit-slide">
-      <div>
-        <h3 class="text-center">Hay muchas cosas wuuuuuuuuuu!</h3>
-        <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde harum rem, beatae ipsa consectetur quisquam. Rerum ratione, delectus atque tempore sed, suscipit ullam, beatae distinctio cupiditate ipsam eligendi tempora expedita.</p>
-
-      </div>
+      <img class="orbit-image" src="https://images.pexels.com/photos/6384/woman-hand-desk-office.jpg?w=940&h=650&auto=compress&cs=tinysrgb" alt="Space">
     </li>
-    <li class="orbit-slide">
-      <div>
-        <h3 class="text-center">Salón de belleza!</h3>
-        <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde harum rem, beatae ipsa consectetur quisquam. Rerum ratione, delectus atque tempore sed, suscipit ullam, beatae distinctio cupiditate ipsam eligendi tempora expedita.</p>
-
-      </div>
-    </li>
-    <li class="orbit-slide">
-      <div>
-        <h3 class="text-center">You can also throw some text in here!</h3>
-        <img src="/static/images/tesla.jpg">
-
-      </div>
+    <li  class="orbit-slide">
+      <img class="orbit-image" src="https://images.pexels.com/photos/51171/pexels-photo-51171.jpeg?w=940&h=650&auto=compress&cs=tinysrgb" alt="Space">
     </li>
   </ul>
   <nav class="orbit-bullets">
-   <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
-   <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
-   <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
-   <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
- </nav>
+    <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
+    <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
+    <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
+    <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
+  </nav>
 </div>
 
 <div id="padding">
-<p style="text-align:justify; font-family:Avenir;"><img src="http://tomadeprotesta.mx/images/logoz.svg" align="left" hspace="10">
-Inscribe tu proyecto y Arca se sumará apoyándolo con una cantidad adicional de un peso por cada peso que recaudes de
-manera colectiva. Además, Arca buscará cerrar el círculo creativo. Esto quiere decir que los proyectos fondeados
-exitosamente que sean lo suficientemente originales, creativos y arriesgados, podrán tener una ventana de exhibición
-después de ser financiados. Tienes absoluta libertad creativa para llevar a cabo tu proyecto de la forma que creas
-más conveniente. Sólo te pediremos, como a los demás fondeadores, que realices el proyecto y elijas recompensas para
-Arca.
-
-La idea es que de estos proyectos salga una gran cantidad de contenidos independientes y alternativos fondeados en
-Fondeadora que puedan ser distribuidos por los canales de Arca, que tiene el respaldo de Televisa. Es un “ganar–ganar”
-para todos: Arca, Fondeadora, los creadores y para el respetable público que conocerá tu trabajo.</p>
+  <div class='imagen '>
+    <img class='logo' src="/static/images/img-01.png" align="left" hspace="10">
+  </div>
+  <div class=' textin'>
+    <p style="text-align:justify; font-family:Avenir;">
+      Inscribe tu proyecto y CowZapopan se sumará apoyándolo con una cantidad adicional de un peso por cada peso que recaudes de manera colectiva. Además, buscará cerrar el círculo creativo. Esto quiere decir que los proyectos fondeadosexitosamente que sean lo suficientemente originales, creativos y arriesgados, podrán tener una ventana de exhibición después de ser financiados. Tienes absoluta libertad creativa para llevar a cabo tu proyecto de la forma que creas más conveniente.
+    </p>
+  </div>
 </div>
+<div class='caja'></div>
+<div  class=' instruccion'>
 
-<br>
-<div align="center">
-  <img src="/static/images/foco-01.png" alt="" width="180px" height="180px">
-  <img src="static/images/idea-01.png" alt="" width="180px" height="180px">
-  <img src="static/images/validar-01.png" alt="" width="180px" height="180px">
-  <img src="static/images/fondeo-01.png" alt="" width="180px" height="180px">
-  <img src="static/images/dineros-01.png" alt="" width="180px" height="180px">
-</div>
+  <h2 class='titulines'>¿Como fondear?</h2>
+  <p style='width:80%; margin-left:10%; ' class='titulines'>El Fondeo Colectivo (Crowdfunding) es un modelo de formación de capital y participación de mercado, en donde las necesidades de financiamiento de proyectos se transmiten a una comunidad a través de una plataforma digital y se obtiene apoyo de inversionistas, fondeadores y donantes.</p>
+  
 
-<div align="center">
-  <h6>¿Tienes una idea? ----> Sube tu Proyecto ----> Recibe nuestra retroalimentación ----> Entra a Fondeo ----> Recibe el financiamiento</h6>
-</div>
+  
 
 
 
-<br>
-<h3 style="text-align:center; font-family:Avenir;">Explorar Categorías</h3>
-<br><br>
+  <div class=' pasos'>
 
-<div align="center">
-  <h3 style="text-align:center; font-family:Avenir;">Proyectos Destacados</h3>
-  <div class="row" data-equalizer data-equalize-on="medium" id="test-eq">
-    <div class="medium-4 columns">
-      <div class="callout" data-equalizer-watch>
-        <img src="https://pbs.twimg.com/profile_images/719575066736889856/eL9HcziB_400x400.jpg">
-      </div>
+    <div class='uno'>
+      <img  class='pasines' src="/static/images/focos-01.png" alt="" width="180px" height="180px">
+      <p>¿Tienes una idea? </p>
     </div>
-    <div class="medium-4 columns">
-      <div class="callout" data-equalizer-watch>
-        <img src="https://pbs.twimg.com/profile_images/719575066736889856/eL9HcziB_400x400.jpg">
-      </div>
+    <div class='uno'>
+     <img class='pasines' src="static/images/idea-01.png" alt="" width="180px" height="180px">
+     <p>Sube tu Proyecto</p>
     </div>
-    <div class="medium-4 columns">
-      <div class="callout" data-equalizer-watch>
-        <img src="https://pbs.twimg.com/profile_images/719575066736889856/eL9HcziB_400x400.jpg">
-      </div>
+    <div class='uno'>
+      <img class='pasines' src="static/images/validar-01.png" alt="" width="180px" height="180px">
+      <p>Espera nuestra revision</p>
     </div>
+    <div class='uno'>
+      <img class='pasines' src="static/images/fondeo-01.png" alt="" width="180px" height="180px">
+      <p>Entra a Fondeo </p>
+    </div>
+    <div class='uno'>
+     <img class='pasines' src="static/images/dineros-01.png" alt="" width="180px" height="180px">
+     <p>Recibe el financiamiento</p>
+    </div>
+    
+    
   </div>
 </div>
 
-<br>
-<div>
-	<h2 style="text-align:center; font-family:Avenir;">Partners</h2>
+<div class='caja'></div>
+<div class='clasificacion'>
+<h3 class='titulines'>Explorar Categorías</h3>
+  <div class='row' >
+    <div class='large-3 medium-3 column'>
+       <div class='cuadrado tagpadre'>
+             <span class='boxed2'>Tecnologia</span>
 
+        </div>
+        <div class='cuadrado1 tagpadre'>
+         <span class='boxed3'>Arte</span>
+
+      </div>
+</div>
+<div class='large-6 medium-6 column'>
+  <div class='rectangulo tagpadre'>
+     <span class='boxed4'>Todas</span>
+  </div>
+</div>
+<div class='large-3 medium-3 column'>
+       <div class='cuadrado2 tagpadre'>
+       <span class='boxed5'>Medio Ambiente</span>
+        </div>
+        <div class='cuadrado3 tagpadre'>
+         <span class='boxed3'>Diseno</span>
+      </div>
+</div>
+</div>
+  <div class='row'>
+    <div>
+      <div class='large-6 medium-6 column rectangulo1'>
+         <span class='boxed2'>Educacion</span>
+      </div>
+       <div class='large-6 medium-6 column rectangulo2'>
+         <span class='boxed2'>Comunidad</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class='caja'></div>
+<div class='destacados'>
+  <h3 class='titulines'>Proyectos Destacados</h3>
+  <div class="row" data-equalizer data-equalize-on="medium" id="test-eq">
+    <div class=" large-4 small-12 medium-6 columns">
+      <div class=" tarjetas card">
+        <div class="card-section tagpadre">
+          <span class='boxed'>Tecnologia</span>
+          <img src="https://images.pexels.com/photos/8704/pen-idea-bulb-paper.jpg?w=1260&h=750&auto=compress&cs=tinysrgbg">
+          <p>Cowork Loops</p>
+        </div>
+        <div class='datos'>
+          <div style='display:inline-flex;'>
+            <div>
+              <img class='foto_perfil' src="https://scontent.fmex5-1.fna.fbcdn.net/v/t1.0-9/10610561_661134757315249_1937519055020262032_n.jpg?oh=5e2983bea71a5b7d1923ff6be03dd25d&oe=58F864C3">
+            </div>
+            <div style='text-align:left;' class='apodo'>
+              <p style='margin-bottom:0px'>
+              Brenda Gonzalez Ortega</p>
+              <p>
+              Zapopan, Jalisco
+            </p>
+            </div>
+          </div>
+          <div class='resumen'>
+            <p>Buscamos crear 5 coworks en estados en donde las empresas acualmente no cuentan con este tipo de servicios.</p>
+          </div>
+           <div>
+          <div class="warning progress" role="progressbar" tabindex="0" aria-valuenow="50" aria-valuemin="0" aria-valuetext="50 percent" aria-valuemax="100">
+          <div class="progress-meter" style="width: 50%"></div>
+          </div>
+          <div>
+          <span class='dineros'>
+            Recaudado: $50,000.00
+          </span>
+            <span class='fin'>
+              Finaliza:11/Feb/17
+            </span>
+          </div>
+          </div> 
+        </div> 
+       
+      </div>
+    </div>
+     <div class=" large-4 small-12 medium-6 columns">
+      <div class=" tarjetas card">
+        <div class="card-section tagpadre">
+         <span class='boxed'>Tecnologia</span>
+          <img src="https://images.pexels.com/photos/8704/pen-idea-bulb-paper.jpg?w=1260&h=750&auto=compress&cs=tinysrgbg">
+          <p>Cowork Loops</p>
+        </div>
+        <div class='datos'>
+          <div style='display:inline-flex;'>
+            <div>
+              <img class='foto_perfil' src="https://scontent.fmex5-1.fna.fbcdn.net/v/t1.0-9/10610561_661134757315249_1937519055020262032_n.jpg?oh=5e2983bea71a5b7d1923ff6be03dd25d&oe=58F864C3">
+            </div>
+            <div style='text-align:left;' class='apodo'>
+              <p style='margin-bottom:0px'>
+              Brenda Gonzalez Ortega</p>
+              <p>
+              Zapopan, Jalisco
+            </p>
+            </div>
+          </div>
+          <div class='resumen'>
+            <p>Buscamos crear 5 coworks en estados en donde las empresas acualmente no cuentan con este tipo de servicios.</p>
+          </div>
+           <div>
+          <div class="warning progress" role="progressbar" tabindex="0" aria-valuenow="50" aria-valuemin="0" aria-valuetext="50 percent" aria-valuemax="100">
+          <div class="progress-meter" style="width: 50%"></div>
+          </div>
+          <div>
+          <span class='dineros'>
+            Recaudado: $50,000.00
+          </span>
+            <span class='fin'>
+              Finaliza:11/Feb/17
+            </span>
+          </div>
+          </div> 
+        </div> 
+       
+      </div>
+    </div>
+     <div class=" large-4 small-12 medium-6 columns">
+      <div class=" tarjetas card">
+        <div class="card-section tagpadre">
+         <span class='boxed'>Tecnologia</span>
+          <img src="https://images.pexels.com/photos/8704/pen-idea-bulb-paper.jpg?w=1260&h=750&auto=compress&cs=tinysrgbg">
+          <p>Cowork Loops</p>
+        </div>
+        <div class='datos'>
+          <div style='display:inline-flex;'>
+            <div>
+              <img class='foto_perfil' src="https://scontent.fmex5-1.fna.fbcdn.net/v/t1.0-9/10610561_661134757315249_1937519055020262032_n.jpg?oh=5e2983bea71a5b7d1923ff6be03dd25d&oe=58F864C3">
+            </div>
+            <div style='text-align:left;' class='apodo'>
+              <p style='margin-bottom:0px'>
+              Brenda Gonzalez Ortega</p>
+              <p>
+              Zapopan, Jalisco
+            </p>
+            </div>
+          </div>
+          <div class='resumen'>
+            <p>Buscamos crear 5 coworks en estados en donde las empresas acualmente no cuentan con este tipo de servicios.</p>
+          </div>
+         <div>
+          <div class="warning progress" role="progressbar" tabindex="0" aria-valuenow="50" aria-valuemin="0" aria-valuetext="50 percent" aria-valuemax="100">
+          <div class="progress-meter" style="width: 50%"></div>
+          </div>
+          <div>
+          <span class='dineros'>
+            Recaudado: $50,000.00
+          </span>
+            <span class='fin'>
+              Finaliza:11/Feb/17
+            </span>
+          </div>
+          </div> 
+        </div> 
+       
+      </div>
+    </div>
+</div>
+
+<section class='top partners'>
+  <div class='caja '></div>
+    <h3 class='top titulines'>Partners</h3>
+ 
 <div id="padding2">
   <div class="orbit" role="region" aria-label="partners" data-orbit>
-    <ul class="orbit-container" style="height:200px; width:100%">
+    <ul class="orbit-container" style="height:100px; width:100%">
       <button class="orbit-previous" aria-label="previous"><span class="show-for-sr">anterior</span>&#9664;</button>
       <button class="orbit-next" aria-label="next"><span class="show-for-sr">siguiente</span>&#9654;</button>
       <li class="orbit-slide">
         <div class="s1">
-          <img src="http://www.agrashas.com/wp-content/uploads/2015/04/partner.jpg">
+          <img src="/static/images/part2-01.png">
         </div>
       </li>
       <li class="orbit-slide">
         <div>
-          <img src="https://brailleworks.com/wp-content/uploads/2014/05/partnership-icon-people.png">
+           <img src="/static/images/part-01.png">
         </div>
       </li>
       <li class="orbit-slide">
         <div>
-          <img src="http://www.stacks.es/documents/14771/45213/partners1.gif?t=1406807529433">
-        </div>
-      </li>
-      <li class="orbit-slide">
-        <div>
-          <img src="https://www.sourcesense.com/wp-content/uploads/2015/10/Partners.jpg">
+          <img src="/static/images/part2-01.png">
         </div>
       </li>
     </ul>
   </div>
 </div>
+</div>
+</section>
+<br><div class=''>
+<h3 class='titulines'>Comentarios</h3>
 
-<br>
-<h2>Comentarios</h2>
-<div id="backg">
-  <div class="row">
-    <div id="column">
-      <img src="https://pbs.twimg.com/profile_images/719575066736889856/eL9HcziB_400x400.jpg">
+<div style='  border-style:dashed;' id="backg" class='caja'>
+  <div class=" row">
+    <div class=" large-6 medium-6 small-12 column">
+    <div class='alin'>
+      <img class='coment' style='width:100px; height:100px; border-radius:50%' class='coment' src="https://scontent.fmex5-1.fna.fbcdn.net/v/t1.0-9/10610561_661134757315249_1937519055020262032_n.jpg?oh=5e2983bea71a5b7d1923ff6be03dd25d&oe=58F864C3">
+      <p class='comentario'>
+        El programa de Reto Zapopan ha logrado generar una tracción importante en el ecosistema
+        emprendedor y ha podido acelerar múltiples proyectos de emprendimiento que podrían tener salidas viables de mercado si contaran con las aportaciones o financiamiento suficiente para poderlas
+        escalar.
+      </p>
+      </div>
     </div>
-    <div id="column">
-      <img src="https://pbs.twimg.com/profile_images/719575066736889856/eL9HcziB_400x400.jpg">
+    <div class="large-6 medium-6 small-12 column">
+    <div class='alin'>
+      <img class='coment' style='width:100px; height:100px; border-radius:50%' class='coment' src="https://scontent.fmex5-1.fna.fbcdn.net/v/t1.0-9/10610561_661134757315249_1937519055020262032_n.jpg?oh=5e2983bea71a5b7d1923ff6be03dd25d&oe=58F864C3">
+      <p class='comentario'>
+        Reto Zapopan está buscando crear una plataforma que permita ofrecer una alternativa adicional a las start-ups para conseguir recursos de forma rápida al momento desde la graduación del programa y catapultarlos a otras fuentes de financiamiento que aceleren su éxito operativo y comercial. 
+      </p>
+      </div>
+      <div>
+        
+      </div>
     </div>
     </div>
   </div>
 </div>
-
+</div>
 <br>
 <img data-interchange="[static/images/livecrowd.jpg, small], [static/images/livecrowd.jpg, medium], [static/images/livecrowd.jpg, large]">
 </div>
