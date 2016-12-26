@@ -6,5 +6,8 @@ from django.views.generic import View
 class Home (View):
 	def get(self, request):
 		template_name= 'index.html'
+		context = {
+			'nav_section':'home'
+		}
 
-		return render(request, template_name)
+		return render(request, template_name, context)

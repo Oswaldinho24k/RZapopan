@@ -1,3 +1,10 @@
+.contenedor{
+	width: 80%;
+	margin: 0 auto;
+}
+.centrado{
+	text-align: center;
+}
 #padding{
   padding: 0 30% 0 30%;
 }
@@ -12,7 +19,7 @@ font {
   background-position: center;
 }
 
-input[type="text"]
+/*input[type="text"]
 {
     font-size:30px;
 }
@@ -20,7 +27,7 @@ input[type="text"]
 input[type="number"]
 {
     font-size:30px;
-}
+}*/
 .card {
 	background: white;
 

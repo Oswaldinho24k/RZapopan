@@ -23,10 +23,10 @@ urlpatterns = [
         include(dashboardURLs, namespace="dash")),
 
     url(r'^projects/',
-        include(projectsURLs)),
+        include(projectsURLs, namespace="projects")),
 
     url(r'^accounts/',
-        include(accountsURLs, namespace="accounts")),
+        include(accountsURLs)),
 
 
     #Social

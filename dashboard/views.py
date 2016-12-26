@@ -6,9 +6,13 @@ from .forms import BasicsForm, HistoryForm
 
 from django.contrib import messages
 
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+
 class Dash(View):
+	@method_decorator(login_required)
 	def get(self, request):
-		template_name = "dashboard/projects_list.html"
+		template_name = "dashboard/perfil.html"
 		projects = request.user.projects.all()
 
 		context = {
