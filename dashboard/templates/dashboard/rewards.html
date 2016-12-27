@@ -124,11 +124,11 @@
 							<br>
 							<span>Entrega: {{r.deliver_date | date:"M,Y"}}</span>
 							<div class="row">
-								<a data-toggle="modal" data-target=".edicion-reward" data-reward="{{r.pk}}" class="edita btn btn-warning col-xs-6">Editar</a>
+								<a data-toggle="modal" data-target=".edicion-reward" data-reward="{{r.pk}}" class="edita btn btn-warning col-xs-6" {%if project.publish%}disabled{%endif%}>Editar</a>
 								<form action="." method="post">
 									{%csrf_token%}
 								<input type="hidden" name="borrar" value="{{r.pk}}">
-								<input type="submit" class="btn btn-danger col-xs-6" value="Eliminar"/>
+								<input type="submit" class="btn btn-danger col-xs-6" value="Eliminar" {%if project.publish%}disabled{%endif%}/>
 								</form>
 							</div>
 						</div>
