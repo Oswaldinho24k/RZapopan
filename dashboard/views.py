@@ -87,11 +87,13 @@ class Basics(View):
 		}
 		return render(request, template_name,context)
 
+import markdown2
 
 class History(View):
 	def get(self, request, pk):
 		template_name = "dashboard/history.html"
 		p = get_object_or_404(Project, id=pk)
+		p.desc = markdown2.markdown(p.desc)
 		context = {
 			'project':p,
 			'section':'history'
@@ -102,7 +104,7 @@ class History(View):
 		template_name = "dashboard/history.html"
 		p = get_object_or_404(Project, id=pk)
 		data = request.POST.dict()
-		form = HistoryForm(data,instance=p)
+		form = HistoryForm(data, files=request.FILES,instance=p)
 		print(form)
 		# print(form)
 

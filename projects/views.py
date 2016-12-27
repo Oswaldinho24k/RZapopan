@@ -65,11 +65,10 @@ class DetailProject(View):
 		project = get_object_or_404(Project, id = pk)
 		markdowner = Markdown()
 		# project.desc = markdown2.markdown(project.desc)
-		desc = markdowner.convert(project.desc)
+		project.desc = markdowner.convert(project.desc)
 
 		context = {
 			'project':project,
-			'desc':desc
 		}
 
 		return render(request, template_name, context)
