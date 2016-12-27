@@ -1,6 +1,16 @@
 img.redonda{
 	border-radius: 50%;
 }
+.img_perfil:hover{
+	cursor:n-resize;
+}
+
+
+
+
+
+
+
 .container {
     display: flex;
     overflow: hidden;

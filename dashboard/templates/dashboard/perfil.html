@@ -13,11 +13,14 @@
 			<div class="panel-body">
 
 				{%if not request.user.profile.img%}
-				<img class="redonda" width="200" src="https://cdn3.iconfinder.com/data/icons/rcons-user-action/32/girl-512.png">
+				<img class="img_perfil redonda" width="200" src="https://cdn3.iconfinder.com/data/icons/rcons-user-action/32/girl-512.png" data-toggle="tooltip" title="Subir nueva imagen">
 				{%else%}
-				<img src="request.user.profile.img.url">
+				<img class="img_perfil redonda" src="request.user.profile.img.url" data-toggle="tooltip" title="Subir nueva imagen">
 				{%endif%}
 
+				<br><br><h5 class="">{{request.user.email}}</h5>
+
+				<input id="file" style="display:none" type="file">
 			</div>
 		</div>
 
@@ -25,19 +28,24 @@
 
 	<article class="row">
 
-		<div class="col-md-4 col-md-offset-4 panel panel-default">
+		<h4>Tus proyectos:</h4>
+
+		<div class="col-md-4 col-md-offset-4">
 
 			<div class="panel-body">
-
 				<div class="list-group">
-				  <a href="#" class="list-group-item active">
-				    <h4 class="list-group-item-heading">List group item heading</h4>
-				    {%for p in request.user.projects%}
-				    <p class="list-group-item-text">{{p.name}}</p>
-				    {%empty%}
-				    <a href="#" class="list-group-item list-group-item-danger">aún no haz publicado proyectos</a>
+				  	{%for p in request.user.projects.all%}
+				  	<a href="#" class="list-group-item">
+					    <h6 class="list-group-item-heading">{{p.name}}</h6>
+					    <div class="progress">
+						  <div class="progress-bar progress-bar-success" style="width: 10%;"></div>		 
+						</div>
+					</a>
+					    {%empty%}
+					    <a href="{%url 'projects:new'%}" class="list-group-item list-group-item-danger">aún no haz publicado proyectos</a>
+
 				    {%endfor%}
-				  </a>
+				  
 				</div>
 
 			</div>
@@ -48,5 +56,14 @@
 
 
 </section>
+
+
+<script>
+
+$('img').on('click',function(){
+	$('#file').click();
+});
+
+</script>
 
 {%endblock content%}
