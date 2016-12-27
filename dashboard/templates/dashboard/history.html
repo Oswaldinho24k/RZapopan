@@ -30,7 +30,7 @@
 				</li>
 				</a>
 
-				<a class="no-link" href="{%url 'dash:detail' project.pk%}">
+				<a class="no-link" href="{%url 'dash:basics' project.pk%}">
 				<li >
 					
 					<div class="todo-icon fui-eye"></div>
@@ -110,6 +110,7 @@
 		<div class="col-md-6 col-md-offset-1">
 
 			<form class="row" action="." method="post" enctype="multipart/form-data">
+				{%csrf_token%}
 
 				<div class="panel panel-default">
 
@@ -117,7 +118,7 @@
 
 				<h4>Describe tu proyecto</h4>
 				<p>¿Porque deberían apoyarte?</p>
-				<textarea rows="10" name="desc" class="form-control"></textarea>
+				<textarea rows="10" name="desc" class="form-control">{{project.desc}}</textarea>
 
 				</article>
 
@@ -167,6 +168,8 @@
 				</article>
 
 				</div>
+
+				<input class="btn btn-success" type="submit" value="Guardar">
 
 
 

@@ -54,14 +54,22 @@ class Projects (View):
 		return render(request, template_name, context )
 
 
+import markdown2
+from markdown2 import Markdown
+
+
 class DetailProject(View):
-	def get(self,request,id_pro):
-		template_name = 'detail_project.html'
+	def get(self,request,pk):
+		template_name = 'projects/detail.html'
 		##obejto project
-		project = get_object_or_404(Project, id = id_pro)
+		project = get_object_or_404(Project, id = pk)
+		markdowner = Markdown()
+		# project.desc = markdown2.markdown(project.desc)
+		desc = markdowner.convert(project.desc)
 
 		context = {
 			'project':project,
+			'desc':desc
 		}
 
 		return render(request, template_name, context)
