@@ -115,14 +115,15 @@
 
 					{%for r in rewards%}
 					<div class="col-md-6">
-						<div class="tile">
-							<h3>$ {{r.price}}</h3>
-							<p>{{r.desc}}</p>
+						<div style="min-height:300px" class="tile">
+							<h4>$ {{r.price}}</h4>
+							<span style="color:grey">{{r.desc}}</span>
+							<br>
 							<span>Cantidad: {{r.quantity}}</span>
 							<br>
 							<span>Entrega: {{r.deliver_date | date:"M,Y"}}</span>
 							<div class="row">
-								<a href="" class="btn btn-warning col-xs-6">Editar</a>
+								<a data-toggle="modal" data-target=".edicion-reward" data-reward="{{r.pk}}" class="edita btn btn-warning col-xs-6">Editar</a>
 								<form action="." method="post">
 									{%csrf_token%}
 								<input type="hidden" name="borrar" value="{{r.pk}}">
@@ -132,7 +133,7 @@
 						</div>
 					</div>
 					{%empty%}
-					<div class="col-md-12">
+					<div class="col-md-6">
 						<div class="tile">
 							<h6>Aún no agregas recompensas</h6>
 							<p>¡Agrega una!</p>
@@ -145,7 +146,7 @@
 				</article>
 				<article class="row">
 					<div data-toggle="tooltip" data-placement="bottom" title="Agregar nueva recompensa" class="col-md-1">
-					<button type="button" data-toggle="modal" class="btn btn-danger" data-target=".bs-example-modal-sm">
+					<button type="button" data-toggle="modal" class="btn btn-info" data-target=".bs-example-modal-sm">
 						<span class="fui-plus-circle"></span>
 					</button>
 					</div>
@@ -243,11 +244,103 @@
 </div>
 
 
+<!-- edicion de recompensa -->
+
+<div class="modal fade edicion-reward" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content centrado">
+      
+      <ol class="breadcrumb">
+		  <li><a href="#">
+		  	<h5>Edita tu recompensa</h5>
+		  	<p>para {{project}}</p>
+		  </a></li>
+		</ol>
+
+		<form id="reward" class="row panel panel-default" action="." method="post">
+				{%csrf_token%}
+					<div class="col-md-10 col-md-offset-1 panel-body">
+
+					<div class="row">
+					<h6 class="col-md-12">
+						¿Cómo se llama tu recompensa?
+					</h6>
+					<input name="title" required placeholder="Nuestro corazon" class="form-control input-hg col-md-12" type="text">
+					</div>
+
+					<div class="row">
+					<h6 class="col-md-12">
+						¿Cuanto dinero se invierte?
+					</h6>
+					<div class="input-group">
+					  <span class="input-group-addon">$</span>
+					  <input name="price" required type="number" class="form-control input-hg" placeholder="500" />
+					</div>
+					</div>
+
+					<div class="row">
+					<h6 class="col-md-12">
+						¿describe tu recompensa (140 ccaracteres)?
+					</h6>
+					<div class="input-group">
+					  <span class="input-group-addon">
+					  	<i class="fa fa-commenting-o" aria-hidden="true"></i>
+					  </span>
+					  <textarea name="desc" required class="form-control input-hg" placeholder="te daremos nuestro corazón"></textarea>
+					</div>
+					</div>
+
+					<div class="row">
+					<h6 class="col-md-12">
+						¿Cuantas recompensas puedes ofrecer?
+					</h6>
+					<div class="input-group">
+					  <span class="input-group-addon">
+					  	<i class="fa fa-stack-overflow" aria-hidden="true"></i>
+					  </span>
+					  <input name="quantity" type="number" required class="form-control input-hg" placeholder="10"/>
+					</div>
+					</div>
+
+					<div class="row">
+					<h6 class="col-md-12">
+						¿En que fecha aproximada entregaras esta recompensa?
+					</h6>
+					<div class="input-group">
+					  <span class="input-group-addon">
+					  	<i class="fa fa-calendar" aria-hidden="true"></i>
+					  </span>
+					  <input name="deliver_date" type="date" required class="form-control input-hg" placeholder="MM/YYYY"/>
+					</div>
+					</div>
+
+					<br>
+					<input {%if project.publish%}disabled{%endif%}  class="btn btn-hg btn-success" type="submit" value="Guardar">
+
+					</div> <!-- offset-->
+
+			</form>
+
+
+    </div>
+  </div>
+</div>
+
 
 <script type="text/javascript">
+
 	$(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
+</script>
+
+<script>
+
+$('.edita').on('click',function(){
+	var id = $(this).attr('data-reward');
+	console.log(id);
+});
+
 </script>
 
 {%endblock content%}

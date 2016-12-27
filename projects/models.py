@@ -31,6 +31,8 @@ class Reward(models.Model):
     deliver_date = models.DateField()
     buyers = models.ManyToManyField(User, related_name='buyers')
 
+    class Meta:
+        ordering = ['price']
 
     def __str__(self):
         return self.title
