@@ -8,6 +8,10 @@ urlpatterns = [
 		views.Dash.as_view(),
 		name="dash"),
 
+	url(r'^(?P<pk>\d+)/rewards/$',
+		views.Rewards.as_view(),
+		name="rewards"),
+
 	url(r'^(?P<pk>\d+)/$',
 		views.Detail.as_view(),
 		name="detail"),

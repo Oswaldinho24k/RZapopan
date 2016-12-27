@@ -1,9 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import View
 
-from projects.models import Project
+from projects.models import Project, Reward
 from accounts.models import Profile
-from .forms import BasicsForm, HistoryForm, ImgForm
+from .forms import BasicsForm, HistoryForm, ImgForm, NewRewardForm
 
 from django.contrib import messages
 
@@ -93,7 +93,10 @@ class History(View):
 	def get(self, request, pk):
 		template_name = "dashboard/history.html"
 		p = get_object_or_404(Project, id=pk)
-		p.desc = markdown2.markdown(p.desc)
+		try:
+			p.desc = markdown2.markdown(p.desc)
+		except:
+			pass
 		context = {
 			'project':p,
 			'section':'history'
@@ -122,6 +125,39 @@ class History(View):
 		}
 		return render(request, template_name,context)
 
+
+class Rewards(View):
+	def get(self, request, pk):
+		template_name = "dashboard/rewards.html"
+		p = get_object_or_404(Project, id=pk)
+		rewards = p.rewards.all()
+		context = {
+			'project':p,
+			'section':'recompensas',
+			'rewards':rewards
+		}
+		return render(request, template_name, context)
+
+	def post(self, request, pk):
+
+		if request.POST.get('borrar'):
+			r = get_object_or_404(Reward, id=request.POST.get('borrar'))
+			r.delete()
+			messages.success(request, "Haz borrado una recompensa")
+			return redirect('dash:rewards',pk=pk)
+
+		p = get_object_or_404(Project, id=pk)
+		print(request.POST)
+		form = NewRewardForm(data=request.POST)
+		if form.is_valid():
+			r = form.save(commit=False)
+			r.project = p
+			r.save()
+			messages.success(request, "Tu recompensa se ha guardado con éxito")
+			
+		else:
+			messages.error(request, "Algo malo pasó, U_U vuelve a intentarlo")
+		return redirect('dash:rewards',pk=pk)
 
 
 class Team(View):

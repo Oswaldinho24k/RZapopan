@@ -71,6 +71,7 @@
 					</div>
 				</li>
 
+				<a class="no-link" href="{%url 'dash:rewards' project.pk%}">
 				<li>
 					<div class="todo-icon fui-heart"></div>
 					<div class="todo-content">
@@ -80,6 +81,7 @@
 						¡Motiva a tu audiencia!
 					</div>
 				</li>
+				</a>
 
 				<li>
 					<div class="todo-icon fui-upload"></div>
@@ -134,10 +136,10 @@
 				<article class="panel-body">
 
 				<h6>Súbe tu Video</h6>
-				<p>¿Tienes un video que describa tu proyecto?</p>
+				<p>¿Tienes un video en youtube de tu proyecto?</p>
 				<!-- Append -->
 				<div class="input-group">
-				  <input id="vid" class="form-control" placeholder="youtube url" name="video" type="text" />
+				  <input id="vid" class="form-control" placeholder="youtube url" name="video" type="text" {%if project.video%}value="{{project.video}}"{%endif%} />
 				   <span style="cursor:pointer" class="girale input-group-addon">
 				   	<i class="fa fa-refresh" aria-hidden="true"></i>
 				   </span>
@@ -153,7 +155,7 @@
 
 				<article class="panel-body">
 
-				<img class="img-responsive" id="img_preview" src="{{project.img.url}}">				
+				<img class="img-responsive" id="img_preview" src="{%if project.img%}{{project.img.url}}{%else%}https://cdn4.iconfinder.com/data/icons/big-data/512/bigdata-512.png{%endif%}">				
 
 				</article>
 
@@ -163,7 +165,7 @@
 
 				<article class="panel-body">
 
-				<iframe id="vidPrev" width="100%" height="auto" src="{{project.video}}" frameborder="0" allowfullscreen></iframe>
+				<iframe id="vidPrev" width="100%" height="auto" src="{%if project.video%}{{project.video}}{%endif%}" frameborder="0" allowfullscreen></iframe>
 
 				</article>
 

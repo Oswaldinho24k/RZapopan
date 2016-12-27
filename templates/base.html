@@ -63,6 +63,17 @@
     </ul>
       <div class="navbar-right">
         {%if request.user.is_authenticated%}
+
+        <!--badges-->
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="#">
+              Mensajes
+              <!-- Indicator with number -->
+              <span class="navbar-new">2</span>
+            </a>
+          </li>
+        </ul>
         
         
         <!-- Inverted skin  -->
