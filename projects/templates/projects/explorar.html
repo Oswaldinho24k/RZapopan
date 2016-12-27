@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+
+{%block content%}
+	<h1>Explorador</h1>
+
+	<ul>
+		{%for p in projects%}
+		<li>{{p.name}}</li>
+		{%empty%}
+		<h3>no hay proyectos</h3>
+		{%endfor%}
+
+	</ul>
+
+
+
+	{%include 'pagination.html' with page=page_obj%}
+{%endblock content%}

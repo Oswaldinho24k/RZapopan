@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
 from django.views.generic import View
-from .models import Project
+from django.views.generic import ListView
+
+from .models import Project, Reward
 
 from .forms import NewProjectForm
 
@@ -9,9 +11,30 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
+from django.core import serializers
 
 
-# Create your views here.
+
+class Explorar(ListView):
+	template_name = "projects/explorar.html"
+	# queryset = Project.objects.all()
+	context_object_name = 'projects'
+	paginate_by = 1
+	
+
+	def get_queryset(self):
+		try:
+			return Project.objects.all().filter(name=self.kwargs['cat'])
+		except:
+			return Project.objects.all()
+
+
+	def get_context_data(self, **kwargs):
+		context = super(Explorar, self).get_context_data(**kwargs)
+		context['nav_section'] = "explorar"
+		return context
+
+
 
 class NewProject(View):
 	@method_decorator(login_required)
@@ -72,3 +95,19 @@ class DetailProject(View):
 		}
 
 		return render(request, template_name, context)
+
+
+class JsonRewards(View):
+	def get(self, request, pk):
+		r = get_object_or_404(Reward, id=pk)
+		data = serializers.serialize('json',[r],indent=2,
+			use_natural_foreign_keys=False, use_natural_primary_keys=False)
+		return HttpResponse(data,content_type = 'application/javascript; charset=utf8') 
+
+
+
+
+
+
+
+

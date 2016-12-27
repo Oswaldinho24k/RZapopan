@@ -54,13 +54,29 @@
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
       <span class="sr-only">Toggle navigation</span>
     </button>
-    <a class="navbar-brand" href="#">CrowdZ</a>
+    <a class="navbar-brand" href="{%url 'home'%}">CrowdZ</a>
   </div>
   <div class="collapse navbar-collapse" id="navbar-collapse-01">
     <ul class="nav navbar-nav">
-      <li {%if nav_section == 'home' %} class="active" {%endif%} ><a href="#!">Explorar</a></li>
+      <li {%if nav_section == 'explorar' %} class="active" {%endif%} ><a href="{%url 'projects:categoria' 'prro'%}">Explorar</a></li>
       <li {%if nav_section == 'new' %} class="active" {%endif%} ><a href="{%url 'projects:new'%}">Publica tu Proyecto</a></li>
     </ul>
+
+    {%if nav_section == "explorar"%}
+    <form class="navbar-form navbar-left" action="#" role="search">
+      <div class="form-group">
+        <div class="input-group">
+          <input class="form-control" id="navbarInput-01" type="search" placeholder="Search">
+          <span class="input-group-btn">
+            <button type="submit" class="btn"><span class="fui-search"></span></button>
+          </span>
+        </div>
+      </div>
+    </form>
+    {%endif%}
+
+
+
       <div class="navbar-right">
         {%if request.user.is_authenticated%}
 
