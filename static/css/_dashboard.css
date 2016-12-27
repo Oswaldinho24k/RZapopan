@@ -4,6 +4,20 @@ img.redonda{
 .img_perfil:hover{
 	cursor:n-resize;
 }
+/*para que el menú del navbar siga funcionando*/
+@media (max-width: 770px){
+	.dropdown-menu{
+		position: relative;
+	}
+}
+
+.silver{
+	background-color: #BDC3C7;
+	color:#2C3E50;
+}
+.no-link{
+	color:inherit;
+}
 
 
 

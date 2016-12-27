@@ -12,15 +12,54 @@
 
 			<div class="panel-body">
 
+				
+					
 				{%if not request.user.profile.img%}
 				<img class="img_perfil redonda" width="200" src="https://cdn3.iconfinder.com/data/icons/rcons-user-action/32/girl-512.png" data-toggle="tooltip" title="Subir nueva imagen">
 				{%else%}
-				<img class="img_perfil redonda" src="request.user.profile.img.url" data-toggle="tooltip" title="Subir nueva imagen">
+				<img class="img_perfil redonda" width="200" src="{{request.user.profile.img.url}}" data-toggle="tooltip" title="Subir nueva imagen">
 				{%endif%}
+				
 
 				<br><br><h5 class="">{{request.user.email}}</h5>
 
-				<input id="file" style="display:none" type="file">
+				
+				<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+				  Completa tus datos
+				</button>
+
+				<div class="collapse" id="collapseExample">
+					<br>
+				  <div class="well">
+				    
+				    <form id="imagen" action="." method="post" enctype="multipart/form-data">
+						{%csrf_token%}
+
+						{%if request.user.profile.tel%}
+						<span>Tu Teléfono</span>
+					  	<input value="{{request.user.profile.tel}}" placeholder="Tu teléfono" class="form-control" name="tel" type="text">
+
+					  	<span>Tu Edad</span>
+					  	<input value="" placeholder="Tu Edad" class="form-control" name="edad" type="text">
+
+
+					  	{%else%}
+					  	<input placeholder="Tu telefono" class="form-control" name="tel" type="text">
+					  	{%endif%}
+
+					  	<input name="img" id="file" style="display:none" type="file">
+
+					  	<br>
+					  	<input class="btn btn-inverse" type="submit" value="guardar">
+					</form>
+
+				  </div>
+				</div>
+
+
+
+				
+					
 			</div>
 		</div>
 
@@ -35,7 +74,7 @@
 			<div class="panel-body">
 				<div class="list-group">
 				  	{%for p in request.user.projects.all%}
-				  	<a href="#" class="list-group-item">
+				  	<a href="{{p.get_absolute_url}}" class="list-group-item">
 					    <h6 class="list-group-item-heading">{{p.name}}</h6>
 					    <div class="progress">
 						  <div class="progress-bar progress-bar-success" style="width: 10%;"></div>		 
@@ -58,10 +97,55 @@
 </section>
 
 
-<script>
+
+
+<script type="text/javascript">
+
+  function readURL(input) {
+
+
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+
+        reader.onload = function (e) {
+            $('.img_perfil').attr('src', e.target.result);
+            // Extra para actualizar la img
+            $('#imagen').submit();
+
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+  function readVideo() {
+
+    $('#vidPrev').attr('src',$('#vid').val());
+    
+    }
+
+
+// $("#file").change(function(){
+//     readURL(this);
+// });
+
+// $('#vid').change(function(){
+
+//     readVideo();
+// })
+
 
 $('img').on('click',function(){
 	$('#file').click();
+
+});
+$("#file").change(function(){
+
+    readURL(this);
+    
+
 });
 
 </script>

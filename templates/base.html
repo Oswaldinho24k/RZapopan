@@ -11,6 +11,8 @@
 <script src="{% static 'js/flat-ui.min.js' %}"></script>
 <!-- bootstrap-->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
@@ -146,34 +148,34 @@
 
 <script type="text/javascript">
 
-  function readURL(input) {
+//   function readURL(input) {
 
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
+//     if (input.files && input.files[0]) {
+//         var reader = new FileReader();
 
-        reader.onload = function (e) {
-            $('#preview').attr('src', e.target.result);
-        }
+//         reader.onload = function (e) {
+//             $('#preview').attr('src', e.target.result);
+//         }
 
-        reader.readAsDataURL(input.files[0]);
-    }
-}
+//         reader.readAsDataURL(input.files[0]);
+//     }
+// }
 
-  function readVideo() {
+//   function readVideo() {
 
-    $('#vidPrev').attr('src',$('#vid').val());
+//     $('#vidPrev').attr('src',$('#vid').val());
     
-    }
+//     }
 
 
-$("#img").change(function(){
-    readURL(this);
-});
+// $("#img").change(function(){
+//     readURL(this);
+// });
 
-$('#vid').change(function(){
+// $('#vid').change(function(){
 
-    readVideo();
-})
+//     readVideo();
+// })
 </script>
 
 {%block scripts%}
