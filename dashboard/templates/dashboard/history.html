@@ -7,7 +7,10 @@
 
 <section class="contendor centrado">
 
-	<h3 class="demo-panel-title">{{project}} / {{section}}</h3>
+	<h3 class="demo-panel-title">{{project}} / {{section}}
+		<button id="guarda" class="btn btn-success">Guardar</button>
+	</h3>
+
 
 	<article class="row">
 
@@ -110,19 +113,9 @@
 		<div class="col-md-6 col-md-offset-1">
 
 			<form class="row" action="." method="post" enctype="multipart/form-data">
+				
+				<br>
 				{%csrf_token%}
-
-				<div class="panel panel-default">
-
-				<article class="panel-body">
-
-				<h4>Describe tu proyecto</h4>
-				<p>¿Porque deberían apoyarte?</p>
-				<textarea rows="10" name="desc" class="form-control">{{project.desc}}</textarea>
-
-				</article>
-
-				</div>
 
 				<div class="panel panel-default col-md-6">
 
@@ -130,7 +123,7 @@
 
 				<h6>Súbe tu Imagen</h6>
 				<p>Sube una imagen que identifique tu proyecto</p>
-				<input class="form-control" name="img" type="file">
+				<input id="file" class="form-control" name="img" type="file">
 
 				</article>
 
@@ -142,18 +135,25 @@
 
 				<h6>Súbe tu Video</h6>
 				<p>¿Tienes un video que describa tu proyecto?</p>
-				<input class="form-control" placeholder="youtube url" name="video" type="text">
+				<!-- Append -->
+				<div class="input-group">
+				  <input id="vid" class="form-control" placeholder="youtube url" name="video" type="text" />
+				   <span style="cursor:pointer" class="girale input-group-addon">
+				   	<i class="fa fa-refresh" aria-hidden="true"></i>
+				   </span>
+				  
+				</div>
 
 				</article>
 
 				</div>
 
-				<!-- previews -->
+								<!-- previews -->
 				<div style="overflow:hidden" class="panel panel-default col-md-6">
 
 				<article class="panel-body">
 
-				<img src="">				
+				<img class="img-responsive" id="img_preview" src="{{project.img.url}}">				
 
 				</article>
 
@@ -163,15 +163,30 @@
 
 				<article class="panel-body">
 
-				<img src="">
+				<iframe id="vidPrev" width="100%" height="auto" src="{{project.video}}" frameborder="0" allowfullscreen></iframe>
+
+				</article>
+
+				</div> <!-- previews-->
+				<br><br><br>
+
+				<div class="col-md-12 panel panel-default">
+
+				<article class="panel-body">
+
+				<h4>Describe tu proyecto</h4>
+
+				<p>Puedes usar HTML y <span data-toggle="tooltip" data-placement="bottom" title="#Titulo, ##subtitulo, *parrafo">Markdown</span></p>
+				<textarea rows="10" name="desc" class="form-control">{{project.desc}}</textarea>
+
+				<div class="tile">
+				<h6>Presiona guardar para ver el preview:</h6>
+				</div>
+				{%autoescape off%}{{project.desc}}{%endautoescape%}
 
 				</article>
 
 				</div>
-
-				<input class="btn btn-success" type="submit" value="Guardar">
-
-
 
 
 			</form>
@@ -183,7 +198,72 @@
 
 </section>
 
+<script>
+	$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
 
+	$('#guarda').on('click',function(){
+		$('form').submit();
+	});
+</script>
+
+<script type="text/javascript">
+
+  function readURL(input) {
+
+
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+
+        reader.onload = function (e) {
+            $('#img_preview').attr('src', e.target.result);
+            // Extra para actualizar la img
+            // $('#imagen').submit();
+
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+  function readVideo() {
+
+  	var link = $('#vid').val();
+  	var lista = link.split("/");
+  	var code = lista[lista.length - 1];
+  	link = "https://www.youtube.com/embed/"+code;
+  	console.log(link);
+    $('#vidPrev').attr('src',link);
+    $('#vid').val(link);
+    
+    }
+
+
+// $("#file").change(function(){
+//     readURL(this);
+// });
+
+$('#vid').change(function(){
+
+    readVideo();
+})
+
+
+// $('img').on('click',function(){
+// 	$('#file').click();
+
+// });
+$("#file").change(function(){
+
+    readURL(this);
+    
+
+});
+
+</script>
 
 
 {%endblock content%}

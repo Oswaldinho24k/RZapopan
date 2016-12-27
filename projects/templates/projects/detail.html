@@ -6,8 +6,7 @@
 <h1>{{project.name}}</h1>
 
 
-	{{project.desc}}
-	<input value="{{desc}}">
+	{%autoescape off%}{{project.desc}}{%endautoescape%}
 
 
 {%endblock content%}
