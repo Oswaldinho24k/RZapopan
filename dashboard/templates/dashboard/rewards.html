@@ -1,0 +1,260 @@
+{%extends 'base.html'%}
+{%load dash_tags%}
+
+{%block content%}
+{%count_projects as nums %}
+
+
+<section class="contendor centrado">
+
+	<h3 class="demo-panel-title">{{project}} / {{section}}</h3>
+
+	<article class="row">
+
+		<div class="col-md-3 col-md-offset-1">
+			<div class="todo">
+			
+			<ul>
+
+				<a class="no-link" href="{%url 'dash:detail' project.pk%}">
+				<li>
+					
+					<div class="todo-icon fui-resize"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Dashboard</strong>
+						</h4>
+						¿Cómo va tu proyecto?
+					</div>
+					
+				</li>
+				</a>
+
+				<a class="no-link" href="{%url 'dash:detail' project.pk%}">
+				<li>
+					
+					<div class="todo-icon fui-eye"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Info Basica</strong>
+						</h4>
+						Empezamos por aquí
+					</div>
+					
+				</li>
+				</a>
+
+				<a class="no-link" href="{%url 'dash:history' project.pk%}">
+				<li>
+					
+					<div class="todo-icon fui-image"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Descripción</strong>
+						</h4>
+						Cuentanos tu historia
+					</div>
+					
+				</li>
+				</a>
+
+				<li>
+					<div class="todo-icon fui-plus-circle"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Extras</strong>
+						</h4>
+						Tu equipo y más detalles
+					</div>
+				</li>
+
+				<a class="no-link" href="{%url 'dash:rewards' project.pk%}">
+				<li class="todo-done">
+					<div class="todo-icon fui-heart"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Recompensas</strong>
+						</h4>
+						¡Motiva a tu audiencia!
+					</div>
+				</li>
+				</a>
+
+				<li>
+					<div class="todo-icon fui-upload"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Documentos</strong>
+						</h4>
+						Sube tus documentos
+					</div>
+				</li>
+
+				<li>
+					<div class="todo-icon fui-bubble"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Mensajes</strong>
+						</h4>
+						Comunicate con tus benefactores
+					</div>
+				</li>
+
+			</ul>
+		</div>
+		</div>
+
+
+
+
+		
+
+		<div class="panel col-md-6 col-md-offset-1">
+				
+				<article class="row panel-body">
+
+					{%for r in rewards%}
+					<div class="col-md-6">
+						<div class="tile">
+							<h3>$ {{r.price}}</h3>
+							<p>{{r.desc}}</p>
+							<span>Cantidad: {{r.quantity}}</span>
+							<br>
+							<span>Entrega: {{r.deliver_date | date:"M,Y"}}</span>
+							<div class="row">
+								<a href="" class="btn btn-warning col-xs-6">Editar</a>
+								<form action="." method="post">
+									{%csrf_token%}
+								<input type="hidden" name="borrar" value="{{r.pk}}">
+								<input type="submit" class="btn btn-danger col-xs-6" value="Eliminar"/>
+								</form>
+							</div>
+						</div>
+					</div>
+					{%empty%}
+					<div class="col-md-12">
+						<div class="tile">
+							<h6>Aún no agregas recompensas</h6>
+							<p>¡Agrega una!</p>
+							<img width="100%" src="http://designmodo.github.io/Flat-UI/img/icons/svg/gift-box.svg">
+						</div>
+					</div>
+					{%endfor%}
+
+					
+				</article>
+				<article class="row">
+					<div data-toggle="tooltip" data-placement="bottom" title="Agregar nueva recompensa" class="col-md-1">
+					<button type="button" data-toggle="modal" class="btn btn-danger" data-target=".bs-example-modal-sm">
+						<span class="fui-plus-circle"></span>
+					</button>
+					</div>
+				</article>
+
+
+		</div>
+	</article>
+
+
+
+</section>
+
+
+<!-- Small modal -->
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content centrado">
+      
+      <ol class="breadcrumb">
+		  <li><a href="#">
+		  	<h5>Nueva recompensa</h5>
+		  	<p>para {{project}}</p>
+		  </a></li>
+		</ol>
+
+		<form id="reward" class="row panel panel-default" action="." method="post">
+				{%csrf_token%}
+					<div class="col-md-10 col-md-offset-1 panel-body">
+
+					<div class="row">
+					<h6 class="col-md-12">
+						¿Cómo se llama tu recompensa?
+					</h6>
+					<input name="title" required placeholder="Nuestro corazon" class="form-control input-hg col-md-12" type="text">
+					</div>
+
+					<div class="row">
+					<h6 class="col-md-12">
+						¿Cuanto dinero se invierte?
+					</h6>
+					<div class="input-group">
+					  <span class="input-group-addon">$</span>
+					  <input name="price" required type="number" class="form-control input-hg" placeholder="500" />
+					</div>
+					</div>
+
+					<div class="row">
+					<h6 class="col-md-12">
+						¿describe tu recompensa (140 ccaracteres)?
+					</h6>
+					<div class="input-group">
+					  <span class="input-group-addon">
+					  	<i class="fa fa-commenting-o" aria-hidden="true"></i>
+					  </span>
+					  <textarea name="desc" required class="form-control input-hg" placeholder="te daremos nuestro corazón"></textarea>
+					</div>
+					</div>
+
+					<div class="row">
+					<h6 class="col-md-12">
+						¿Cuantas recompensas puedes ofrecer?
+					</h6>
+					<div class="input-group">
+					  <span class="input-group-addon">
+					  	<i class="fa fa-stack-overflow" aria-hidden="true"></i>
+					  </span>
+					  <input name="quantity" type="number" required class="form-control input-hg" placeholder="10"/>
+					</div>
+					</div>
+
+					<div class="row">
+					<h6 class="col-md-12">
+						¿En que fecha aproximada entregaras esta recompensa?
+					</h6>
+					<div class="input-group">
+					  <span class="input-group-addon">
+					  	<i class="fa fa-calendar" aria-hidden="true"></i>
+					  </span>
+					  <input name="deliver_date" type="date" required class="form-control input-hg" placeholder="MM/YYYY"/>
+					</div>
+					</div>
+
+					<br>
+					<input {%if project.publish%}disabled{%endif%}  class="btn btn-hg btn-success" type="submit" value="Guardar">
+
+					</div> <!-- offset-->
+
+			</form>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+	$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+{%endblock content%}
+
+
+
+
+
+
+<form id="nuevo" class="row panel panel-default" action="." method="post">

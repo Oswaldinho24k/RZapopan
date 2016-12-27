@@ -21,7 +21,19 @@ class Project(models.Model):
     def __str__(self):
         return self.name
 
+class Reward(models.Model):
 
+    project = models.ForeignKey(Project, related_name='rewards')
+    title = models.CharField(max_length=250)
+    price = models.DecimalField(decimal_places=2,max_digits=10)
+    desc = models.TextField()
+    quantity = models.IntegerField()
+    deliver_date = models.DateField()
+    buyers = models.ManyToManyField(User, related_name='buyers')
+
+
+    def __str__(self):
+        return self.title
 
 
 class Comments(models.Model):
@@ -36,3 +48,5 @@ class Image(models.Model):
 class NewProject(models.Model):
     name = models.CharField(max_length=250, blank=True, null=True)
     goal = models.DecimalField(max_digits=7, decimal_places=2, default=1, blank=True, null=True)
+
+
