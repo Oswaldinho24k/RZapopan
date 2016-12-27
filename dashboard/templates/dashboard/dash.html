@@ -3,96 +3,145 @@
 
 {%block content%}
 {%count_projects as nums %}
-<section class="container">
 
-	<div class="Left">
-		<h2 >Left</h2>
-		
-		<div class="liltit">
-			<span>
-				Financiado:
-			</span>
-			<br>
-			<span class="cantidad">
-				$ {{nums.re}}
-			</span>
-		</div>
-		<div class="liltit">
-			<span>
-				Pendiente:
-			</span>
-			<br>
-			<span class="cantidad">
-				$ {{nums.pe}}
-			</span>
-		</div>
-		<div class="liltit">
-			<span>
-				Editor de Campaña:
-			</span>
-			<br>
-			<span class="cantidad">
-				General
-			</span>
+
+<section class="contendor centrado">
+
+	<h3 class="demo-panel-title">{{project}} / {{section}}</h3>
+
+	<article class="row">
+
+		<div class="col-md-3 col-md-offset-1">
+			<div class="todo">
 			
+			<ul>
+
+				<a class="no-link" href="{%url 'dash:detail' project.pk%}">
+				<li class="todo-done">
+					
+					<div class="todo-icon fui-resize"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Dashboard</strong>
+						</h4>
+						¿Cómo va tu proyecto?
+					</div>
+					
+				</li>
+				</a>
+
+				<a class="no-link" href="{%url 'dash:basics' project.pk%}">
+				<li >
+					
+					<div class="todo-icon fui-eye"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Info Basica</strong>
+						</h4>
+						Empezamos por aquí
+					</div>
+					
+				</li>
+				</a>
+
+				<a class="no-link" href="{%url 'dash:history' project.pk%}">
+				<li>
+					
+					<div class="todo-icon fui-image"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Descripción</strong>
+						</h4>
+						Cuentanos tu historia
+					</div>
+					
+				</li>
+				</a>
+
+				<li>
+					<div class="todo-icon fui-plus-circle"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Extras</strong>
+						</h4>
+						Tu equipo y más detalles
+					</div>
+				</li>
+
+				<li>
+					<div class="todo-icon fui-heart"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Recompensas</strong>
+						</h4>
+						¡Motiva a tu audiencia!
+					</div>
+				</li>
+
+				<li>
+					<div class="todo-icon fui-upload"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Documentos</strong>
+						</h4>
+						Sube tus documentos
+					</div>
+				</li>
+
+				<li>
+					<div class="todo-icon fui-bubble"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Mensajes</strong>
+						</h4>
+						Comunicate con tus benefactores
+					</div>
+				</li>
+
+			</ul>
+		</div>
 		</div>
 
-		<a {% if section == "dash" %}class="active"{%endif%} href="{% url 'dash:detail' project.pk%}">
-			1.- Dashboard
-		</a>
-		
-		<a {% if section == "basics" %}class="active"{%endif%} href="{% url 'dash:basics' project.pk%}">
-			2.- Basicos
-		</a>
-		<a {% if section == "history" %}class="active"{%endif%} href="{% url 'dash:history' project.pk%}">
-			3.- Historia
-		</a>
-		<a {% if section == "team" %}class="active"{%endif%} href="{% url 'dash:team' project.pk%}">
-			4.- Equipo
-		</a>
-		<a {% if section == "extra" %}class="active"{%endif%} href="{% url 'dash:extra' project.pk%}">
-			5.- Extras
-		</a>
+
+
+
 		
 
-	</div>
+		<div class="col-md-6 col-md-offset-1">
+				
 
-	<div style="" class="Middle">
+				<form id="nuevo" class="row panel panel-default" action="." method="post">
+				{%csrf_token%}
+					<div class="col-md-6 col-md-offset-3 panel-body">
+
+					<div class="row">
+					<h4 class="col-md-12">
+						¿Cómo se llama tu proyecto?
+					</h4>
+					<input {%if project.publish%}disabled{%endif%} value="{{project.name}}" name="name" required placeholder="Mi fabuloso proyecto" class="form-control input-hg col-md-12" type="text">
+					</div>
+
+					<div class="row">
+					<h4 class="col-md-12">
+						¿Cuanto dinero necesitas?
+					</h4>
+					<div class="input-group">
+					  <span class="input-group-addon">$</span>
+					  <input {%if project.publish%}disabled{%endif%}  value="{{project.goal}}" name="goal" required type="number" class="form-control input-hg" placeholder="200000" />
+					</div>
+					</div>
+					<br>
+					<input {%if project.publish%}disabled{%endif%}  class="btn btn-hg btn-success" type="submit" value="Guardar">
+
+					</div> <!-- offset-->
+
+			</form>
 
 
-		<div class="card row">
-		  <div class="large-4 columns">
-		  	<h4>Proyecto / <span style="color:green">{{section}}</span></h4>
-		  </div>
-		  <div class="large-6 columns">
-		  	<h4>{{project.name}}</h4>
-		  </div>
-		  <h4 class="large-2 columns">
-		  	<button id="guardar" class="success button">
-				Guardar
-			</button>
-			<button class="warning button">
-				Lanzar
-			</button>
-		  </h4>
+		
+
 		</div>
-
-
-
-		{%block segundo%}
-		{%endblock segundo%}
-
-
-
-	<div class="Middle">
-		<h3>middle</h3>
-		<h2>{%show_latest_posts%}</h2>
-        <div>
-            {% graphics_goals %}
-        </div>
-
-	</div>
-
+	</article>
 
 
 
@@ -103,12 +152,6 @@
 
 {%endblock content%}
 
-{%block scripts%}
-
-{%block escripts%}
-{%endblock escripts%}
-
-{%endblock scripts%}
 
 
 

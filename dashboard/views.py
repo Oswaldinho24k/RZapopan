@@ -1,20 +1,43 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import View
 
 from projects.models import Project
-from .forms import BasicsForm, HistoryForm
+from accounts.models import Profile
+from .forms import BasicsForm, HistoryForm, ImgForm
 
 from django.contrib import messages
 
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+
 class Dash(View):
+	@method_decorator(login_required)
 	def get(self, request):
-		template_name = "dashboard/projects_list.html"
+		template_name = "dashboard/perfil.html"
 		projects = request.user.projects.all()
 
 		context = {
 			'projects':projects
 		}
 		return render(request, template_name, context)
+
+	def post(self, request):
+		try:
+			profile = request.user.profile
+		except:
+			profile = Profile()
+			profile.user = request.user
+			profile.save()
+
+		form = ImgForm(instance=request.user.profile,data=request.POST, files=request.FILES)
+		print(form)
+		print(request.FILES)
+		if form.is_valid():
+			form.save()
+			messages.success(request, "Tu Perfil se actualizó con exito")
+		else:
+			messages.error(request, "Algo malo pasó, U_U intenta de nuevo")
+		return redirect('dash:dash')
 
 class Detail(View):
 	def get(self, request, pk):
@@ -41,6 +64,9 @@ class Basics(View):
 	def post(self, request, pk):
 		template_name = "dashboard/basics.html"
 		p = get_object_or_404(Project, id=pk)
+		if p.publish:
+			messages.error(request, "Tu proyecto ya se publicó, no puedes modificarlo")
+			return redirect('dash:basics',pk=pk)
 		data = request.POST.dict()
 		form = BasicsForm(data,request.FILES,instance=p)
 		# print(form)
@@ -48,7 +74,7 @@ class Basics(View):
 		if form.is_valid():
 			form.save()
 			print('PASO Y GUARDO')
-			messages.success(request, "Proyecto guardado con exito")
+			messages.success(request, "Proyecto guardado con éxito")
 		else:
 			print('No es Valido')
 

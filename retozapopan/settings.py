@@ -172,5 +172,6 @@ AUTHENTICATION_BACKENDS = (
     'accounts.authentication.EmailAuthBackend',
     
     )
-LOGIN_REDIRECT_URL = '/dashboard'
+LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'dash:dash'
 

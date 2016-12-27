@@ -1,123 +1,159 @@
-{%extends 'dashboard/dash.html'%}
+{%extends 'base.html'%}
+{%load dash_tags%}
 
-{%block segundo%}
-<div class="espacio"></div>
-
-<section class="row">
-
-<form id="basics-form" action="." method="post" enctype="multipart/form-data">
-	{%csrf_token%}
+{%block content%}
+{%count_projects as nums %}
 
 
+<section class="contendor centrado">
+
+	<h3 class="demo-panel-title">{{project}} / {{section}}</h3>
+
+	<article class="row">
+
+		<div class="col-md-3 col-md-offset-1">
+			<div class="todo">
+			
+			<ul>
+
+				<a class="no-link" href="{%url 'dash:detail' project.pk%}">
+				<li>
+					
+					<div class="todo-icon fui-resize"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Dashboard</strong>
+						</h4>
+						¿Cómo va tu proyecto?
+					</div>
+					
+				</li>
+				</a>
+
+				<a class="no-link" href="{%url 'dash:detail' project.pk%}">
+				<li class="todo-done">
+					
+					<div class="todo-icon fui-eye"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Info Basica</strong>
+						</h4>
+						Empezamos por aquí
+					</div>
+					
+				</li>
+				</a>
+
+				<a class="no-link" href="{%url 'dash:history' project.pk%}">
+				<li>
+					
+					<div class="todo-icon fui-image"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Descripción</strong>
+						</h4>
+						Cuentanos tu historia
+					</div>
+					
+				</li>
+				</a>
+
+				<li>
+					<div class="todo-icon fui-plus-circle"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Extras</strong>
+						</h4>
+						Tu equipo y más detalles
+					</div>
+				</li>
+
+				<li>
+					<div class="todo-icon fui-heart"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Recompensas</strong>
+						</h4>
+						¡Motiva a tu audiencia!
+					</div>
+				</li>
+
+				<li>
+					<div class="todo-icon fui-upload"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Documentos</strong>
+						</h4>
+						Sube tus documentos
+					</div>
+				</li>
+
+				<li>
+					<div class="todo-icon fui-bubble"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Mensajes</strong>
+						</h4>
+						Comunicate con tus benefactores
+					</div>
+				</li>
+
+			</ul>
+		</div>
+		</div>
 
 
 
 
-<article class="large-8 columns">
+		
 
-<div class="card">
+		<div class="col-md-6 col-md-offset-1">
+				
 
+				<form id="nuevo" class="row panel panel-default" action="." method="post">
+				{%csrf_token%}
+					<div class="col-md-6 col-md-offset-3 panel-body">
 
-<label>
-	<h3>Titulo del proyecto</h3>
-	¿Cual es el título de tu proyecto?
-	<input name="name" type="text" value="{{project.name}}">
-</label>
+					<div class="row">
+					<h4 class="col-md-12">
+						¿Cómo se llama tu proyecto?
+					</h4>
+					<input {%if project.publish%}disabled{%endif%} value="{{project.name}}" name="name" required placeholder="Mi fabuloso proyecto" class="form-control input-hg col-md-12" type="text">
+					</div>
 
+					<div class="row">
+					<h4 class="col-md-12">
+						¿Cuanto dinero necesitas?
+					</h4>
+					<div class="input-group">
+					  <span class="input-group-addon">$</span>
+					  <input {%if project.publish%}disabled{%endif%}  value="{{project.goal}}" name="goal" required type="number" class="form-control input-hg" placeholder="200000" />
+					</div>
+					</div>
+					<br>
+					<input {%if project.publish%}disabled{%endif%}  class="btn btn-hg btn-success" type="submit" value="Guardar">
 
-<div class="espacio"></div>
+					</div> <!-- offset-->
 
-
-<label>
-	<h3>Descripción del proyecto</h3>
-	¿De qué trata tu proyecto?
-	<textarea name="desc" type="text" >{{project.desc}}</textarea>
-</label>
-
-
-<div class="espacio"></div>
-
-
-<label>
-	<h3>Meta del proyecto</h3>
-	¿Cuanto dinero requiere tu proyecto?
-	<input name="goal" type="number" step="1000" min="0" value="{{project.goal}}">
-</label>
-
-<div class="espacio"></div>
-
-
-</div> <!--card-->
+			</form>
 
 
-</article>
+		
 
-<article class="large-4 columns">
-
-
-<div class="card">
-<label>
-	<h3>Imagen del proyecto</h3>
-	¿Cual es la imagen de tu proyecto?
-	<input id="img" name="img" type="file" value="{{project.img}}">
-	{% if project.img %}
-	<img id="preview" src="{{project.img.url}}">
-	{%else%}
-	<img id="preview" src="">
-	{%endif%}
-</label>
-</div>
+		</div>
+	</article>
 
 
-
-</article>
-
-
-
-
-
-</form>
 
 </section>
 
 
 
 
+{%endblock content%}
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script>
-
-$('#guardar').on('click',function(){
-
-	$('#basics-form').submit();
-
-});
-
-
-
-</script>
-
-{%endblock segundo%}

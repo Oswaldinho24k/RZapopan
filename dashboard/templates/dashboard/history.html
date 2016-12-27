@@ -1,104 +1,192 @@
-{%extends 'dashboard/dash.html'%}
+{%extends 'base.html'%}
+{%load dash_tags%}
 
-{%block segundo%}
-<div class="espacio"></div>
-
-<section class="row">
-
-<form id="history-form" action="." method="post" enctype="multipart/form-data">
-	{%csrf_token%}
+{%block content%}
+{%count_projects as nums %}
 
 
+<section class="contendor centrado">
+
+	<h3 class="demo-panel-title">{{project}} / {{section}}</h3>
+
+	<article class="row">
+
+		<div class="col-md-3 col-md-offset-1">
+			<div class="todo">
+			
+			<ul>
+
+				<a class="no-link" href="{%url 'dash:detail' project.pk%}">
+				<li>
+					
+					<div class="todo-icon fui-resize"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Dashboard</strong>
+						</h4>
+						¿Cómo va tu proyecto?
+					</div>
+					
+				</li>
+				</a>
+
+				<a class="no-link" href="{%url 'dash:detail' project.pk%}">
+				<li >
+					
+					<div class="todo-icon fui-eye"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Info Basica</strong>
+						</h4>
+						Empezamos por aquí
+					</div>
+					
+				</li>
+				</a>
+
+				<a class="no-link" href="{%url 'dash:history' project.pk%}">
+				<li class="todo-done">
+					
+					<div class="todo-icon fui-image"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Descripción</strong>
+						</h4>
+						Cuentanos tu historia
+					</div>
+					
+				</li>
+				</a>
+
+				<li>
+					<div class="todo-icon fui-plus-circle"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Extras</strong>
+						</h4>
+						Tu equipo y más detalles
+					</div>
+				</li>
+
+				<li>
+					<div class="todo-icon fui-heart"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Recompensas</strong>
+						</h4>
+						¡Motiva a tu audiencia!
+					</div>
+				</li>
+
+				<li>
+					<div class="todo-icon fui-upload"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Documentos</strong>
+						</h4>
+						Sube tus documentos
+					</div>
+				</li>
+
+				<li>
+					<div class="todo-icon fui-bubble"></div>
+					<div class="todo-content">
+						<h4 class="todo-name">
+							<strong>Mensajes</strong>
+						</h4>
+						Comunicate con tus benefactores
+					</div>
+				</li>
+
+			</ul>
+		</div>
+		</div>
 
 
 
 
-<article class="large-8 columns">
+		
 
-<div class="card">
+		<div class="col-md-6 col-md-offset-1">
+
+			<form class="row" action="." method="post" enctype="multipart/form-data">
+
+				<div class="panel panel-default">
+
+				<article class="panel-body">
+
+				<h4>Describe tu proyecto</h4>
+				<p>¿Porque deberían apoyarte?</p>
+				<textarea rows="10" name="desc" class="form-control"></textarea>
+
+				</article>
+
+				</div>
+
+				<div class="panel panel-default col-md-6">
+
+				<article class="panel-body">
+
+				<h6>Súbe tu Imagen</h6>
+				<p>Sube una imagen que identifique tu proyecto</p>
+				<input class="form-control" name="img" type="file">
+
+				</article>
+
+				</div>
+
+				<div style="overflow:hidden" class="panel panel-default col-md-6">
+
+				<article class="panel-body">
+
+				<h6>Súbe tu Video</h6>
+				<p>¿Tienes un video que describa tu proyecto?</p>
+				<input class="form-control" placeholder="youtube url" name="video" type="text">
+
+				</article>
+
+				</div>
+
+				<!-- previews -->
+				<div style="overflow:hidden" class="panel panel-default col-md-6">
+
+				<article class="panel-body">
+
+				<img src="">				
+
+				</article>
+
+				</div>
+
+				<div style="overflow:hidden" class="panel panel-default col-md-6">
+
+				<article class="panel-body">
+
+				<img src="">
+
+				</article>
+
+				</div>
 
 
-<label>
-	<h3>Explicación de tu proyecto</h3>
-	¿Cuentanos tu historia?
-	<textarea name="desc" rows="10">{{project.desc}}</textarea>
-</label>
 
 
-<div class="espacio"></div>
+			</form>
+
+		</div>
+	</article>
 
 
-</div> <!--card-->
-
-
-</article>
-
-<article class="large-4 columns">
-
-
-<div class="card">
-<label>
-	<h3>Video del proyecto</h3>
-	¿Tienes algún video en youtube sobre tu proyecto?
-	<input id="vid" name="video" type="text" >
-	{% if project.video %}
-	<iframe id="vidPrev" width="100%" src="{{project.video}}" frameborder="0" allowfullscreen></iframe>
-	{%else%}
-	<iframe id="vidPrev" width="100%" src="" frameborder="0" allowfullscreen></iframe>
-	{%endif%}
-</label>
-</div>
-
-
-
-</article>
-
-
-
-
-
-</form>
 
 </section>
 
 
 
 
+{%endblock content%}
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script>
-
-$('#guardar').on('click',function(){
-
-	$('#history-form').submit();
-
-});
-
-
-
-</script>
-
-{%endblock segundo%}

@@ -7,8 +7,14 @@
   <title>CrowdPopan</title>
   <meta charset="utf-8">
 
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- flat ui-->
+<script src="{% static 'js/flat-ui.min.js' %}"></script>
+<!-- bootstrap-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
 
     <!-- Fa fa icons-->
@@ -24,8 +30,6 @@
     <!-- custom -->
   <link rel="stylesheet" type="text/css" href="{%static '/css/app.css'%}">
 
-
-  <script src="{%static '/js/vendor/jquery.js'%}"></script>
 
     <!--
 
@@ -54,12 +58,32 @@
   </div>
   <div class="collapse navbar-collapse" id="navbar-collapse-01">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#fakelink">Explorar</a></li>
-      <li><a href="#fakelink">Publica tu Proyecto</a></li>
+      <li {%if nav_section == 'home' %} class="active" {%endif%} ><a href="#!">Explorar</a></li>
+      <li {%if nav_section == 'new' %} class="active" {%endif%} ><a href="{%url 'projects:new'%}">Publica tu Proyecto</a></li>
     </ul>
       <div class="navbar-right">
-      <button class="btn btn-warning btn-xs" type="button">SignUp</button>
-      <button class="btn btn-default navbar-btn btn-xs" type="button">Sign in</button>
+        {%if request.user.is_authenticated%}
+        
+        
+        <!-- Inverted skin  -->
+        <div class="btn-group">
+          <button class="btn btn-inverse navbar-btn dropdown-toggle" type="button" data-toggle="dropdown">
+            {{request.user.username}} <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-inverse" role="menu">
+            <li><a href="{%url 'dash:dash'%}">Perfil</a></li>
+            <li><a href="#">Contribuciones</a></li>
+            <li class="divider"></li>
+            <li><a href="{%url 'logout'%}">Cerrar Sesion</a></li>
+          </ul>
+        </div>
+
+
+        {%else%}
+      <a class="btn btn-warning btn-xs" type="button">SignUp</a>
+      <a href="{%url 'login'%}" class="btn btn-default navbar-btn btn-xs" type="button">Sign in</a>
+      {%endif%}
+
       </div>
 
   </div><!-- /.navbar-collapse -->
@@ -70,11 +94,13 @@
 
 <!-- Mensajes-->
 {% if messages %}
-<ul class="messages">
+
     {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+
+    <div class="centrado alert alert-{% if message.tags == 'success'%}success{%else%}danger{%endif%}" role="alert">{{ message }}</div>
+
     {% endfor %}
-</ul>
+
 {% endif %}
 
 
@@ -95,7 +121,7 @@
   firebase.initializeApp(config);
 </script>
 
-<script src="{% static 'js/flat-ui.min.js' %}"></script>
+
 
 <!--<script src="{%static '/js/vendor/foundation.js'%}"></script>-->
 
@@ -114,8 +140,7 @@
 <script src="{%static '/js/app.js'%}"></script>
 -->
 
-    <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 
 <!--
 <script src="{%static '/bower_components/chartist/dist/chartist.js'%}"></script>
@@ -123,40 +148,44 @@
 
 <script type="text/javascript">
 
-  function readURL(input) {
+//   function readURL(input) {
 
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
+//     if (input.files && input.files[0]) {
+//         var reader = new FileReader();
 
-        reader.onload = function (e) {
-            $('#preview').attr('src', e.target.result);
-        }
+//         reader.onload = function (e) {
+//             $('#preview').attr('src', e.target.result);
+//         }
 
-        reader.readAsDataURL(input.files[0]);
-    }
-}
+//         reader.readAsDataURL(input.files[0]);
+//     }
+// }
 
-  function readVideo() {
+//   function readVideo() {
 
-    $('#vidPrev').attr('src',$('#vid').val());
+//     $('#vidPrev').attr('src',$('#vid').val());
     
-    }
+//     }
 
 
-$("#img").change(function(){
-    readURL(this);
-});
+// $("#img").change(function(){
+//     readURL(this);
+// });
 
-$('#vid').change(function(){
+// $('#vid').change(function(){
 
-    readVideo();
-})
+
 
 $('.carousel').carousel()
+
+//     readVideo();
+// })
+
 </script>
 
 {%block scripts%}
 {%endblock scripts%}
+
 
 
 </body>
