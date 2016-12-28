@@ -3,10 +3,165 @@
 
 {%block content%}
 
-<h1>{{project.name}}</h1>
+<section class="contenedor well well-sm">
+
+<div class="centrado">
+	<h2>{{project.name}}</h2>
+	<a class="btn btn-info btn-xs" type="button">
+		<span class="fui-calendar"></span>
+		{{project.date | date:"d, M Y"}}
+	</a>
+	{%for t in project.tags.all%}
+	<a href="{%url 'projects:categoria' t.slug%}" class="btn btn-info btn-xs" type="button">
+		<span class="fui-tag"></span>
+		{{t.name}}
+	</a>
+	{%endfor%}
+	
+</div>
+<br>
+<article class="row panel-body">
 
 
-	{%autoescape off%}{{project.desc}}{%endautoescape%}
+<div class="col-sm-8">
+
+	{%if project.video%}
+	<iframe id="vidPrev" width="100%" height="315" src="{{project.video}}" frameborder="0" allowfullscreen></iframe>
+	{%else%}
+		{%if project.img%}
+			<img class="img-responsive" src="{{project.img.url}}">
+		{%else%}
+			<img class="img-responsive" src="http://www.ciiecca.org.ar/wp-content/themes/openmind/img/no_image.png">
+		{%endif%}
+	{%endif%}
+</div>
+
+<div class="col-sm-4 panel">
+
+	<div class="user row panel-body">
+		<div class="col-xs-3">
+			{%if project.user.profile.img%}
+			<img class="foto_perfil" src="{{project.user.profile.img.url}}">
+			{%endif%}
+		</div>
+		<div class="col-xs-9">
+			<span>{{project.user.first_name}} {{project.user.last_name}}</span>
+			<div class="divider"></div>
+			<a href="mailto:{{project.user.email}}">{{project.user.email}}</a>
+		</div>
+	</div>
+	<br>
+	<div class="patrocinadores">
+		<h4 style="margin:0">15</h4>
+		<span>Patrocinadores</span>
+	</div>
+	<div class="dinero">
+		<h4 class="text-success" style="margin:0">$350 MXN</h4>
+		<span>De la meta de ${{project.goal}}</span>
+		<div class="progress">
+			<div class="progress-bar" style="width: 40%;"></div>
+		</div>
+	</div>
+	<div class="fechas">
+		<h4 class="text-danger" style="margin:0">30</h4>
+		<span>Días restantes</span>
+	</div>
+	<br>
+	<div class="cart">
+		<button class="btn btn-success">
+			Patrocinar este proyecto
+		</button>
+	</div>
 
 
+
+		<div class="social">
+		<div class="icon" data-toggle="tooltip" data-placement="bottom" title="Comparte en Facebook">
+			<span class="fui-facebook"></span>
+		</div>
+		<div class="icon" data-toggle="tooltip" data-placement="bottom" title="Comparte en Twitter">
+			<span class="fui-twitter"></span>
+		</div>
+		<div class="icon" data-togle="tooltip" data-placement="bottom" title="Comparte en Pinterest">
+			<span class="fui-pinterest"></span>
+		</div>
+		<div class="icon" data-toggle="tooltip" data-placement="bottom" title="Copia el link">
+			<span class="fui-link"></span>
+		</div>
+	</div>
+
+</div>
+
+
+</article> <!-- row-->
+
+</section>
+
+<br>
+
+<section class="acerca contenedor">
+
+	<article class="row">
+
+
+		<div class="desc col-md-8 well">
+
+			{%autoescape off%}{{project.desc}}{%endautoescape%}
+
+		</div>
+
+		<div class="rewards col-md-4">
+
+			{%for r in project.rewards.all%}
+			<div class="well reward">
+				<p>Contribuir: </p>
+				<h6><span class="dineros" >$</span>{{r.price}}MXN</h6>
+				<h5>{{r.title}}</h5>
+				<p>{{r.desc}}</p>
+				<span class="dineros">Fecha aproximada de entrega: <span class="text-info">{{r.deliver_date|date:"M, Y"}}</span></span>
+				<br>
+				<span class="dineros">608 <span class="text-info">Adquiridos</span></span>
+				<div class="selected">Obtener esta recompensa</div>
+			</div>
+			{%endfor%}
+
+
+		</div>
+
+
+
+
+
+
+	</article>
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+<script>
+	$('[data-toggle="tooltip"]').tooltip()
+</script>
 {%endblock content%}

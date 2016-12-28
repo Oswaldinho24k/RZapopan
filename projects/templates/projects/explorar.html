@@ -160,6 +160,7 @@ style="background-image:url('https://userscontent2.emaze.com/images/38423a3f-423
 {%for p in projects%}
 
 <div class="col-sm-6 col-lg-4">
+  <a href="{{p.get_absolute_url_public}}">
       <div class=" tarjeta">
         <div class="card-section tagpadre">
           <span class='boxed'>{{p.tags.all|join:", "}}</span>
@@ -194,6 +195,7 @@ style="background-image:url('https://userscontent2.emaze.com/images/38423a3f-423
           </div>
         </div> 
       </div> 
+  </a>
 </div> <!-- card-->
 
 {%endfor%}

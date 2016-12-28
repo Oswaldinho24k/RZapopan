@@ -21,6 +21,9 @@ class Project(models.Model):
     def get_absolute_url(self):
         return reverse('dash:detail', kwargs={'pk':self.pk})
 
+    def get_absolute_url_public(self):
+        return reverse('projects:detail', args=[self.pk])
+
     def __str__(self):
         return self.name
 

@@ -75,6 +75,62 @@ font {
 	padding: 5%;
 }
 
+.icon{
+	cursor: pointer;
+	width: 50px;
+	height: 50px;
+	border: 2px solid grey;
+	border-radius: 50%;
+	display: inline-block;
+	text-align: center;
+	padding-top: 8px;
+	margin-top: 20px;
+	color: grey;
+	transition:all 0.5s ease;
+}
+.icon:hover{
+	margin-top: 0;
+	background: grey; 
+	color: white;
+}
+
+.reward{
+	padding: 30px;
+	position: relative;
+	cursor: pointer;
+}
+.reward p{
+	color: #7F8C8D;
+}
+.reward h5{
+	font-size: 2rem;
+	font-weight: bold;
+	color: #16A085;
+
+}
+.reward .selected{
+	width: auto;
+	padding: 10px;
+	height: auto;
+	color:white;
+	background: #E74C3C;
+	position: absolute;
+	right: 50px;
+	bottom: 0;
+	opacity: 0;
+	transform: rotate(90deg);
+	transform-origin: right bottom 0;
+	transition:all 0.5s ease;
+}
+.reward:hover > .selected{
+	opacity: 1;
+}
+
+
+
+
+
+
 
 
 
