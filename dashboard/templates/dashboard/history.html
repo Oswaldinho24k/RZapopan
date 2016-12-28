@@ -8,7 +8,7 @@
 <section class="contendor centrado">
 
 	<h3 class="demo-panel-title">{{project}} / {{section}}
-		<button id="guarda" class="btn btn-success">Guardar</button>
+		<button id="guarda" class="btn btn-success" {%if project.publish%}disabled{%endif%}>Guardar</button>
 	</h3>
 
 

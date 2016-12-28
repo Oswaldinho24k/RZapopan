@@ -147,8 +147,12 @@ class Rewards(View):
 			return redirect('dash:rewards',pk=pk)
 
 		p = get_object_or_404(Project, id=pk)
-		print(request.POST)
+
 		form = NewRewardForm(data=request.POST)
+		if request.POST.get('pk'):
+			r = get_object_or_404(Reward,id=request.POST.get('pk'))
+			form = NewRewardForm(data=request.POST, instance=r)
+		
 		if form.is_valid():
 			r = form.save(commit=False)
 			r.project = p

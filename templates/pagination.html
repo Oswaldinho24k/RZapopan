@@ -1,0 +1,25 @@
+<div>
+  <ul class="pagination pagination-success">
+  	{%if page.has_previous%}
+    <li class="previous">
+      <a href="?page={{page.previous_page_number}}" class="fui-arrow-left"></a>
+    </li>
+    {%endif%}
+
+
+        <li>
+          Pagina {{page.number}} de {{page.paginator.num_pages}}
+        </li>
+
+        
+       
+      
+
+
+    {%if page.has_next%}
+    <li class="next">
+      <a href="?page={{page.next_page_number}}" class="fui-arrow-right"></a>
+    </li>
+    {%endif%}
+  </ul>
+</div>
