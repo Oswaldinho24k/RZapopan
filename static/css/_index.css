@@ -123,8 +123,9 @@ hr.tall {
 }
 
 .tarjeta{
+  display: inline-block;
   background: white;
-  height:550px;
+  height:auto;
   background-image:url(../images/pattern.png);
   background-size: cover; 
     /* Add shadows to create the "card" effect */

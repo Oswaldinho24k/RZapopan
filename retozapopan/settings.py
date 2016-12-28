@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'dashboard',
     'projects',
     'funds',
+    'taggit',
 ]
 
 MIDDLEWARE = [

@@ -13,6 +13,8 @@ from django.utils.decorators import method_decorator
 
 from django.core import serializers
 
+from taggit.models import Tag
+
 
 
 class Explorar(ListView):
@@ -24,7 +26,8 @@ class Explorar(ListView):
 
 	def get_queryset(self):
 		try:
-			return Project.objects.all().filter(name=self.kwargs['cat'])
+			tag = get_object_or_404(Tag, slug=self.kwargs['cat'])
+			return Project.objects.all().filter(tags__in=[tag])
 		except:
 			return Project.objects.all()
 
@@ -32,6 +35,11 @@ class Explorar(ListView):
 	def get_context_data(self, **kwargs):
 		context = super(Explorar, self).get_context_data(**kwargs)
 		context['nav_section'] = "explorar"
+		try:
+			tag = get_object_or_404(Tag, slug=self.kwargs['cat'])
+			context['categoria'] = tag
+		except:
+			pass
 		return context
 
 
