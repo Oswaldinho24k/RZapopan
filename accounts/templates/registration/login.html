@@ -8,9 +8,12 @@
 <article class="panel panel-default row">
 <form class="panel-body" action="{%url 'login'%}" method="post">
 	{%csrf_token%}
+	<div class="col-md-4 col-md-offset-4">
 	{{form.as_p}}
+	
 	<input type="hidden" name="next" value="{{next}}"> 
 	<input class="success btn btn-primary" type="submit" value="Iniciar Sesión">
+	</div>
 </form>
 
 <h6 class="col-md-12">
@@ -28,10 +31,17 @@
 	¿No tienes cuenta?, registrate <a href="#!">aqui</a>
 </h6>
 </article>
+
+</section>
+
+
+<script>
+	$('input').addClass('form-control')
+</script>
 {%endblock content%}
 
 
-</section>
+
 
 
 
