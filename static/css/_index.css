@@ -1,24 +1,25 @@
 body{
-   font-family:Avenir;
+   font-family:Avenir; 
+   -webkit-tap-highlight-color: #0085A1;
 
 }
+@font-face {
+font-family: Avenir;
+src: url(/static/fonts/AvenirLTStd-Light.otf);
 
+}
 p {
   line-height: 1.5;
 }
 p a {
   text-decoration: underline;
 }
-
 a:hover,
 a:focus {
   color: #0085A1;
 }
 
-blockquote {
-  color: #777777;
-  font-style: italic;
-}
+/*Inicio*/
 hr.small {
   max-width: 100px;
   margin: 15px auto;
@@ -35,30 +36,20 @@ hr.small {
   -o-background-size: cover;
   margin-bottom: 30px;
 }
-.row{
-  margin:0;
-}
-.intro-hader image{
 
-}
-.intro-header .site-heading,
-.intro-header .post-heading,
-.intro-header .page-heading {
+.intro-header .site-heading {
   padding: 100px 0 50px;
   color: white;
 }
 @media only screen and (min-width: 768px) {
-  .intro-header .site-heading,
-  .intro-header .post-heading,
-  .intro-header .page-heading {
+  .intro-header .site-heading {
     padding: 150px 0;
   }
 }
 .intro-header .site-heading{
   text-align: center;
 }
-.intro-header .site-heading h1,
-.intro-header .page-heading h1 {
+.intro-header .site-heading h1 {
   margin-top: 0;
   font-size: 50px;
 }
@@ -66,7 +57,6 @@ hr.small {
   font-size: 24px;
   line-height: 1.1;
   display: block;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 300;
 }
 @media only screen and (min-width: 768px) {
@@ -74,40 +64,13 @@ hr.small {
     font-size: 80px;
   }
 }
+.row{
+  margin:0;
+}
 
-footer {
-  padding: 50px 0 65px;
-}
-footer .list-inline {
-  margin: 0;
-  padding: 0;
-}
-footer .copyright {
-  font-size: 14px;
-  text-align: center;
-  margin-bottom: 0;
-}
-/*
-img::selection {
-  color: white;
-  background: transparent;
-}
-img::-moz-selection {
-  color: white;
-  background: transparent;
-}*/
-body {
-  -webkit-tap-highlight-color: #0085A1;
-}
 .image{
   width:170px;
   margin-top:10px;
-}
-
-@font-face {
-font-family: Avenir;
-src: url(/static/fonts/AvenirLTStd-Light.otf);
-
 }
 .botoncito{
   margin-top:20px;
@@ -116,20 +79,8 @@ src: url(/static/fonts/AvenirLTStd-Light.otf);
   margin-top:0;
   background-color:white;
 }
-
-
-#column {
-  width: 50%;
-  float: right;
-  align-items: center;
-  position: relative;
-  vertical-align: middle;
-  display: table-cell;
-}
-
 .instruccion{
-
-    margin-bottom:80px;
+  margin-bottom:80px;
 
 }
 .circulo{
@@ -138,23 +89,15 @@ src: url(/static/fonts/AvenirLTStd-Light.otf);
 }
 .card{
   width:90%;
-  margin:5px;
+  margin:5%;
   min-height:200px;
 }
 .thumbnail{
   border:0px transparent;
 }
 
-/*
-.caja{
-  border-style:solid;
-  border-color:#cfd8dc;
-  border-width:.5px;
-  width:80%;
-  margin-left:10%;
-}*/
-  .pasos{
-    margin-top:30px;
+.pasos{
+    margin-top:70px;
   display:block;
 }
 .pasines{
@@ -250,8 +193,119 @@ hr.tall {
 .apodo p {
   font-size:13px;
 }
-.team{
-  margin-top:100px;
+
+
+
+.tagpadre{
+  position:relative;
+}
+
+.top{
+  margin-top:60px;
+}
+
+.coment{
+ align-items:center;
+ margin-right:8px;
+ margin-top:35px;
+}
+.comentario{
+  text-align:justify;
+  font-size:15px;
+  margin-left:8px;
+  margin-right:8px;
+}
+.alin{
+  display:inline-flex;
+  margin-top:3%;
+  margin-left:5%;
+  width:80%;
+}
+.destacados{
+  margin-top:40px;
+}
+
+/*Categorias*/
+.cuadrado {
+     width: 100%; 
+     height:216px; 
+     margin:0 0 10% 0;
+     background-image:url(https://images.pexels.com/photos/48606/pexels-photo-48606.jpeg?h=350&auto=compress&cs=tinysrgb);
+     background-size:cover;
+     filter:grayscale(100%);
+      transition:all 1s ease; 
+       background-position:center;
+       display:flex;
+}
+.cuadrado:hover, .cuadrado1:hover, .cuadrado2:hover, .cuadrado3:hover, .rectangulo:hover, .rectangulo1:hover, .rectangulo2:hover {
+  filter:grayscale(0%);
+  background-size:200%;
+  cursor:pointer;
+
+}
+.cuadrado1 {
+     width: 100%; 
+     height:216px; 
+     margin:0 0 10% 0;
+     background-image:url(https://images.pexels.com/photos/89860/pexels-photo-89860.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb);
+     background-size:cover;
+     filter:grayscale(100%);
+      background-position:center;
+      transition:all 1s ease; 
+}
+.cuadrado2 {
+     width: 100%; 
+     height:216px; 
+     margin:0 0 10% 0;
+     background-image:url(https://images.pexels.com/photos/238622/pexels-photo-238622.jpeg?h=350&auto=compress&cs=tinysrgb);
+     background-size:cover;
+     filter:grayscale(100%);
+
+       background-position:center;
+        transition:all 1s ease; 
+}
+.cuadrado3 {
+     width: 100%; 
+     height:216px; 
+     margin:0 0 10% 0;
+     background-image:url(https://images.pexels.com/photos/239886/pexels-photo-239886.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb);
+     background-size:cover;
+     filter:grayscale(100%);
+       background-position:center;
+        transition:all 1s ease; 
+}
+.rectangulo {
+     width: 100%; 
+     height: 463px; 
+     margin:0 0 5% 0;
+     text-align:center;
+     background: #428bca;
+     background-image:url(https://images.pexels.com/photos/80467/globe-indonesia-equator-80467.jpeg?h=350&auto=compress);
+     background-size:cover;
+     filter:grayscale(100%);
+       background-position:center;
+        transition:all 1s ease; 
+}
+.rectangulo1 {
+     height: 250px; 
+     background: #428bca;
+     margin:0 0 10% 1%;
+     background-image:url(https://images.pexels.com/photos/110252/pexels-photo-110252.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb);
+     background-size:cover;
+     filter:grayscale(100%);
+       background-position:center;
+        transition:all 1s ease; 
+}
+.rectangulo2 {
+
+     height: 250px; 
+     background: #428bca;
+     margin-right:1%;
+     background-image:url(https://images.pexels.com/photos/7075/people-office-group-team.jpg?w=1260&h=750&auto=compress&cs=tinysrgb);
+     background-size:cover;
+     filter:grayscale(100%);
+       background-position:center;
+        transition:all 1s ease; 
 }
 .boxed{
   padding: 0.2em 1.1em;
@@ -272,7 +326,6 @@ hr.tall {
   top: 50%; 
   left: 50%;
   transform: translate(-50%, -50%);
-
     font-size: 0.95em;
     font-weight: 500;
     color: white;
@@ -319,130 +372,14 @@ hr.tall {
     text-align:center;
     background-color: #1f1f1f
 }
-
-.tagpadre{
-  position:relative;
-}
-
-.top{
-  margin-top:60px;
-}
-
-.coment{
- align-items:center;
- margin-right:8px;
- margin-top:11px;
-}
-.comentario{
-  text-align:justify;
-  font-size:15px;
-  margin-left:8px;
-  margin-right:8px;
-}
-.alin{
-  display:inline-flex;
-  margin-top:3%;
-  margin-left:5%;
-}
-.destacados{
-  margin-top:40px;
-}
-.cuadrado {
-     width: 100%; 
-     height:216px; 
-     margin:0 0 10% 0;
-     background-image:url(https://images.pexels.com/photos/48606/pexels-photo-48606.jpeg?h=350&auto=compress&cs=tinysrgb);
-     background-size:cover;
-     filter:grayscale(100%);
-      transition:all 1s ease; 
-       background-position:center;
-       display:flex;
-}
-.cuadrado:hover, .cuadrado1:hover, .cuadrado2:hover, .cuadrado3:hover, .rectangulo:hover, .rectangulo1:hover, .rectangulo2:hover {
-  filter:grayscale(0%);
-  background-size:200%;
-  cursor:pointer;
-
-}
-/*
-.cuadrado:hover, .cuadrado1:hover, .cuadrado2:hover, .cuadrado3:hover, .rectangulo:hover, .rectangulo1:hover, .rectangulo2:hover{
-  filter: grayscale(0%);
-  background-size:150%;
- background-position:center;
- cursor:pointer;
-  transition:all 1s ease; 
- 
-}*/
-.cuadrado1 {
-     width: 100%; 
-     height:216px; 
-     margin:0 0 10% 0;
-     background-image:url(https://images.pexels.com/photos/89860/pexels-photo-89860.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb);
-     background-size:cover;
-     filter:grayscale(100%);
-       background-position:center;
-        transition:all 1s ease; 
-}
-.cuadrado2 {
-     width: 100%; 
-     height:216px; 
-     margin:0 0 10% 0;
-     background-image:url(https://images.pexels.com/photos/238622/pexels-photo-238622.jpeg?h=350&auto=compress&cs=tinysrgb);
-     background-size:cover;
-     filter:grayscale(100%);
-
-       background-position:center;
-        transition:all 1s ease; 
-}
-.cuadrado3 {
-     width: 100%; 
-     height:216px; 
-     margin:0 0 10% 0;
-     background-image:url(https://images.pexels.com/photos/239886/pexels-photo-239886.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb);
-     background-size:cover;
-     filter:grayscale(100%);
-       background-position:center;
-        transition:all 1s ease; 
-}
-.rectangulo {
-     width: 100%; 
-     height: 463px; 
-     text-align:center;
-     background: #428bca;
-     background-image:url(https://images.pexels.com/photos/80467/globe-indonesia-equator-80467.jpeg?h=350&auto=compress);
-     background-size:cover;
-     filter:grayscale(100%);
-       background-position:center;
-        transition:all 1s ease; 
-}
-.rectangulo1 {
-     height: 250px; 
-     background: #428bca;
-     margin-left:1%;
-     background-image:url(https://images.pexels.com/photos/110252/pexels-photo-110252.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb);
-     background-size:cover;
-     filter:grayscale(100%);
-       background-position:center;
-        transition:all 1s ease; 
-}
-.rectangulo2 {
-
-     height: 250px; 
-     background: #428bca;
-     margin-right:1%;
-     background-image:url(https://images.pexels.com/photos/7075/people-office-group-team.jpg?w=1260&h=750&auto=compress&cs=tinysrgb);
-     background-size:cover;
-     filter:grayscale(100%);
-       background-position:center;
-        transition:all 1s ease; 
-}
 .clasificacion{
   margin-top:40px;
   margin-bottom:80px;
 }
+
+/*Nuestro equipo*/
 .equipo{
   width:50%;
-
   border-radius:50%;
 }
 .equipos{
@@ -450,12 +387,14 @@ hr.tall {
   text-align:center;
   margin-top:90px;
 }
+.team{
+  margin-top:100px;
+}
 .nombres{
   margin:5px;
   font-size:22px;
    margin:0px;
 }
-
 .social-buttons i{
   margin-top:25%;
 }
@@ -465,13 +404,10 @@ ul.social-buttons li a:focus,
 ul.social-buttons li a:active {
   background-color: #2CB397;
 }
-
 .text-muted{
-
   font-size:12px;
 }
 .service{
-
   width:70%;
   margin-left:15%;
   text-align:center;
@@ -493,25 +429,86 @@ ul.social-buttons li a {
   transition: all 0.3s;
 }
 
+/*Partners*/
 .partners{
-  width:100%;
+  width:80%;
+  margin-left:10%;
+  height:auto;
+  margin-top:30px; 
+}
+
+.boxi{
+  margin:0;
   height:150px;
-  margin-top:30px;
-  
 }
 .logis{
-  margin:0 35px;
-  height:150px;
+  width:80%;
+  margin-left:10%;
 }
 
+/*Comentarios*/
 #backg{
   width:90%;
-  height:250px;
-
+  margin-left:5%;
+  padding-bottom:4%;
 }
 .coments{
+  width:100%;
   background-color:#2CB397;
+  height:auto;
 }
-.cajas{
-  margin-bottom:60px;
+
+.carousel{
+  height:auto;
+  margin-top:25px;
+}
+
+/*Footer*/
+.footer {
+  color: white;
+  margin-top:20px;
+}
+.footer h3 {
+  margin-bottom: 30px;
+}
+.footer-above {
+  padding-top: 50px;
+  background-color: #2C3E50;
+}
+.footer-col {
+  margin-bottom: 50px;
+}
+.copy{
+  height:60px;
+  background-color: #233140;
+}
+
+.footer i{
+  color:white;
+  font-size:25px;
+}
+.opinion{
+  background-color:transparent; 
+  color:white; 
+  border:1px solid;
+  transition:all 1s ease;
+  margin-left:2.5%;
+  margin-right:2.5%;
+}
+.opinion:hover{
+  color:#2CB397;
+  background-color:white;
+  cursor:pointer;
+}
+footer {
+  padding: 50px 0 65px;
+}
+footer .list-inline {
+  margin: 0;
+  padding: 0;
+}
+footer .copyright {
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 0;
 }
