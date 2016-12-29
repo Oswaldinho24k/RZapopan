@@ -72,37 +72,62 @@
   <hr class='tall'>
   <div class='row' >
     <div class='col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1 col-sm-12 col-xs-12'>
-        <div class='cuadrado tagpadre'>
+        <div class="marco">
+        <a href="{%url 'projects:categoria' 'tecnologia'%}" class='cuadrado tagpadre'>
              <span class='label label-warning boxed2'>Tecnología</span>
+        </a>
         </div>
+
+        <div data-link="arte" class="marco">
         <div class='cuadrado1 tagpadre'>
          <span class='label label-warning boxed3'>Arte</span>
       </div>
+        </div>
+
     </div>
     <div class='col-md-4 col-lg-4 col-sm-12 col-xs-12'> 
+
+        <div class="marco-rectangulo">
         <div class='rectangulo tagpadre'>
           <span class='label label-warning boxed4'>Todas</span>
         </div>
+        </div>
+
     </div>
     <div class='col-md-3 col-lg-3 col-sm-12 col-xs-12'>
+
+        <div data-link="medio-ambiente" class="marco">
         <div class='cuadrado2 tagpadre'>
           <span class='label label-warning boxed3'>Medio Ambiente</span>
         </div>
+        </div>
+
+        <div data-link="diseno" class="marco">
         <div class='cuadrado3 tagpadre'>
          <span class='label label-warning boxed3'>Diseño</span>
       </div>
+       </div>
+
     </div>
   </div>
   <div class='row'>
     <div class='col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1 col-sm-12 col-xs-12' >
+
+      <div data-link="educacion" class="marco-rectangulo-bot">
       <div class='rectangulo1'>
          <span class='label label-warning boxed2'>Educación</span>
       </div>
+      </div>
+
     </div>
     <div class='col-md-5 col-lg-5 col-sm-12' >
+
+      <div data-link="comunidad" class="marco-rectangulo-bot">
        <div class='rectangulo2'>
          <span class='label label-warning boxed2'>Comunidad</span>
       </div>
+    </div>
+
     </div>
   </div>
 </div>
@@ -408,4 +433,17 @@
   <!-- $('.carousel').carousel()
 
 </script>
+
+
+<script>
+  $('.marco, .marco-rectangulo-bot').on('click', function(){
+    var link = $(this).attr('data-link');
+    document.location.href='/projects/explorar/'+link+'/'
+  });
+
+    $('.marco-rectangulo').on('click', function(){
+    document.location.href='/projects/explorar/'
+  })
+</script>
+
 {%endblock content%}

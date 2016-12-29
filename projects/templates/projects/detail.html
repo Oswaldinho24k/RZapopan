@@ -23,10 +23,10 @@
 <article class="row panel-body">
 
 
-<div class="col-sm-8">
+<div style="height:auto;" class="col-sm-8">
 
 	{%if project.video%}
-	<iframe id="vidPrev" width="100%" height="315" src="{{project.video}}" frameborder="0" allowfullscreen></iframe>
+	<iframe id="vidPrev" width="100%" height="508" src="{{project.video}}" frameborder="0" allowfullscreen></iframe>
 	{%else%}
 		{%if project.img%}
 			<img class="img-responsive" src="{{project.img.url}}">
