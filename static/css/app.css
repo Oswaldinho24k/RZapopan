@@ -20,3 +20,15 @@ li.error{
 	color:white;
 }
 
+.carga{
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  /*background: url(hermoso.gif) center no-repeat #fff;*/
+  background: url(https://s3.eu-central-1.amazonaws.com/cloudpro/sas-smart.com/images/loading.gif) center no-repeat #fff;
+  /*animation:cargando 1.5s ease infinite;*/
+}
+

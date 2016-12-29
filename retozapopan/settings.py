@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'projects',
     'funds',
     'taggit',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +58,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                
+                #Mi carrito de compras
+                'cart.context_processors.cart',
             ],
         },
     },
@@ -175,4 +177,7 @@ AUTHENTICATION_BACKENDS = (
     )
 LOGOUT_REDIRECT_URL = 'home'
 LOGIN_REDIRECT_URL = 'dash:dash'
+
+
+CART_SESSION_ID = 'cart'
 

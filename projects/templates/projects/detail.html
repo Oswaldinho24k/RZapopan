@@ -112,7 +112,14 @@
 
 		<div class="rewards col-md-4">
 
-			{%for r in project.rewards.all%}
+			 {%for r in project.rewards.all%}
+			
+			<form action="{%url 'cart:cart_add' r.pk%}" method="post">
+			
+				{%csrf_token%}
+				<input type="hidden" name="quantity" value="1">
+				<input type="hidden" name="update" value="false">
+
 			<div class="well reward">
 				<p>Contribuir: </p>
 				<h6><span class="dineros" >$</span>{{r.price}}MXN</h6>
@@ -123,6 +130,8 @@
 				<span class="dineros">608 <span class="text-info">Adquiridos</span></span>
 				<div class="selected">Obtener esta recompensa</div>
 			</div>
+			</form>
+
 			{%endfor%}
 
 
@@ -163,5 +172,9 @@
 
 <script>
 	$('[data-toggle="tooltip"]').tooltip()
+
+	$('form').on('click',function(){
+		$(this).submit();
+	});
 </script>
 {%endblock content%}

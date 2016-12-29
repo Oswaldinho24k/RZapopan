@@ -6,6 +6,7 @@ from main import urls as mainUrls
 from inputs import urls as inputsURLs
 from dashboard import urls as dashboardURLs
 from projects import urls as projectsURLs
+from cart import urls as cartURLs
 
 from django.views.static import serve
 from django.conf import settings
@@ -27,6 +28,9 @@ urlpatterns = [
 
     url(r'^accounts/',
         include(accountsURLs)),
+
+    url(r'^cart/',
+        include(cartURLs, namespace="cart")),
 
 
     #Social

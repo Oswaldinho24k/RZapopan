@@ -11,7 +11,11 @@
 <!-- flat ui-->
 <script src="{% static 'js/flat-ui.min.js' %}"></script>
 <!-- bootstrap-->
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+
+
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
@@ -47,6 +51,8 @@
 </head>
 <body>
 
+  <div class="carga"></div>
+
 
 <!--Responsive nav-->
 
@@ -75,19 +81,37 @@
       </div>
     </form>
 
-     <!--Cart-->
+
+    {%endif%}
+
+    {%if request.user.is_authenticated%}
+
+         <!--Cart-->
         <ul class="nav navbar-nav">
-          <li>
-            <a href="#">
-              <!--<span class="fui-credit-card"></span>-->
+          <li data-toggle="tooltip" data-placement="bottom" title="Tienes un patrocinio pendiente">
+
+
+            {%with total_items=cart|length%}
+            {%if cart|length > 0%}
+            <a href="{%url 'cart:cart_detail'%}">
               <i class="fa fa-money" aria-hidden="true"></i>
+              <span class="navbar-new">
+                 {{total_items}}
+              </span>
+             
 
-              <!-- Indicator with number -->
-              <span class="navbar-new">0</span>
             </a>
-          </li>
-        </ul>
+            {%else%}
+            <i class="fa fa-money" aria-hidden="true"></i>
+            {%endif%}
+            {%endwith%}
 
+
+
+              
+
+          </li>
+        </ul> <!--cart-->
 
     {%endif%}
 
@@ -98,7 +122,7 @@
 
         <!--badges-->
         <ul class="nav navbar-nav">
-          <li>
+          <li data-toggle="tooltip" data-placement="bottom" title="Tienes mensajes pendientes">
             <a href="#">
               <span class="fui-mail"></span>
               <!-- Indicator with number -->
@@ -224,6 +248,17 @@ $('.carousel').carousel()
 //     readVideo();
 // })
 
+</script>
+
+<script type="text/javascript">
+            // Wait for window load
+    $(window).on('load',function() {
+        // Animate loader off screen
+        $(".carga").fadeOut("slow");
+    });
+
+
+    $('[data-toggle="tooltip"]').tooltip()
 </script>
 
 {%block scripts%}

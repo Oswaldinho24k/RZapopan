@@ -1,0 +1,277 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<section class="contenedor">
+
+<div class="well centrado">
+	<h3>{{request.user.first_name}}, tú eres la parte más importante</h3>
+	<p>Estas a un solo paso de hacer realidad este proyecto</p>
+</div>
+
+<article class="row">
+			
+	<div class="col-sm-8">
+		<div class="row">
+
+			<div class="col-sm-12 panel">
+
+				<div class="user row panel-body">
+				<div class="col-xs-3">
+					{%if request.user.profile.img%}
+					<img class="foto_perfil" src="{{request.user.profile.img.url}}">
+					{%endif%}
+				</div>
+				<div class="col-xs-9">
+					<span>{{request.user.first_name}} {{request.user.last_name}}</span>
+					<div class="divider"></div>
+					<a href="mailto:{{request.user.email}}">{{request.user.email}}</a>
+					<br>
+					<span class="dineros">¿No eres tu? <a href="{%url 'logout'%}">Cerrar Sesión</a></span>
+				</div>
+			</div>
+
+			</div>
+
+
+
+		</div> <!-- user row -->
+
+		<div class="row">
+
+			<div class="input-group">
+			  <input type="text" class="form-control" placeholder="Nombre en la targeta" />
+			  <span class="input-group-addon">
+			  	<span class="fui-user"></span>
+			  </span>
+			</div>
+
+			<div class="divider2"></div>
+
+			<div class="input-group">
+				<span class="input-group-addon">
+			  	<span class="fui-credit-card"></span>
+			  </span>
+			  <input maxlength="19" id="card" type="text" class="form-control" placeholder="Número de la tarjeta" />
+			  
+			</div>
+
+			<div class="divider2"></div>
+			
+			<div class="input-group">
+
+				<span class="input-group-addon">
+			  	<span class="fui-calendar"></span>
+			  	</span>
+			  	<input type="month" class="form-control" placeholder="Fecha de vencimiento" />
+
+			  	<span class="input-group-addon">
+			  	<span class="fui-lock"></span>
+			  	</span>
+			  	<input type="text" maxlength="3" class="form-control" placeholder="CVC" />
+			  
+			</div>
+
+			
+
+		</div> <!-- card row -->
+
+		<br>
+
+		<div class="">
+
+			{%for item in cart%}
+				{%with r=item.product%}
+			
+			<form action="{%url 'cart:cart_remove' r.id%}" method="get">
+			
+				{%csrf_token%}
+				<input type="hidden" name="quantity" value="1">
+				<input type="hidden" name="update" value="false">
+
+			<div class="well reward">
+				<p>Contribuir: </p>
+				<h6><span class="dineros" >$</span>{{r.price}}MXN</h6>
+				<h5>{{r.title}}</h5>
+				<p>{{r.desc}}</p>
+				<span class="dineros">Fecha aproximada de entrega: <span class="text-info">{{r.deliver_date|date:"M, Y"}}</span></span>
+				<br>
+				<span class="dineros">608 <span class="text-info">Adquiridos</span></span>
+				<div class="selected">Quitar esta recompensa</div>
+			</div>
+			</form>
+
+				{%endwith%}
+			{%endfor%}
+
+		</div> <!-- rewards row -->
+
+
+	</div> <!-- left col-->
+
+	<div class="col-sm-4">
+
+		<div class="panel">
+			<div class="header panel-body">
+				{%with total_items=cart|length%}
+				<span class="dineros">Tu{{total_items|pluralize}} recompensa{{total_items|pluralize}}:</span>
+				{%endwith%}
+				<br>
+				{%for item in cart%}
+				{%with r=item.product%}
+					<a class="btn btn-inverse btn-xs">{{r.title}}</a>
+				{%endwith%}
+				{%endfor%}
+			</div>
+		</div>
+		
+		<div class="panel">
+
+			<div class="body panel-body">
+				{%with total_items=cart|length%}
+				<span class="dineros">Proyecto{{total_items|pluralize}} a Patrocinar:</span>
+				{%endwith%}
+				<br>
+				<table width="100%" class="dineros">
+				{%for item in cart%}
+					{%with r=item.product%}
+						<tr>
+						<td>{{r.project.name}}</td>
+						
+						<td>$ {{item.total_price}}</td>
+						</tr>
+
+					{%endwith%}
+				{%endfor%}
+				</table>
+				<br>
+				<div class="divider1"></div>
+				<table width="100%" class="dineros">
+						<tr>
+						<td>
+							<h6>Total: </h6>
+						</td>
+						
+						<td >
+							<h5>
+							$ {{cart.get_total_price}}
+							</h5>
+						</td>
+						</tr>
+				</table>
+			</div>
+
+
+		</div> <!-- total-->
+
+		<div class="panel">
+			<div class="panel-body">
+
+				<span class="dineros">
+					Al hacer clic en "Realizar pago", reconoces que estás contribuyendo a un concepto o un trabajo en progreso y no realizando una compra directa. Los creadores de campañas administran las recompensas y CrowdZ no puede garantizarlas. También reconoces y aceptas nuestros <a href="">Términos de uso</a> y <a href="">Política de privacidad.</a>
+				</span>
+				<br>
+				<br>
+				<button disabled class="col-xs-12 btn btn-lg btn-success">Realizar pago</button>
+
+			</div>
+		</div>
+
+	</div> <!-- col totales -->
+
+
+</article> 
+
+</section>
+
+
+
+
+
+
+
+
+
+<!--
+	<table>
+		<thead>
+			<tr>
+				<th>Imagen</th>
+				<th>Producto</th>
+				<th>Cantidad</th>
+				<th>Quitar</th>
+				<th>Precio Unitario</th>
+				<th>SubTotal</th>
+			</tr>
+		</thead>
+		<tbody>
+			{%for item in cart%}
+				{%with product=item.product%}
+				<tr>
+					<td>
+						<img src="">
+					</td>
+					<td>
+						{{product.nombre}}
+					</td>
+					<td>
+						{{item.quantity}}
+					</td>
+					<td>
+						<a href="{%url 'cart:cart_remove' product.id%}">
+							Quitar
+						</a>
+					</td>
+					<td>
+						$ {{item.price}}
+					</td>
+					<td>
+						$ {{item.total_price}}
+					</td>
+				</tr>
+				{%endwith%}
+			{%endfor%}
+			<tr>
+				<td>Total</td>
+				<td colspan="4"></td>
+				<td>$ {{cart.get_total_price}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<button class="btn azul" >
+		<a href="{%url 'projects:explorar'%}">
+		Continuar comprando
+		</a>
+	</button>
+	<button class="btn rojo">
+		<a href="">
+		Pagar
+		</a>
+	</button>
+
+-->
+
+
+
+
+
+
+<script>
+	$('form').on('click',function(){
+		$(this).submit();
+	});
+
+
+	//espacio en numeros de la tarjeta
+	$("#card").keyup(function(){
+        var $this = $(this);
+        if ((($this.val().length+1) % 5)==0){
+            $this.val($this.val() + " ");
+        }
+    });
+
+
+
+</script>
+{%endblock content%}

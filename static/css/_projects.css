@@ -55,8 +55,18 @@ font {
 }
 .divider1{
 	width: 80%;
-	border: 1px solid #2C3E50;
+	border: 1px solid #16A085;
 	margin: 0 auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+}
+.divider2{
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+
 }
 
 .img_fondo{
