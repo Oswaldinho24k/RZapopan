@@ -21,7 +21,7 @@ class Explorar(ListView):
 	template_name = "projects/explorar.html"
 	# queryset = Project.objects.all()
 	context_object_name = 'projects'
-	paginate_by = 1
+	paginate_by = 6
 	
 
 	def get_queryset(self):
