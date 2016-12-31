@@ -1,0 +1,238 @@
+.contenedor{
+	width: 80%;
+	margin: 0 auto;
+}
+@media (max-width: 1000px){
+	.contenedor{
+		width: 100%;
+	}
+}
+.centrado{
+	text-align: center;
+}
+#padding{
+  padding: 0 30% 0 30%;
+}
+
+font {
+  font-family: 'Oswald', sans-serif;
+}
+
+.back {
+  background: url('http://enlaeconomia.com/wp-content/uploads/2015/10/clave-pacto-startup.jpg') no-repeat;
+  min-height: 100%;
+  background-position: center;
+}
+
+.fondo_oficial{
+	background-color: #34495E;
+	color:white;
+}
+.fondo_oficial a{
+	color: white;
+}
+.fondo_oficial a:hover{
+	color: white;
+}
+
+.exp{
+	background-color: #2C3E50;
+	padding: 10px 0 10px 0;
+	border-radius: 10px;
+	transition:all 0.5s ease;
+}
+.exp:hover{
+	cursor: pointer;
+	background-color: #2980B9;
+
+}
+.exp.active{
+	background-color: #2980B9;
+}
+
+.exp span{
+	font-size: 1.2rem;
+}
+.divider1{
+	width: 80%;
+	border: 1px solid #16A085;
+	margin: 0 auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+}
+.divider2{
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+
+}
+
+.img_fondo{
+	background-image:url("https://assets.rockefellerfoundation.org/app/uploads/20150518134031/Working-on-MacBook-Air-Unsplash-Alejandro-Escamilla.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.text-blanco{
+	color: white;
+}
+.pantalla{
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.5);
+	padding: 5%;
+}
+
+.icon{
+	cursor: pointer;
+	width: 50px;
+	height: 50px;
+	border: 2px solid grey;
+	border-radius: 50%;
+	display: inline-block;
+	text-align: center;
+	padding-top: 8px;
+	margin-top: 20px;
+	color: grey;
+	transition:all 0.5s ease;
+	margin-right: 10px;
+}
+.icon:hover{
+	margin-top: 0;
+	background: grey; 
+	color: white;
+}
+
+.reward{
+	padding: 30px;
+	position: relative;
+	cursor: pointer;
+}
+.reward p{
+	color: #7F8C8D;
+}
+.reward h5{
+	font-size: 2rem;
+	font-weight: bold;
+	color: #16A085;
+
+}
+.reward .selected{
+	width: auto;
+	padding: 10px;
+	height: auto;
+	color:white;
+	background: #E74C3C;
+	position: absolute;
+	right: 50px;
+	bottom: 0;
+	opacity: 0;
+	transform: rotate(90deg);
+	transform-origin: right bottom 0;
+	transition:all 0.5s ease;
+}
+.reward:hover > .selected{
+	opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+/*input[type="text"]
+{
+    font-size:30px;
+}
+
+input[type="number"]
+{
+    font-size:30px;
+}*/
+.card {
+	background: white;
+
+	background-image:url("../images/pattern.59818a766324.png");
+	background-size: cover; 
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    text-align: center;
+    transition: 0.3s;
+    padding: 0;
+    border-radius: 5px;
+
+}
+.card:hover {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.container {
+    padding: 0;
+}
+.card-button{
+	width: 100%;
+	margin: 0;
+	height: auto;
+	border:1px solid lightgrey;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.card img{
+	padding-top: 20px;
+	transition:0.5s ease;
+}
+.card img:hover{
+	filter: grayscale(100%);
+	filter:blur(10px);
+}
+.card h4{
+	background-image:url("../images/pattern.59818a766324.png");
+	background-size: cover; 
+	padding-top: 20px;
+
+}
+.card p{
+	background: transparent;
+}
+.card h5{
+	border-bottom: 1px solid lightgrey;
+	padding-top: 10px;
+	height: 50px;
+}
+.card ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.card li{
+	padding-left: 10px;
+	padding-top: 5px;
+	text-align: left;
+	height: 40px; 
+	border-bottom: .5px solid lightgrey;
+}
+.card li:hover{
+	background: lightgrey;
+}
+.card li i{
+	color: green;
+	/*float: right;*/
+	/*padding: 10px;*/
+}
+.card input, .card textarea{
+	margin: 20px;
+	width: 90%;
+}
+
+.espacio{
+	height: 50px;
+	width: 100%;
+}
+.card a{
+	color: black;
+}

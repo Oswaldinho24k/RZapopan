@@ -1,0 +1,34 @@
+@import url("_dashboard.86df1691fc01.css");
+@import url("_projects.25ce8d2b75ff.css");
+@import url("_index.fa26cddaa89f.css");
+
+
+body{
+	background: #eceff1;
+}
+li.success{
+	width: 100%;
+	background: lightgreen;
+	color:white;
+	text-align: center;
+	list-style: none;
+}
+
+li.error{
+	width: 100%;
+	background: red;
+	color:white;
+}
+
+.carga{
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+
+  background: url(https://s3.eu-central-1.amazonaws.com/cloudpro/sas-smart.com/images/loading.gif) center no-repeat #fff;
+
+}
+

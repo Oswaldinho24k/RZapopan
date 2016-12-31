@@ -1,0 +1,195 @@
+img.redonda{
+	border-radius: 50%;
+}
+.img_perfil:hover{
+	cursor:n-resize;
+}
+/*para que el menú del navbar siga funcionando*/
+@media (max-width: 770px){
+	.dropdown-menu{
+		position: relative;
+	}
+}
+
+.silver{
+	background-color: #BDC3C7;
+	color:#2C3E50;
+}
+.no-link{
+	color:inherit;
+}
+
+.girale:hover >i{
+	transform:rotate(360deg);
+	transition:all 1s ease;
+}
+.chat_bg{
+	background-image: url('https://s-media-cache-ak0.pinimg.com/564x/79/5c/ab/795cabc4647f73b365e2e6eabd0f34dc.jpg');
+	/*background-size: cover;*/
+	background-repeat:repeat; 
+}
+.chat-cuerpo{
+	height: 535px;
+	overflow: scroll;
+}
+.chat-contactos{
+	height: 500px;
+	overflow: scroll;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container {
+    display: flex;
+    overflow: hidden;
+    /*height: 100vh;*/
+    height: 92.8%;
+    /*margin-top: -100px;*/
+    /*padding-top: 100px;*/
+    position: relative;
+    width: 100%;
+    backface-visibility: hidden;
+    will-change: overflow;
+}
+
+
+.Left,
+.Middle,
+.Right {
+    overflow: auto;
+    height: auto;
+    padding: .5rem;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+}
+
+.Left::-webkit-scrollbar,
+.Middle::-webkit-scrollbar,
+.Right::-webkit-scrollbar {
+    display: none;
+}
+
+.Left {
+    width: 12.5rem;
+
+	background: -moz-linear-gradient(center top , grey 0%, lightgrey 100%) repeat scroll 0 0 transparent;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,grey), color-stop(100%,lightgrey));
+
+    /*background-image:url(https://mynoise.net/Data/WHITE/fb.jpg); */
+    background: #607d8b;
+	background-size:cover repeat; 
+	background-position: center;
+	padding:0;
+
+	
+}
+
+.Middle {
+    flex: 1;
+}
+
+.Right {
+    width: 12.5rem;
+    background-color: violet;
+}
+
+
+.Left h2{
+	margin: 0 auto;
+	text-shadow: 1px 1px 1px #b3b3b3;
+	font-size: 48px;
+	font-family:sans-serif;
+	padding: 30px 50px;
+	color:white;
+}
+
+.Left a{
+	width: 100%;
+	padding:10px;
+	outline: none;
+	border-top: 1px solid #b3b3b3;
+	padding-left: 20px;
+	text-align: left;
+	color:white;
+	height: 50px;
+	display: block;
+	background: grey;
+	margin-bottom: 1px;
+}
+
+.Left a:hover{
+	background:white;
+	color:black;
+}
+.liltit span:first-child{
+	padding-left: 20px;
+	text-transform: uppercase;
+	font-size: .7rem;
+	color:#cfd8dc;
+}
+.liltit .cantidad{
+	padding-left: 20px;
+	/*text-transform: uppercase;*/
+	font-size: 1.2rem;
+	color:white;
+}
+a.active{
+	background: lightgrey;
+	color: grey;
+}
+.izquierda{
+	float: left;
+}
+.derecha{
+	float: right;
+}
+.hasn-tip {
+	border-bottom: none;
+}
+.chat img{
+	border-radius: 50%;
+}
+.mensajes{
+	padding: 10px 100px 10px 100px;
+	min-height: 250px;
+	max-height: 250px;
+	overflow-y: scroll;
+	/*-webkit-overflow-scrolling: touch;*/
+}
+.mensajes .uno{
+	float:left;
+	text-align: left;
+}
+.mensajes .dos{
+	float:right;
+	text-align: right;
+}
+.captura{
+	display: inline-block;
+	text-align: left;
+}
+.card .captura input{
+	width: 75%;
+	margin-bottom:100px;
+	display: inline-block;
+}
+.captura i{
+	font-size: .9rem;
+}
+.captura button{
+	display: inline-block;
+}
+
+.mensajes::-webkit-scrollbar{
+    display: none;
+}

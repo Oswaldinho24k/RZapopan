@@ -1,0 +1,536 @@
+body{
+   font-family:Avenir; 
+   -webkit-tap-highlight-color: #0085A1;
+
+}
+@font-face {
+font-family: Avenir;
+src: url(/static/fonts/AvenirLTStd-Light.otf);
+
+}
+p {
+  line-height: 1.5;
+}
+p a {
+  text-decoration: underline;
+}
+a:hover,
+a:focus {
+  color: #0085A1;
+}
+
+/*Inicio*/
+hr.small {
+  max-width: 100px;
+  margin: 15px auto;
+  border-width: 4px;
+  border-color: white;
+}
+.intro-header {
+  background-color: #777777;
+  background: no-repeat center center;
+  background-attachment: scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  margin-bottom: 30px;
+}
+
+.intro-header .site-heading {
+  padding: 100px 0 50px;
+  color: white;
+}
+@media only screen and (min-width: 768px) {
+  .intro-header .site-heading {
+    padding: 150px 0;
+  }
+}
+.intro-header .site-heading{
+  text-align: center;
+}
+.intro-header .site-heading h1 {
+  margin-top: 0;
+  font-size: 50px;
+}
+.intro-header .site-heading .subheading, {
+  font-size: 24px;
+  line-height: 1.1;
+  display: block;
+  font-weight: 300;
+}
+@media only screen and (min-width: 768px) {
+  .intro-header .site-heading h1 {
+    font-size: 80px;
+  }
+}
+.row{
+  margin:0;
+}
+
+.image{
+  width:170px;
+  margin-top:10px;
+}
+.botoncito{
+  margin-top:20px;
+}
+.inicio {
+  margin-top:0;
+  background-color:white;
+}
+.instruccion{
+  margin-bottom:80px;
+
+}
+.circulo{
+  background-color:#b0bec5;
+  border-radius:50%;
+}
+.card{
+  width:90%;
+  margin:5%;
+  min-height:200px;
+}
+.thumbnail{
+  border:0px transparent;
+}
+
+.pasos{
+    margin-top:70px;
+  display:block;
+}
+.pasines{
+  width:80%;
+  height:auto;
+}
+.center{
+  text-align:center;
+}
+.titulines{
+   font-family:Avenir;
+   text-align:center;
+   margin-bottom:30px;
+}
+.titulines h2 h3{
+  margin-bottom:0;
+}
+hr.tall {
+  max-width: 500px;
+  margin: 20px auto;
+  border-width: 3px;
+  border-color: #33495E;
+}
+
+.tarjeta{
+  display: inline-block;
+  background: white;
+  height:auto;
+  background-image:url(../images/pattern.png);
+  background-size: cover; 
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    text-align: center;
+    transition: 0.3s;
+    padding: 0;
+    border-radius: 5px;
+    width:90%;
+    margin-left:5%;
+    margin-top:10px;
+
+}
+.tarjeta:hover {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.foto_perfil{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+}
+.card img{
+  padding-top:0;
+}
+.proyect{
+  width:100%;
+}
+.datos{
+
+  width:80%;
+  margin-left:10%;
+  position: relative;
+    height: 49.49%;
+    margin: 0 auto;
+    padding: 0 1.5em;
+    z-index: 2000;
+    border-radius: 0 0 4px 4px;
+    font-size:12px;
+}
+.apodo{
+  margin-top:10px;
+  margin-left:10px;
+
+
+}
+.resumen {
+  margin-top:15px;
+  text-align:justify;
+}
+.resumen p{
+  font-size:16px;
+}
+.titulo{
+  margin-top:10px;
+  font-size:25px;
+}
+.fin{
+  float:right;
+  font-size:10px;
+}
+.dineros{
+  float:left;
+    font-size:10px;
+
+}
+.apodo p {
+  font-size:13px;
+}
+
+
+
+.tagpadre{
+  position:relative;
+}
+
+.top{
+  margin-top:60px;
+}
+
+.coment{
+ align-items:center;
+ margin-right:8px;
+ margin-top:35px;
+}
+.comentario{
+  text-align:justify;
+  font-size:15px;
+  margin-left:8px;
+  margin-right:8px;
+}
+.alin{
+  display:inline-flex;
+  margin-top:3%;
+  margin-left:5%;
+  width:80%;
+}
+.destacados{
+  margin-top:40px;
+}
+
+.marco{
+  overflow: hidden;
+  width: 100%; 
+  height:216px; 
+  margin:0 0 10% 0;
+  /*display: inline-block;*/
+}
+
+.marco-rectangulo{
+  overflow: hidden;
+  width: 100%; 
+  height: 463px; 
+  margin:0 0 5% 0;
+  /*display: inline-block;*/
+}
+.marco-rectangulo-bot{
+  overflow: hidden;
+  margin:0 0 10% 1%;
+  height: 250px; 
+}
+
+/*Categorias*/
+.cuadrado {
+     width: 100%; 
+     height:216px; 
+     margin:0 0 10% 0;
+     background-image:url(https://images.pexels.com/photos/48606/pexels-photo-48606.jpeg?h=350&auto=compress&cs=tinysrgb);
+     background-size:cover;
+     filter:grayscale(100%);
+      transition:all 1s ease; 
+       background-position:center;
+       display:flex;
+}
+.cuadrado:hover, .cuadrado1:hover, .cuadrado2:hover, .cuadrado3:hover, .rectangulo:hover, .rectangulo1:hover, .rectangulo2:hover {
+  filter:grayscale(0%);
+  transform:scale(1.5);
+  cursor:pointer;
+
+}
+.cuadrado1 {
+     width: 100%; 
+     height:216px; 
+     margin:0 0 10% 0;
+     background-image:url(https://images.pexels.com/photos/89860/pexels-photo-89860.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb);
+     background-size:cover;
+     filter:grayscale(100%);
+      background-position:center;
+      transition:all 1s ease; 
+}
+.cuadrado2 {
+     width: 100%; 
+     height:216px; 
+     margin:0 0 10% 0;
+     background-image:url(https://images.pexels.com/photos/238622/pexels-photo-238622.jpeg?h=350&auto=compress&cs=tinysrgb);
+     background-size:cover;
+     filter:grayscale(100%);
+
+       background-position:center;
+        transition:all 1s ease; 
+}
+.cuadrado3 {
+     width: 100%; 
+     height:216px; 
+     margin:0 0 10% 0;
+     background-image:url(https://images.pexels.com/photos/239886/pexels-photo-239886.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb);
+     background-size:cover;
+     filter:grayscale(100%);
+       background-position:center;
+        transition:all 1s ease; 
+}
+.rectangulo {
+     width: 100%; 
+     height: 463px; 
+     margin:0 0 5% 0;
+     text-align:center;
+     background: #428bca;
+     background-image:url(https://images.pexels.com/photos/80467/globe-indonesia-equator-80467.jpeg?h=350&auto=compress);
+     background-size:cover;
+     filter:grayscale(100%);
+       background-position:center;
+        transition:all 1s ease; 
+}
+.rectangulo1 {
+     height: 250px; 
+     background: #428bca;
+     margin:0 0 10% 1%;
+     background-image:url(https://images.pexels.com/photos/110252/pexels-photo-110252.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb);
+     background-size:cover;
+     filter:grayscale(100%);
+       background-position:center;
+        transition:all 1s ease; 
+}
+.rectangulo2 {
+
+     height: 250px; 
+     background: #428bca;
+     margin-right:1%;
+     background-image:url(https://images.pexels.com/photos/7075/people-office-group-team.jpg?w=1260&h=750&auto=compress&cs=tinysrgb);
+     background-size:cover;
+     filter:grayscale(100%);
+       background-position:center;
+        transition:all 1s ease; 
+}
+.boxed{
+  padding: 0.2em 1.1em;
+    border-radius: 5px;
+    position: absolute;
+    top: 1.1875em;
+    right: 5%;
+    font-size: 0.875em;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+    background-color: #3697D3;
+}
+.boxed2{
+    padding: 0.2em 1.1em;
+    border-radius: 2px;
+    position: absolute;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+    font-size: 0.95em;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+
+}
+.boxed3{
+    padding: 0.2em 1.1em;
+    border-radius: 2px;
+    position: absolute;
+    top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+    font-size: 0.95em;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+}
+.boxed4{
+    padding: .2em 1.1em;
+    border-radius: 2px;
+    position: absolute;
+    top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+    font-size: .95em;
+    font-weight: 500;
+    color: white;
+    text-align:center;
+}
+.boxed5{
+    padding: .2em 1.1em;
+    border-radius: 2px;
+    position: absolute;
+    top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+    font-size: 0.95em;
+    font-weight: 500;
+    color: white;
+    text-align:center;
+    background-color: #1f1f1f
+}
+.clasificacion{
+  margin-top:40px;
+  margin-bottom:80px;
+}
+
+/*Nuestro equipo*/
+.equipo{
+  width:50%;
+  border-radius:50%;
+}
+.equipos{
+  display:block;
+  text-align:center;
+  margin-top:90px;
+}
+.team{
+  margin-top:100px;
+}
+.nombres{
+  margin:5px;
+  font-size:22px;
+   margin:0px;
+}
+.social-buttons i{
+  margin-top:25%;
+}
+
+ul.social-buttons li a:hover,
+ul.social-buttons li a:focus,
+ul.social-buttons li a:active {
+  background-color: #2CB397;
+}
+.text-muted{
+  font-size:12px;
+}
+.service{
+  width:70%;
+  margin-left:15%;
+  text-align:center;
+  margin-bottom:90px;
+  margin-top:100px;
+}
+ul.social-buttons li a {
+  display: block;
+  background-color:#33495E ;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  font-size: 20px;
+  line-height: 40px;
+  color: white;
+  outline: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+/*Partners*/
+.partners{
+  width:80%;
+  margin-left:10%;
+  height:auto;
+  margin-top:30px; 
+}
+
+.boxi{
+  margin:0;
+  height:150px;
+}
+.logis{
+  width:80%;
+  margin-left:10%;
+}
+
+/*Comentarios*/
+#backg{
+  width:90%;
+  margin-left:5%;
+  padding-bottom:4%;
+}
+.coments{
+  width:100%;
+  background-color:#2CB397;
+  height:auto;
+}
+
+.carousel{
+  height:auto;
+  margin-top:25px;
+}
+
+/*Footer*/
+.footer {
+  color: white;
+  margin-top:20px;
+}
+.footer h3 {
+  margin-bottom: 30px;
+}
+.footer-above {
+  padding-top: 50px;
+  background-color: #2C3E50;
+}
+.footer-col {
+  margin-bottom: 50px;
+}
+.copy{
+  height:60px;
+  background-color: #233140;
+}
+
+.footer i{
+  color:white;
+  font-size:25px;
+}
+.opinion{
+  background-color:transparent; 
+  color:white; 
+  border:1px solid;
+  transition:all 1s ease;
+  margin-left:2.5%;
+  margin-right:2.5%;
+}
+.opinion:hover{
+  color:#2CB397;
+  background-color:white;
+  cursor:pointer;
+}
+footer {
+  padding: 50px 0 65px;
+}
+footer .list-inline {
+  margin: 0;
+  padding: 0;
+}
+footer .copyright {
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 0;
+}
