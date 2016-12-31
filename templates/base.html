@@ -56,7 +56,7 @@
 
 <!--Responsive nav-->
 
-<<<<<<< HEAD
+
 <nav class="navbar navbar-inverse navbar-embossed" role="navigation">
  <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
@@ -107,54 +107,6 @@
             {%endif%}
             {%endwith%}
 
-=======
-<div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
-  <button class="menu-icon" type="button" data-toggle></button>
-  <div class="title-bar-title">Menu</div>
-</div>
-<!--nav-->
-<div class="top-bar" id="example-menu">
-  <div class="top-bar-left">
-    <ul class="dropdown menu" data-dropdown-menu>
-      <li class="menu-text"><a href="/">CrowdPopan</a></li>
-      
-      <li><a href="/projects">Explora</a></li>
-       <li><a href="">Pide bro</a></li>
-      <!--<li><a href="">Apoya carnal</a></li>-->
-    </ul>
-  </div>
-  <div class="top-bar-right">
-
-    <ul class="menu">
-
-
-
-      {%if request.user.is_authenticated%}
-
-      <li>
-          <ul class="dropdown menu" data-dropdown-menu>
-          <li>
-            <a href="">What's up {{request.user.username}}</a>
-            <ul class="menu">
-              <li><a href="">Perfil</a></li>
-              <li><a href="{%url 'dash:dash'%}">Tus Proyectos</a></li>
-                <li><a href="{%url 'dash:support'%}">Tus Fondeos</a></li>
-
-              <li><a href="{%url 'accounts:logout'%}?next=/"><button>Cerrar tu sesión</button></a></li>
-              
-            </ul>
-          </li>
-        </ul>
-       </li>
-       
-      {%else%}
-      <!-- Logged out -->
-        <li>
-          <a data-open="exampleModal1">Registrate</a>
-          <!-- Modal to registration -->
->>>>>>> 32f9e519bac767bbaf651c9e42e428e28b77d88d
-
-
               
 
           </li>
@@ -196,14 +148,10 @@
         </div>
 
 
-<<<<<<< HEAD
         {%else%}
       <a href="{%url 'signup'%}" class="btn btn-warning btn-xs" type="button">SignUp</a>
       <a href="{%url 'login'%}" class="btn btn-default navbar-btn btn-xs" type="button">Sign in</a>
-=======
-        
-        
->>>>>>> 32f9e519bac767bbaf651c9e42e428e28b77d88d
+
       {%endif%}
 
       </div>
