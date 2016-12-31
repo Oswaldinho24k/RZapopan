@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {%extends 'base.html'%}
 
 {%block content%}
@@ -45,4 +46,131 @@
 
 
 
+=======
+{%load static%}
+>>>>>>> 32f9e519bac767bbaf651c9e42e428e28b77d88d
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+
+	<!-- Fa fa icons-->
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="{%static '/css/foundation.css'%}">
+  <link rel="stylesheet" type="text/css" href="{%static '/css/app.css'%}">
+
+
+  <script src="{%static '/js/vendor/jquery.js'%}"></script>
+
+    <link rel="stylesheet" href="{% static '/bower_components/chartist/dist/chartist.css' %}">
+    <style>
+      .top-bar-right{
+        padding-top: 1%;
+      }
+    </style>
+</head>
+<body>
+
+<!--Responsive nav-->
+
+<div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
+  <button class="menu-icon" type="button" data-toggle></button>
+  <div class="title-bar-title">Menu</div>
+</div>
+<!--nav-->
+<div class="top-bar" id="example-menu">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text"><a href="/">CrowdPopan</a></li>
+      
+      <li><a href="/projects">Explora</a></li>
+       <li><a href="">Pide bro</a></li>
+      <!--<li><a href="">Apoya carnal</a></li>-->
+    </ul>
+  </div>
+  
+
+</div>
+
+
+
+<!-- Mensajes-->
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<!--Firebase-->
+
+<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAafI7wItZtcja5k_60SGLq1VYC5WVOzYI",
+    authDomain: "rzapopan-5f227.firebaseapp.com",
+    databaseURL: "https://rzapopan-5f227.firebaseio.com",
+    storageBucket: "rzapopan-5f227.appspot.com",
+    messagingSenderId: "381015477211"
+  };
+  firebase.initializeApp(config);
+</script>
+
+
+	<div class="row">
+	  <div class="large-12 columns">
+		<form action="{%url 'accounts:login'%}" method="post">
+			{%csrf_token%}
+			{{form.as_p}}
+			<input type="hidden" name="next" value="{{next}}"> 
+			<input class="success button" type="submit" value="Iniciar Sesión">
+		</form>
+	  </div>
+	  
+	</div>
+
+
+
+
+	<script src="{%static '/js/vendor/foundation.js'%}"></script>
+<script src="{%static '/js/vendor/what-input.js'%}"></script>
+<script src="{%static '/js/app.js'%}"></script>
+<script src="{%static '/bower_components/chartist/dist/chartist.js'%}"></script>
+
+<script type="text/javascript">
+
+  function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#preview').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+  function readVideo() {
+
+    $('#vidPrev').attr('src',$('#vid').val());
+    
+    }
+
+
+$("#img").change(function(){
+    readURL(this);
+});
+
+$('#vid').change(function(){
+
+    readVideo();
+})
+</script>
+</body>
+</html>

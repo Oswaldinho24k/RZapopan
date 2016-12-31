@@ -29,7 +29,8 @@
 <h1>Proyectos</h1>
 
 {%for p in projects%}
-  {{p.name}}
+  <a href="/projects/detail_project/{{p.id}}">{{p.name}}</a>
+  
 {%endfor%}
 
 {%endblock content%}
