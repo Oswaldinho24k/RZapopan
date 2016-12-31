@@ -2,6 +2,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from accounts import urls as accountsURLs
 from social.apps.django_app import urls as socialURLs
+# from social_django import urls as socialURLs
 from main import urls as mainUrls
 from inputs import urls as inputsURLs
 from dashboard import urls as dashboardURLs
@@ -14,10 +15,6 @@ from django.conf import settings
 
 urlpatterns = [
 
-    # Social Auth
-    url('',
-        include(socialURLs,
-            namespace="social")),
     #main
     url(r'^', include(mainUrls)),
 
@@ -44,5 +41,10 @@ urlpatterns = [
         view=serve,
         kwargs={'document_root':settings.MEDIA_ROOT}
         ),
+
+    # Social Auth
+    url('social-auth/',
+        include(socialURLs,
+            namespace="social")),
 
 ]
