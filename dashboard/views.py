@@ -10,6 +10,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
+from taggit.models import Tag
+
 class Dash(View):
 	@method_decorator(login_required)
 	def get(self, request):
@@ -54,10 +56,12 @@ class Basics(View):
 		template_name = "dashboard/basics.html"
 		p = get_object_or_404(Project, id=pk)
 		form = BasicsForm()
+		cats = Tag.objects.all()
 		context = {
 			'project':p,
 			'section':'basics',
-			'form':form
+			'form':form,
+			'cats':cats
 		}
 		return render(request, template_name,context)
 
@@ -84,6 +88,8 @@ class Basics(View):
 		context = {
 			'project':p,
 			'section':'basics',
+			'cats':Tag.objects.all()
+			
 		}
 		return render(request, template_name,context)
 
@@ -199,16 +205,16 @@ class Support(View):
 		return render(request, template_name, context)
 
 class Chating(View):
-	def get(self, request, pk):
-		template_name = "dashboard/founder.html"
-		project = get_object_or_404(Project,id=pk)
+	def get(self, request, pk=None):
+		template_name = "dashboard/mensajeria.html"
+		# project = get_object_or_404(Project,id=pk)
 		p = request.user.funds.all()
 		print(request.user.cchats.all())
-		chat = request.user.cchats.all().get(project=project)
+		# chat = request.user.cchats.all().get(project=project)
 		
 		context = {
 			'projects':p,
-			'chat':chat
+			# 'chat':chat
 		}
 		return render(request, template_name, context)
 

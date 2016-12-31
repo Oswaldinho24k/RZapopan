@@ -36,7 +36,7 @@ urlpatterns = [
 		views.Extra.as_view(),
 		name="extra"),
 
-	url(r'^support/chat/(?P<pk>\d+)/$',
+	url(r'^chat/$',
 		views.Chating.as_view(),
 		name="chat"),
 ]

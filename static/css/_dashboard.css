@@ -23,6 +23,25 @@ img.redonda{
 	transform:rotate(360deg);
 	transition:all 1s ease;
 }
+.chat_bg{
+	background-image: url('https://s-media-cache-ak0.pinimg.com/564x/79/5c/ab/795cabc4647f73b365e2e6eabd0f34dc.jpg');
+	/*background-size: cover;*/
+	background-repeat:repeat; 
+}
+.chat-cuerpo{
+	height: 535px;
+	overflow: scroll;
+}
+.chat-contactos{
+	height: 500px;
+	overflow: scroll;
+}
+
+
+
+
+
+
 
 
 

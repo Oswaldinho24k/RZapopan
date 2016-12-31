@@ -123,7 +123,7 @@
         <!--badges-->
         <ul class="nav navbar-nav">
           <li data-toggle="tooltip" data-placement="bottom" title="Tienes mensajes pendientes">
-            <a href="#">
+            <a href="{%url 'dash:chat'%}">
               <span class="fui-mail"></span>
               <!-- Indicator with number -->
               <span class="navbar-new">2</span>
@@ -138,8 +138,11 @@
             {{request.user.username}} <span class="caret"></span>
           </button>
           <ul class="dropdown-menu dropdown-menu-inverse" role="menu">
-            <li><a href="{%url 'dash:dash'%}">Perfil</a></li>
-            <li><a href="#">Contribuciones</a></li>
+            <li><a href="{%url 'dash:dash'%}">PERFIL</a></li>
+            <li class="dropdown-header">Tus proyectos</li>
+            {%for p in request.user.projects.all%}
+            <li><a href="{{p.get_absolute_url}}">{{p.name}}</a></li>
+            {%endfor%}
             <li class="divider"></li>
             <li><a href="{%url 'logout'%}">Cerrar Sesion</a></li>
           </ul>
@@ -147,7 +150,7 @@
 
 
         {%else%}
-      <a class="btn btn-warning btn-xs" type="button">SignUp</a>
+      <a href="{%url 'signup'%}" class="btn btn-warning btn-xs" type="button">SignUp</a>
       <a href="{%url 'login'%}" class="btn btn-default navbar-btn btn-xs" type="button">Sign in</a>
       {%endif%}
 

@@ -26,7 +26,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'social.apps.django_app.default',
+    #new social
+    'social_django',
+    # 'social.apps.django_app.default',
     'main',
     'dashboard',
     'projects',
@@ -43,6 +45,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #social
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'retozapopan.urls'
@@ -60,6 +64,9 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 #Mi carrito de compras
                 'cart.context_processors.cart',
+                # social
+                'social.apps.django_app.context_processors.backends',
+                'social.apps.django_app.context_processors.login_redirect',
             ],
         },
     },
@@ -125,9 +132,19 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
 
 # Social auth
+
 AUTHENTICATION_BACKENDS = (
-    'social.backends.facebook.FacebookOAuth2',
-    'django.contrib.auth.backends.ModelBackend',)
+    'django.contrib.auth.backends.ModelBackend',
+
+    # 'account.authentication.EmailAuthBackend',
+    # 'social.backends.facebook.Facebook2OAuth2',
+    # 'social.backends.facebook.FacebookOAuth2',
+    # 'social.backends.twitter.TwitterOAuth',
+    # 'social.backends.google.GoogleOAuth2',
+    # new social
+    'social_core.facebook.Facebook2OAuth2',
+
+    )
 
 SOCIAL_AUTH_FACEBOOK_KEY="1623909724551044"
 SOCIAL_AUTH_FACEBOOK_SECRET='9ae884ea1c34fbd2ae127b48096fea34'
@@ -137,7 +154,7 @@ SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
   'fields': 'id, name, email, age_range'
 }
 
-SOCIAL_AUTH_LOGIN_REDIRECT_URL="_home"
+SOCIAL_AUTH_LOGIN_REDIRECT_URL="dash:dash"
 
 SOCIAL_AUTH_PIPELINE = (
     'social.pipeline.social_auth.social_details',

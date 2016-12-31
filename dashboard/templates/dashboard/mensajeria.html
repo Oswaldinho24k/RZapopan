@@ -1,0 +1,217 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<section class="contenedor">
+	<div class="row">
+		<h5 class="col-sm-8 col-sm-offset-4">
+			Mensajería en tiempo real
+		</h5>
+	</div>
+	<article class="row">
+
+		<div class="izquierda col-sm-4 panel">
+
+		<div class="input-group panel-body">
+          <input class=" form-control" id="navbarInput-01" type="search" placeholder="¿A quien buscas?">
+          <span class="input-group-btn">
+            <button type="submit" class="btn"><span class="fui-search"></span></button>
+          </span>
+        </div>
+
+        <h6>Contactos</h6>
+        <div class="divider1"></div>
+
+        <div class="chat-contactos">
+	        <a href="#!">
+	        <div class="panel bg-primary">
+	        	<div class="panel-body row">
+	        		<img class="foto_perfil" src="http://graph.facebook.com/10209162090267285/picture?type=large">
+	        		<span>Héctor BlisS</span>
+	        		<p class="dineros pull-right">HACE 2 DIAS</p>
+	        	</div>
+	        </div>
+	        </a>
+
+	        <a href="#!">
+	        <div class="panel bg-success">
+	        	<div class="panel-body row">
+	        		<span style="position:relative">
+	        			<img class="foto_perfil" src="https://media.elobservador.com.uy/adjuntos/184/imagenes/000/331/0000331793.jpg">
+	        			<span class="navbar-new">2</span>
+	        		</span>
+	        		
+	        		<span>Bill Gates
+	        		</span>
+	        		<p class="dineros pull-right">HACE 25 DIAS</p>
+	        	</div>
+	        </div>
+	        </a>
+
+	        <a href="#!">
+	        <div class="panel bg-success">
+	        	<div class="panel-body row">
+	        		<img class="foto_perfil" src="https://lh5.googleusercontent.com/-89xTT1Ctbrk/AAAAAAAAAAI/AAAAAAAABcc/Kg0vilTzpKI/photo.jpg">
+	        		<span>Elon Musk</span>
+	        		<p class="dineros pull-right">HACE 30 DIAS</p>
+	        	</div>
+	        </div>
+	        </a>
+
+	        <a href="#!">
+	        <div class="panel bg-success">
+	        	<div class="panel-body row">
+	        		<img class="foto_perfil" src="https://res.cloudinary.com/crunchbase-production/image/upload/v1448830269/gzcifut4c2xah95x0ewd.jpg">
+	        		<span>Mark Zuk</span>
+	        		<p class="dineros pull-right">HACE 2 AÑOS</p>
+	        	</div>
+	        </div>
+	        </a>
+
+        </div> <!-- contactos-->
+
+
+
+
+
+		</div> <!-- izquierda-->
+
+		<div class="chat-cuerpo derecha col-sm-8 well chat_bg" >
+			<div id="mensajes" class="row">
+<!--				<div class="chat-mensajes"> -->
+
+			<div class="col-xs-8 pull-left">
+				<div class="row">
+					<img style="border-radius:50%;margin-top:40px" class="col-xs-4 col-sm-2 img-responsive" src="http://graph.facebook.com/10209162090267285/picture?type=large">
+					<div class="panel col-xs-8 col-sm-10">
+						<span class="panel-body">
+							Hola Héctor,
+							¿Ya pudiste entrar, cierto?
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-xs-8 pull-right">
+				<div class="row">
+					<div class="panel col-xs-8 col-sm-10">
+						<span class="panel-body">
+							¡Si!, muchas gracias.
+						</span>
+					</div>
+					{%if request.user.profile.img%}
+					<img style="border-radius:50%;margin-top:40px" class="col-xs-4 col-sm-2 img-responsive" src="{{request.user.profile.img.url}}">
+					{%endif%}
+				</div>
+			</div>
+
+
+
+
+
+				<!--</div> --><!-- chat mensajes-->
+			</div> <!-- row-->
+		</div> <!-- derecha-->
+
+		<div class="inputs panel">
+
+			<!-- Append -->
+			<div class="panel-body input-group">
+			  <input id="mensaje" type="text" class="form-control" placeholder="Escribe tu mensaje aquí" />
+			  <span id="enviar" class="input-group-addon">
+			  	<i class="fa fa-paper-plane" aria-hidden="true"></i>
+			  </span>
+			</div>
+
+		</div><!--inputs-->
+
+
+
+
+
+	</article>
+
+
+
+
+
+
+
+</section>
+
+
+
+<script>
+
+
+
+
+
+var chat = firebase.database().ref("chat/{{request.user.id}}");
+
+$('#enviar').on('click',function(){
+	chat.push({
+		autor:"{{request.user.id}}",
+		fecha:Date.now(),
+		mensaje:$('#mensaje').val()
+	});
+	$('#mensaje').val('')
+});
+
+$(document).keypress(function(e) {
+    if(e.which == 13) {
+        chat.push({
+		autor:"{{request.user.id}}",
+		fecha:Date.now(),
+		mensaje:$('#mensaje').val()
+	});
+        $('#mensaje').val('')
+    }
+
+
+});
+
+chat.on('child_added', function(data) {
+
+	if(data.val().autor === "{{request.user.id}}"){
+		$('#mensajes').append(
+			`			
+			<div class="col-xs-8 pull-right">
+				<div class="row">
+					<div class="panel col-xs-8 col-sm-10">
+						<span class="panel-body">
+							`+data.val().mensaje+`
+						</span>
+					</div>
+					{%if request.user.profile.img%}
+					<img style="border-radius:50%;margin-top:40px" class="col-xs-4 col-sm-2 img-responsive" src="{{request.user.profile.img.url}}">
+					{%endif%}
+				</div>
+			</div>
+			`
+			);
+
+	} else{
+		$('.mensajes').append("<h5>"+data.val().mensaje+"</h5>");
+	}
+  
+	console.log($('.chat-cuerpo').height());
+	$(".chat-cuerpo").animate({ scrollTop:$('#mensajes').height() },"fast");
+});
+
+
+
+
+
+
+
+
+</script>
+
+{%endblock content%}
+
+
+
+https://s-media-cache-ak0.pinimg.com/564x/79/5c/ab/795cabc4647f73b365e2e6eabd0f34dc.jpg
+
+https://s-media-cache-ak0.pinimg.com/236x/30/b7/7e/30b77e5d94a6789b0469b51acf318d77.jpg

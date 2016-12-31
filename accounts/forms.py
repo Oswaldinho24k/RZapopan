@@ -3,10 +3,11 @@ from django.contrib.auth.models import User
 from .models import Profile
 
 class UserRegistrationForm(forms.ModelForm):
-	password = forms.CharField(label='Contraseña',widget=forms.PasswordInput)
-	password2 = forms.CharField(label='Repite tu contraseña',widget=forms.PasswordInput)
-	username = forms.CharField(label='Nombre de Usuario')
-	email = forms.EmailField(label='Correo')
+	password = forms.CharField(label='Contraseña',widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'Escribe una contraseña que no olvides'}))
+	password2 = forms.CharField(label='Repite tu contraseña',
+		widget=forms.PasswordInput(attrs={'class':'form-control'}))
+	username = forms.CharField(label='Nombre de Usuario',widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Escribe un nombre de usuario'}))
+	email = forms.EmailField(label='Correo', widget=forms.EmailInput(attrs={'class':'form-control','placeholder':'Escribe tu correo electrónico'}))
 
 	class Meta:
 		model = User

@@ -1,11 +1,12 @@
 {%extends 'base.html'%}
+{%load static%}
 {%load dash_tags%}
 
 {%block content%}
 {%count_projects as nums %}
 
 
-<section class="contendor centrado">
+<section class="contendor">
 
 	<h3 class="demo-panel-title">{{project}} / {{section}}
 		<button id="guarda" class="btn btn-success" {%if project.publish%}disabled{%endif%}>Guardar</button>
@@ -93,15 +94,17 @@
 					</div>
 				</li>
 
+				<a class="no-link" href="{%url 'dash:chat'%}">
 				<li>
 					<div class="todo-icon fui-bubble"></div>
 					<div class="todo-content">
 						<h4 class="todo-name">
 							<strong>Mensajes</strong>
 						</h4>
-						Comunicate con tus benefactores
+						Comunicate con tus patrocinadores
 					</div>
 				</li>
+				</a>
 
 			</ul>
 		</div>
@@ -178,9 +181,11 @@
 
 				<h4>Describe tu proyecto</h4>
 
-				<p>Puedes usar HTML y <span data-toggle="tooltip" data-placement="bottom" title="#Titulo, ##subtitulo, *parrafo">Markdown</span></p>
-				<textarea rows="10" name="desc" class="form-control">{{project.desc}}</textarea>
+				<p>*Puedes usar HTML y <span data-toggle="tooltip" data-placement="bottom" title="#Titulo, ##subtitulo, *parrafo">Markdown</span>*</p>
+				<textarea class="editable" rows="10" name="desc" class="form-control">{{project.desc}}</textarea>
 
+				
+				<!--
 				<div class="tile">
 				<h6>Presiona guardar para ver el preview:</h6>
 				</div>
@@ -189,6 +194,7 @@
 				</article>
 
 				</div>
+			-->
 
 
 			</form>
@@ -266,6 +272,44 @@ $("#file").change(function(){
 });
 
 </script>
+
+
+
+
+<!--	// Experimento medium-->
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+<!-- CSS -->
+<link rel="stylesheet" href="{%static 'bower_components/medium-editor/dist/css/medium-editor.min.css'%}">
+<link rel="stylesheet" href="{%static 'bower_components/medium-editor/dist/css/themes/default.css'%}">
+<link rel="stylesheet" href="{%static 'bower_components/medium-editor-insert-plugin/dist/css/medium-editor-insert-plugin.min.css'%}">
+
+<!-- JS -->
+
+<script src="{%static 'bower_components/medium-editor/dist/js/medium-editor.js'%}"></script>
+<script src="{%static 'bower_components/handlebars/handlebars.runtime.min.js'%}"></script>
+<script src="{%static 'bower_components/jquery-sortable/source/js/jquery-sortable-min.js'%}"></script>
+<script src="{%static 'bower_components/blueimp-file-upload/js/vendor/jquery.ui.widget.js'%}"></script>
+<script src="{%static 'bower_components/blueimp-file-upload/js/jquery.iframe-transport.js'%}"></script>
+<script src="{%static 'bower_components/blueimp-file-upload/js/jquery.fileupload.js'%}"></script>
+<script src="{%static 'bower_components/medium-editor-insert-plugin/dist/js/medium-editor-insert-plugin.min.js'%}"></script>
+
+<script>
+
+
+var editor = new MediumEditor('.editable');
+
+$(function () {
+    $('.editable').mediumInsert({
+        editor: editor
+    });
+});
+
+</script>
+
+
+
+
 
 
 {%endblock content%}

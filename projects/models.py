@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.urls import reverse
+# from django.urls import reverse
+#django 1.9:
+from django.core.urlresolvers import reverse
 
 from taggit.managers import TaggableManager
 

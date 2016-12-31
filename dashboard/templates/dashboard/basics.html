@@ -90,15 +90,17 @@
 					</div>
 				</li>
 
+				<a class="no-link" href="{%url 'dash:chat'%}">
 				<li>
 					<div class="todo-icon fui-bubble"></div>
 					<div class="todo-content">
 						<h4 class="todo-name">
 							<strong>Mensajes</strong>
 						</h4>
-						Comunicate con tus benefactores
+						Comunicate con tus patrocinadores
 					</div>
 				</li>
+				</a>
 
 			</ul>
 		</div>
@@ -132,6 +134,24 @@
 					  <input {%if project.publish%}disabled{%endif%}  value="{{project.goal}}" name="goal" required type="number" class="form-control input-hg" placeholder="200000" />
 					</div>
 					</div>
+
+					<div class="row">
+					<h4 class="col-md-12">
+						¿En que categoría encaja?
+					</h4>
+						
+						<select name="tags" class="form-control select select-danger select-block mbl">
+						  <optgroup label="Categorias">
+						  	{%for c in cats%}
+						    <option {%if project.tags.all.0.name == c.name%} selected {%endif%} value="{{c.name}}">
+						    	{{c.name}}
+						    </option>
+						    {%endfor%}
+						  </optgroup>
+						</select>
+
+					</div>
+
 					<br>
 					<input {%if project.publish%}disabled{%endif%}  class="btn btn-hg btn-success" type="submit" value="Guardar">
 
@@ -151,6 +171,9 @@
 
 
 
+<script>
+	$("select").select2({dropdownCssClass: 'dropdown-inverse'});
+</script>
 
 {%endblock content%}
 

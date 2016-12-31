@@ -11,7 +11,7 @@ class ImgForm(forms.ModelForm):
 class BasicsForm(forms.ModelForm):
 	class Meta:
 		model = Project
-		fields = ['name', 'goal']
+		fields = ['name', 'goal','tags']
 
 class HistoryForm(forms.ModelForm):
 	class Meta:

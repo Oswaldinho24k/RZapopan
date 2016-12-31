@@ -96,7 +96,10 @@ class DetailProject(View):
 		project = get_object_or_404(Project, id = pk)
 		markdowner = Markdown()
 		# project.desc = markdown2.markdown(project.desc)
-		project.desc = markdowner.convert(project.desc)
+		try:
+			project.desc = markdowner.convert(project.desc)
+		except:
+			pass
 
 		context = {
 			'project':project,

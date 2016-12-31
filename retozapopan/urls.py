@@ -14,6 +14,10 @@ from django.conf import settings
 
 urlpatterns = [
 
+    # Social Auth
+    url('',
+        include(socialURLs,
+            namespace="social")),
     #main
     url(r'^', include(mainUrls)),
 
@@ -32,9 +36,6 @@ urlpatterns = [
     url(r'^cart/',
         include(cartURLs, namespace="cart")),
 
-
-    #Social
-    url('', include(socialURLs, namespace='social')),
     #Django Admin
     url(r'^admin/', admin.site.urls),
 

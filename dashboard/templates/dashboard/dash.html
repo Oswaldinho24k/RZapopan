@@ -1,4 +1,5 @@
 {%extends 'base.html'%}
+{%load static%}
 {%load dash_tags%}
 
 {%block content%}
@@ -90,15 +91,17 @@
 					</div>
 				</li>
 
+				<a class="no-link" href="{%url 'dash:chat'%}">
 				<li>
 					<div class="todo-icon fui-bubble"></div>
 					<div class="todo-content">
 						<h4 class="todo-name">
 							<strong>Mensajes</strong>
 						</h4>
-						Comunicate con tus benefactores
+						Comunicate con tus patrocinadores
 					</div>
 				</li>
+				</a>
 
 			</ul>
 		</div>
@@ -110,38 +113,47 @@
 		
 
 		<div class="col-md-6 col-md-offset-1">
+			<article class="row">
+				<div class="panel col-sm-6">
+					<canvas id="myChart" width="400" height="400"></canvas>
+				</div>
+
+				<div class="panel col-sm-6">
+					<canvas id="myChart2" width="400" height="400"></canvas>
+				</div>
 				
 
-				<form id="nuevo" class="row panel panel-default" action="." method="post">
-				{%csrf_token%}
-					<div class="col-md-6 col-md-offset-3 panel-body">
+			</article>
 
-					<div class="row">
-					<h4 class="col-md-12">
-						¿Cómo se llama tu proyecto?
-					</h4>
-					<input {%if project.publish%}disabled{%endif%} value="{{project.name}}" name="name" required placeholder="Mi fabuloso proyecto" class="form-control input-hg col-md-12" type="text">
-					</div>
+			<article class="row">
 
-					<div class="row">
-					<h4 class="col-md-12">
-						¿Cuanto dinero necesitas?
-					</h4>
-					<div class="input-group">
-					  <span class="input-group-addon">$</span>
-					  <input {%if project.publish%}disabled{%endif%}  value="{{project.goal}}" name="goal" required type="number" class="form-control input-hg" placeholder="200000" />
-					</div>
-					</div>
-					<br>
-					<input {%if project.publish%}disabled{%endif%}  class="btn btn-hg btn-success" type="submit" value="Guardar">
+				<div class="panel col-sm-6">
+					<canvas id="myChart3" width="400" height="400"></canvas>
+				</div>
 
-					</div> <!-- offset-->
+				<div class="panel col-sm-6">
+					<canvas id="myChart5" width="400" height="400"></canvas>
+				</div>
 
-			</form>
+				
 
+			</article>
+				
+			
+			<article class="row">
 
-		
+				<div class="well col-xs-12">
+					<button class="btn btn-warning">
+						<i class="fa fa-share-square-o" aria-hidden="true"></i>
+						Enviar avanze a patrocinadores
+					</button>
+					<button class="btn btn-danger">
+						<i class="fa fa-trash" aria-hidden="true"></i>
+						Eliminar proyecto
+					</button>
+				</div>
 
+			</article>
 		</div>
 	</article>
 
@@ -149,6 +161,177 @@
 
 </section>
 
+
+
+<script src="{%static 'bower_components/chart.js/dist/Chart.js'%}"></script>
+<script>
+    var ctx = $('#myChart');
+    var myChart = new Chart(ctx,{
+    	type: 'bar',
+    data: {
+        labels: ["Semana1", "Semana2", "Semana3", "Semana4", "Semana5", "Semana6"],
+        datasets: [{
+            label: 'Cantidad vs Semana',
+            data: [1200, 1900, 300, 500, 200, 300],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+
+    });
+</script>
+
+<script>
+    var ctx = $('#myChart2');
+    var myChart = new Chart(ctx,{
+    	type: 'line',
+    data: {
+        labels: ["Semana1", "Semana2", "Semana3", "Semana4", "Semana5", "Semana6"],
+        datasets: [{
+            label: 'Cantidad vs Semana',
+            data: [1200, 1900, 300, 500, 200, 300],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+
+    });
+</script>
+
+<script>
+    var ctx = $('#myChart3');
+    var myChart = new Chart(ctx,{
+    	type: 'radar',
+    data: {
+        labels: ["Semana1", "Semana2", "Semana3", "Semana4", "Semana5", "Semana6"],
+        datasets: [{
+            label: 'Cantidad vs Semana',
+            data: [1200, 1900, 300, 500, 200, 300],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+
+    });
+</script>
+
+
+<script>
+    var ctx = $('#myChart5');
+    var myChart = new Chart(ctx,{
+    	type: 'pie',
+    data: {
+        labels: ["Semana1", "Semana2", "Semana3", "Semana4", "Semana5", "Semana6"],
+        datasets: [{
+            label: 'Cantidad vs Semana',
+            data: [1200, 1900, 300, 500, 200, 300],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+
+    });
+</script>
 
 
 
